@@ -8,4 +8,7 @@
   <Folder Name="/Jira/">
     <Project Path="src/Jira.V3/Jira.V3.csproj" />
   </Folder>
+  <Folder Name="/Solution Items/">
+    <File Path=".gitignore" />
+  </Folder>
 </Solution>
