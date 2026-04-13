@@ -1,12 +1,12 @@
 <Solution>
   <Folder Name="/Bitbucket/">
-    <Project Path="src/Bitbucket.V2/Bitbucket.V2.csproj" />
+    <Project Path="src/Bitbucket.V2/Kubis1982.Atlassian.Bitbucket.RestClient.csproj" />
   </Folder>
   <Folder Name="/Confluense/">
-    <Project Path="src/Confluense.V2/Confluense.V2.csproj" />
+    <Project Path="src/Confluense.V2/Kubis1982.Atlassian.Confluense.RestClient.csproj" />
   </Folder>
   <Folder Name="/Jira/">
-    <Project Path="src/Jira.V3/Jira.V3.csproj" />
+    <Project Path="src/Jira.V3/Kubis1982.Atlassian.Jira.RestClient.csproj" />
   </Folder>
   <Folder Name="/Solution Items/">
     <File Path=".gitignore" />
