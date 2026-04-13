@@ -3,21 +3,13 @@
 	<PropertyGroup>
 		<IsPackable>true</IsPackable>
 		<OutputType>Library</OutputType>
-		<TargetFramework>net10.0</TargetFramework>
-		<ImplicitUsings>enable</ImplicitUsings>
-		<Nullable>enable</Nullable>
 		<Version>1.8453.0</Version>
 		<RootNamespace>Kubis1982.Atlassian.Confluense</RootNamespace>
 		<PackageId>Kubis1982.Atlassian.Confluense.RestClient.v2</PackageId>
 		<Title>Atlassian Confluence REST Client v2</Title>
 		<Description>Strongly-typed REST client for Atlassian Confluence Cloud API v2, generated using Microsoft Kiota from official OpenAPI specification.</Description>
-		<Authors>Kubis1982</Authors>
-		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<PackageIcon>icon.png</PackageIcon>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
-		<RepositoryUrl>https://github.com/kubis1982/Atlassian.RestClient</RepositoryUrl>
-		<RepositoryType>git</RepositoryType>
-		<ProjectUrl>https://github.com/kubis1982/Atlassian.RestClient</ProjectUrl>
 		<PackageTags>atlassian;confluence;rest;api;client;kiota</PackageTags>
 	</PropertyGroup>
 
