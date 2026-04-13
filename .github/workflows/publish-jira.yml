@@ -1,0 +1,35 @@
+name: Publish Jira REST Client
+
+on:
+  workflow_dispatch:
+
+env:
+  NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
+
+jobs:
+  build-and-publish:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+          
+      - name: Restore dependencies
+        run: dotnet restore src/Jira.V3/
+        
+      - name: Build project
+        run: dotnet build src/Jira.V3/ --configuration Release --no-restore
+        
+      - name: Pack NuGet package
+        run: dotnet pack src/Jira.V3/Kubis1982.Atlassian.Jira.RestClient.csproj --configuration Release --output ./nupkg --no-build
+        
+      - name: Publish to NuGet
+        run: |
+          $package=$(ls ./nupkg/*.nupkg | head -1)
+          dotnet nuget push "$package" --api-key ${{ env.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json --skip-duplicate
+        shell: bash
