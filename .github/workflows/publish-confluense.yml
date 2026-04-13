@@ -30,6 +30,6 @@ jobs:
         
       - name: Publish to NuGet
         run: |
-          $package=$(ls ./nupkg/*.nupkg | head -1)
+          package=$(find ./nupkg -name "*.nupkg" -type f | head -1)
           dotnet nuget push "$package" --api-key ${{ env.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json --skip-duplicate
         shell: bash
