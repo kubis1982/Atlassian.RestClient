@@ -46,6 +46,7 @@ To use the Bitbucket REST client, you need to create an instance with proper aut
 #### Basic Authentication (Username + App Password)
 
 ```csharp
+using Microsoft.Kiota.Http.HttpClientLibrary;
 using Kubis1982.Atlassian.Bitbucket.RestClient;
 using System.Text;
 
@@ -73,6 +74,7 @@ var bitbucketClient = new BitbucketRestClient(requestAdapter);
 #### OAuth 2.0 Bearer Token
 
 ```csharp
+using Microsoft.Kiota.Http.HttpClientLibrary;
 using Kubis1982.Atlassian.Bitbucket.RestClient;
 
 // Configuration
@@ -110,6 +112,14 @@ var pullRequests = await bitbucketClient.Repositories["your-username"]["repo-nam
 
 // Get repository branches
 var branches = await bitbucketClient.Repositories["your-username"]["repo-name"].Refs.Branches.GetAsync();
+```
+
+### Required Dependencies
+
+Make sure to install the required Kiota HTTP library:
+
+```xml
+<PackageReference Include="Microsoft.Kiota.Http.HttpClientLibrary" Version="1.4.4" />
 ```
 
 ## OpenAPI Specification

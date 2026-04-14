@@ -46,6 +46,7 @@ To use the Jira REST client, you need to create an instance with proper authenti
 #### Basic Authentication (Email + API Token)
 
 ```csharp
+using Microsoft.Kiota.Http.HttpClientLibrary;
 using Kubis1982.Atlassian.Jira.RestClient;
 using System.Text;
 
@@ -74,6 +75,7 @@ var jiraClient = new JiraRestClient(requestAdapter);
 #### OAuth 2.0 Bearer Token
 
 ```csharp
+using Microsoft.Kiota.Http.HttpClientLibrary;
 using Kubis1982.Atlassian.Jira.RestClient;
 
 // Configuration

@@ -46,6 +46,7 @@ To use the Confluence REST client, you need to create an instance with proper au
 #### Basic Authentication (Email + API Token)
 
 ```csharp
+using Microsoft.Kiota.Http.HttpClientLibrary;
 using Kubis1982.Atlassian.Confluense.RestClient;
 using System.Text;
 
@@ -74,6 +75,7 @@ var confluenceClient = new ConfluenseRestClient(requestAdapter);
 #### OAuth 2.0 Bearer Token
 
 ```csharp
+using Microsoft.Kiota.Http.HttpClientLibrary;
 using Kubis1982.Atlassian.Confluense.RestClient;
 
 // Configuration
