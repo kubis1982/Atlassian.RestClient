@@ -33,7 +33,7 @@ Install-Package Kubis1982.Atlassian.Confluense.RestClient.v2
 
 ```xml
 <ItemGroup>
-    <PackageReference Include="Kubis1982.Atlassian.Confluense.RestClient.v2" Version="1.8453.0" />
+    <PackageReference Include="Kubis1982.Atlassian.Confluense.RestClient.v2" Version="1.8458.0" />
 </ItemGroup>
 ```
 
@@ -43,7 +43,7 @@ This client is generated from the official Confluence Cloud OpenAPI specificatio
 
 📄 **Specification URL:**
 ```
-https://dac-static.atlassian.com/cloud/confluence/openapi-v2.v3.json?_v=1.8453.0
+https://dac-static.atlassian.com/cloud/confluence/openapi-v2.v3.json?_v=1.8458.0
 ```
 
 ## Repository

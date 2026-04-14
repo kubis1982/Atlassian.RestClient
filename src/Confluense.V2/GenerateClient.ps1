@@ -23,7 +23,7 @@ $ErrorActionPreference = "Stop"
 Set-StrictMode -Version Latest
 
 # Configuration
-$SwaggerUrl = "https://dac-static.atlassian.com/cloud/confluence/openapi-v2.v3.json?_v=1.8453.0"
+$SwaggerUrl = "https://dac-static.atlassian.com/cloud/confluence/openapi-v2.v3.json?_v=1.8458.0"
 $OutputDir = "RestClient"
 $Namespace = "Kubis1982.Atlassian.Confluense.RestClient"
 
