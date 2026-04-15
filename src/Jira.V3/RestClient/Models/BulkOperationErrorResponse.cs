@@ -22,7 +22,7 @@ namespace Kubis1982.Atlassian.Jira.RestClient.Models
         public List<global::Kubis1982.Atlassian.Jira.RestClient.Models.ErrorMessage> Errors { get; set; }
 #endif
         /// <summary>The primary error message.</summary>
-        public override string Message { get => Errors?.MessageEscaped ?? string.Empty; }
+        public override string Message { get => Errors?.FirstOrDefault()?.MessageEscaped ?? string.Empty; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>

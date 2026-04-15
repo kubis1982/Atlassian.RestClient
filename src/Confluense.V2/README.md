@@ -43,68 +43,74 @@ Install-Package Kubis1982.Atlassian.Confluense.RestClient.v2
 
 To use the Confluence REST client, you need to create an instance with proper authentication:
 
-#### Basic Authentication (Email + API Token)
+#### Basic Authentication (Email + API Token) - Recommended
 
 ```csharp
-using Microsoft.Kiota.Http.HttpClientLibrary;
 using Kubis1982.Atlassian.Confluense.RestClient;
+using Microsoft.Kiota.Abstractions;
+using Microsoft.Kiota.Abstractions.Authentication;
+using Microsoft.Kiota.Http.HttpClientLibrary;
 using System.Text;
 
 // Configuration
 var domain = "your-company"; // without .atlassian.net
 var email = "your-email@company.com";
-var apiToken = "your-api-token"; // Generate from Atlassian Account Settings
+var apiToken = "your-api-token"; // Generate from https://id.atlassian.com/manage-profile/security/api-tokens
 
-// Create HttpClient with Basic Auth
-var httpClient = new HttpClient();
-var credentials = Convert.ToBase64String(
-    Encoding.UTF8.GetBytes($"{email}:{apiToken}"));
-httpClient.DefaultRequestHeaders.Authorization = 
-    new System.Net.Http.Headers.AuthenticationHeaderValue("Basic", credentials);
+// Create authentication provider
+var basicAuthProvider = new BasicAuthProvider(email, apiToken);
+
+// Create HttpClient with timeout
+var httpClient = new HttpClient()
+{
+    Timeout = TimeSpan.FromSeconds(30)
+};
 
 // Create request adapter
-var requestAdapter = new HttpClientRequestAdapter(httpClient)
+var requestAdapter = new HttpClientRequestAdapter(basicAuthProvider, httpClient: httpClient)
 {
     BaseUrl = $"https://{domain}.atlassian.net/wiki/api/v2"
 };
 
 // Initialize client
 var confluenceClient = new ConfluenseRestClient(requestAdapter);
-```
 
-#### OAuth 2.0 Bearer Token
-
-```csharp
-using Microsoft.Kiota.Http.HttpClientLibrary;
-using Kubis1982.Atlassian.Confluense.RestClient;
-
-// Configuration
-var domain = "your-company"; // without .atlassian.net
-var bearerToken = "your-oauth-bearer-token";
-
-// Create HttpClient with Bearer Token
-var httpClient = new HttpClient();
-httpClient.DefaultRequestHeaders.Authorization = 
-    new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", bearerToken);
-
-// Create request adapter
-var requestAdapter = new HttpClientRequestAdapter(httpClient)
+// Custom BasicAuthProvider implementation
+public class BasicAuthProvider : IAuthenticationProvider
 {
-    BaseUrl = $"https://{domain}.atlassian.net/wiki/api/v2"
-};
+    private readonly string _username;
+    private readonly string _appPassword;
 
-// Initialize client
-var confluenceClient = new ConfluenseRestClient(requestAdapter);
+    public BasicAuthProvider(string username, string appPassword)
+    {
+        _username = username ?? throw new ArgumentNullException(nameof(username));
+        _appPassword = appPassword ?? throw new ArgumentNullException(nameof(appPassword));
+    }
+
+    public Task AuthenticateRequestAsync(RequestInformation request, Dictionary<string, object>? additionalAuthenticationContext = null, CancellationToken cancellationToken = default)
+    {
+        var credentials = Convert.ToBase64String(Encoding.UTF8.GetBytes($"{_username}:{_appPassword}"));
+        request.Headers.Add("Authorization", $"Basic {credentials}");
+        return Task.CompletedTask;
+    }
+}
 ```
 
 ### Example Operations
 
 ```csharp
+// Get pages with limit
+var pages = await confluenceClient.Pages.GetAsPagesGetResponseAsync(requestConfiguration =>
+{
+    requestConfiguration.QueryParameters.Limit = 5;
+});
+Console.WriteLine($"Found {pages?.Results?.Count} pages");
+
 // Get all spaces
 var spaces = await confluenceClient.Spaces.GetAsync();
 
-// Get pages in a space
-var pages = await confluenceClient.Pages.GetAsync(requestConfiguration =>
+// Get pages in a specific space
+var spacePages = await confluenceClient.Pages.GetAsync(requestConfiguration =>
 {
     requestConfiguration.QueryParameters.SpaceId = "your-space-id";
 });
@@ -112,7 +118,7 @@ var pages = await confluenceClient.Pages.GetAsync(requestConfiguration =>
 // Get specific page
 var page = await confluenceClient.Pages["page-id"].GetAsync();
 
-// Get page content
+// Get page content with specific format
 var content = await confluenceClient.Pages["page-id"].GetAsync(requestConfiguration =>
 {
     requestConfiguration.QueryParameters.BodyFormat = "atlas_doc_format";
