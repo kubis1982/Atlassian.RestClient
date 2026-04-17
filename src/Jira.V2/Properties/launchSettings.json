@@ -1,0 +1,12 @@
+{
+  "profiles": {
+    "Kubis1982.Atlassian.Jira.RestClient.V2": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "https://localhost:63565;http://localhost:63566"
+    }
+  }
+}
