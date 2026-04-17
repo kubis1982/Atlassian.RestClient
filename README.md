@@ -4,7 +4,16 @@ Collection of strongly-typed REST clients for Atlassian Cloud APIs, automaticall
 
 ## 📦 Packages
 
+### 🔷 Jira REST Client v2
+
+**Package:** `Kubis1982.Atlassian.Jira.RestClient.v2` [![NuGet](https://img.shields.io/nuget/v/Kubis1982.Atlassian.Jira.RestClient.v2)](https://www.nuget.org/packages/Kubis1982.Atlassian.Jira.RestClient.v2)
+
+Complete REST client for **Atlassian Jira Cloud API v2**. Includes support for projects, issues, workflows, and more.
+
+📖 [View Documentation](src/Jira.V2/README.md)
+
 ### 🔷 Jira REST Client v3
+
 **Package:** `Kubis1982.Atlassian.Jira.RestClient.v3` [![NuGet](https://img.shields.io/nuget/v/Kubis1982.Atlassian.Jira.RestClient.v3)](https://www.nuget.org/packages/Kubis1982.Atlassian.Jira.RestClient.v3)
 
 Complete REST client for **Atlassian Jira Cloud API v3**. Includes support for projects, issues, workflows, and more.
@@ -12,6 +21,7 @@ Complete REST client for **Atlassian Jira Cloud API v3**. Includes support for p
 📖 [View Documentation](src/Jira.V3/README.md)
 
 ### ☁️ Bitbucket REST Client v2
+
 **Package:** `Kubis1982.Atlassian.Bitbucket.RestClient.v2` [![NuGet](https://img.shields.io/nuget/v/Kubis1982.Atlassian.Bitbucket.RestClient.v2)](https://www.nuget.org/packages/Kubis1982.Atlassian.Bitbucket.RestClient.v2)
 
 Complete REST client for **Atlassian Bitbucket Cloud API v2**. Includes support for repositories, pull requests, pipelines, and more.
@@ -19,6 +29,7 @@ Complete REST client for **Atlassian Bitbucket Cloud API v2**. Includes support 
 📖 [View Documentation](src/Bitbucket.V2/README.md)
 
 ### 📝 Confluence REST Client v2
+
 **Package:** `Kubis1982.Atlassian.Confluense.RestClient.v2` [![NuGet](https://img.shields.io/nuget/v/Kubis1982.Atlassian.Confluense.RestClient.v2)](https://www.nuget.org/packages/Kubis1982.Atlassian.Confluense.RestClient.v2)
 
 Complete REST client for **Atlassian Confluence Cloud API v2**. Includes support for pages, spaces, content management, and more.

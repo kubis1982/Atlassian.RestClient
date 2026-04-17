@@ -13,10 +13,12 @@
   </Folder>
   <Folder Name="/Solution Items/">
     <File Path=".gitignore" />
+    <File Path="README.md" />
   </Folder>
   <Folder Name="/Solution Items/ci/">
     <File Path=".github/workflows/publish-bitbucket.yml" />
     <File Path=".github/workflows/publish-confluense.yml" />
-    <File Path=".github/workflows/publish-jira.yml" />
+    <File Path=".github/workflows/publish-jira-v2.yml" />
+    <File Path=".github/workflows/publish-jira-v3.yml" />
   </Folder>
 </Solution>

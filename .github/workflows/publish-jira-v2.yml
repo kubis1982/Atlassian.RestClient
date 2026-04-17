@@ -1,4 +1,4 @@
-name: Publish Jira REST Client
+name: Publish Jira REST Client V2
 
 on:
   workflow_dispatch:
