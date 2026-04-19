@@ -3,7 +3,7 @@
 	<PropertyGroup>
 		<IsPackable>true</IsPackable>
 		<OutputType>Library</OutputType>		
-		<Version>2.300.163.1</Version>
+		<Version>2.300.163.2</Version>
 		<RootNamespace>Kubis1982.Atlassian.Bitbucket</RootNamespace>
 		<PackageId>Kubis1982.Atlassian.Bitbucket.RestClient.v2</PackageId>
 		<Title>Atlassian Bitbucket REST Client v2</Title>
@@ -18,9 +18,13 @@
 	</ItemGroup>
 
 	<ItemGroup>		
-		<None Include="..\..\LICENSE" Link="LICENSE" Pack="true" PackagePath=""/>
+		<None Include="..\..\LICENSE" Link="LICENSE" Pack="true" PackagePath="" />
 		<None Include="README.md" Pack="true" PackagePath="" />
-		<None Include="..\..\docs\icon.png" Link="icon.png" Pack="true" PackagePath=""/>
+		<None Include="..\..\docs\icon.png" Link="icon.png" Pack="true" PackagePath="" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\RestClient\Kubis1982.Atlassian.RestClient.csproj" />
 	</ItemGroup>
 
 </Project>

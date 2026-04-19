@@ -29,14 +29,6 @@ dotnet add package Kubis1982.Atlassian.Confluense.RestClient.v2
 Install-Package Kubis1982.Atlassian.Confluense.RestClient.v2
 ```
 
-### Via .csproj
-
-```xml
-<ItemGroup>
-    <PackageReference Include="Kubis1982.Atlassian.Confluense.RestClient.v2" Version="1.8458.0" />
-</ItemGroup>
-```
-
 ## Usage
 
 ### Creating a Client Instance
@@ -47,10 +39,7 @@ To use the Confluence REST client, you need to create an instance with proper au
 
 ```csharp
 using Kubis1982.Atlassian.Confluense.RestClient;
-using Microsoft.Kiota.Abstractions;
-using Microsoft.Kiota.Abstractions.Authentication;
-using Microsoft.Kiota.Http.HttpClientLibrary;
-using System.Text;
+using Kubis1982.Atlassian.RestClient;
 
 // Configuration
 var domain = "your-company"; // without .atlassian.net
@@ -60,69 +49,49 @@ var apiToken = "your-api-token"; // Generate from https://id.atlassian.com/manag
 // Create authentication provider
 var basicAuthProvider = new BasicAuthProvider(email, apiToken);
 
-// Create HttpClient with timeout
-var httpClient = new HttpClient()
-{
-    Timeout = TimeSpan.FromSeconds(30)
-};
-
-// Create request adapter
-var requestAdapter = new HttpClientRequestAdapter(basicAuthProvider, httpClient: httpClient)
-{
-    BaseUrl = $"https://{domain}.atlassian.net/wiki/api/v2"
-};
-
 // Initialize client
-var confluenceClient = new ConfluenseRestClient(requestAdapter);
-
-// Custom BasicAuthProvider implementation
-public class BasicAuthProvider : IAuthenticationProvider
-{
-    private readonly string _username;
-    private readonly string _appPassword;
-
-    public BasicAuthProvider(string username, string appPassword)
-    {
-        _username = username ?? throw new ArgumentNullException(nameof(username));
-        _appPassword = appPassword ?? throw new ArgumentNullException(nameof(appPassword));
-    }
-
-    public Task AuthenticateRequestAsync(RequestInformation request, Dictionary<string, object>? additionalAuthenticationContext = null, CancellationToken cancellationToken = default)
-    {
-        var credentials = Convert.ToBase64String(Encoding.UTF8.GetBytes($"{_username}:{_appPassword}"));
-        request.Headers.Add("Authorization", $"Basic {credentials}");
-        return Task.CompletedTask;
-    }
-}
+var confluenceClient = ConfluenseRestClient.Create(basicAuthProvider);
 ```
+
+**Note:** The `BasicAuthProvider` is provided by the `Kubis1982.Atlassian.RestClient` package and is automatically included as a dependency.
 
 ### Example Operations
 
 ```csharp
 // Get pages with limit
-var pages = await confluenceClient.Pages.GetAsPagesGetResponseAsync(requestConfiguration =>
+var pages = await confluenceClient.Pages.GetAsPagesGetResponseAsync(config =>
 {
-    requestConfiguration.QueryParameters.Limit = 5;
+    config.QueryParameters.Limit = 10;
 });
+
 Console.WriteLine($"Found {pages?.Results?.Count} pages");
 
-// Get all spaces
-var spaces = await confluenceClient.Spaces.GetAsync();
-
-// Get pages in a specific space
-var spacePages = await confluenceClient.Pages.GetAsync(requestConfiguration =>
+foreach (var page in pages?.Results ?? [])
 {
-    requestConfiguration.QueryParameters.SpaceId = "your-space-id";
+    Console.WriteLine($"- {page.Title} (ID: {page.Id})");
+}
+
+// Get specific page by ID
+var page = await confluenceClient.Pages["123456"].GetAsync();
+Console.WriteLine($"Page: {page?.Title}");
+
+// Search pages by title
+var searchResults = await confluenceClient.Pages.GetAsPagesGetResponseAsync(config =>
+{
+    config.QueryParameters.Title = "Meeting Notes";
+    config.QueryParameters.Limit = 5;
 });
 
-// Get specific page
-var page = await confluenceClient.Pages["page-id"].GetAsync();
-
-// Get page content with specific format
-var content = await confluenceClient.Pages["page-id"].GetAsync(requestConfiguration =>
+// Get spaces
+var spaces = await confluenceClient.Spaces.GetAsSpacesGetResponseAsync(config =>
 {
-    requestConfiguration.QueryParameters.BodyFormat = "atlas_doc_format";
+    config.QueryParameters.Limit = 10;
 });
+
+foreach (var space in spaces?.Results ?? [])
+{
+    Console.WriteLine($"Space: {space.Name} (Key: {space.Key})");
+}
 ```
 
 ## OpenAPI Specification

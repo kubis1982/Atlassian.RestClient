@@ -46,11 +46,9 @@ To use the Jira REST client, you need to create an instance with proper authenti
 #### Basic Authentication (Email + API Token) - Recommended
 
 ```csharp
-using Kubis1982.Atlassian.Jira.RestClient.v2;
-using Microsoft.Kiota.Abstractions;
-using Microsoft.Kiota.Abstractions.Authentication;
-using Microsoft.Kiota.Http.HttpClientLibrary;
-using System.Text;
+using Kubis1982.Atlassian.Jira.RestClient.V2;
+using Kubis1982.Atlassian.Jira.RestClient.V2.Models;
+using Kubis1982.Atlassian.RestClient;
 
 // Configuration
 var domain = "your-company"; // without .atlassian.net
@@ -60,72 +58,56 @@ var apiToken = "your-api-token"; // Generate from https://id.atlassian.com/manag
 // Create authentication provider
 var basicAuthProvider = new BasicAuthProvider(email, apiToken);
 
-// Create HttpClient with timeout
-var httpClient = new HttpClient()
-{
-    Timeout = TimeSpan.FromSeconds(30)
-};
-
-// Create request adapter
-var requestAdapter = new HttpClientRequestAdapter(basicAuthProvider, httpClient: httpClient)
-{
-    BaseUrl = $"https://{domain}.atlassian.net"
-};
-
 // Initialize client
-var jiraClient = new JiraRestClient(requestAdapter);
+var jiraClient = JiraRestClient.Create(domain, basicAuthProvider);
+```
 
-// Custom BasicAuthProvider implementation
-public class BasicAuthProvider : IAuthenticationProvider
+**Note:** The `BasicAuthProvider` is provided by the `Kubis1982.Atlassian.RestClient` package and is automatically included as a dependency.
+
+### Example Operations
+
+```csharp
+// Get current user information
+var myself = await jiraClient.Rest.Api.Two.Myself.GetAsync();
+Console.WriteLine($"User: {myself?.DisplayName} ({myself?.EmailAddress})");
+
+// Add worklog to an issue
+try
 {
-    private readonly string _username;
-    private readonly string _appPassword;
-
-    public BasicAuthProvider(string username, string appPassword)
+    var worklog = await jiraClient.Rest.Api.Two.Issue["PROJECT-123"].Worklog.PostAsync(new Worklog
     {
-        _username = username ?? throw new ArgumentNullException(nameof(username));
-        _appPassword = appPassword ?? throw new ArgumentNullException(nameof(appPassword));
-    }
+        TimeSpentSeconds = 120,
+        Started = DateTimeOffset.UtcNow,
+        Comment = "Completed task"
+    });
 
-    public Task AuthenticateRequestAsync(RequestInformation request, Dictionary<string, object>? additionalAuthenticationContext = null, CancellationToken cancellationToken = default)
-    {
-        var credentials = Convert.ToBase64String(Encoding.UTF8.GetBytes($"{_username}:{_appPassword}"));
-        request.Headers.Add("Authorization", $"Basic {credentials}");
-        return Task.CompletedTask;
-    }
+    Console.WriteLine($"Worklog created with ID: {worklog?.Id}");
+}
+catch (Exception ex)
+{
+    Console.WriteLine($"Error creating worklog: {ex.Message}");
+}
+
+// Get issue details
+var issue = await jiraClient.Rest.Api.Two.Issue["PROJECT-123"].GetAsync();
+Console.WriteLine($"Issue: {issue?.Key} - {issue?.Fields?.Summary}");
+
+// Search for issues
+var searchResults = await jiraClient.Rest.Api.Two.Search.GetAsync(config =>
+{
+    config.QueryParameters.Jql = "project = 'YOUR_PROJECT' AND status = 'In Progress'";
+    config.QueryParameters.MaxResults = 50;
+});
+
+foreach (var issue in searchResults?.Issues ?? [])
+{
+    Console.WriteLine($"- {issue.Key}: {issue.Fields?.Summary}");
 }
 ```
 
 ### Custom DateTime Serialization
 
-Jira uses a specific date-time format that requires custom JSON serialization. To properly handle DateTime values, you need to configure the JSON serialization options with the custom converter:
-
-```csharp
-using Kubis1982.Atlassian.Jira.RestClient.V2.Serialization;
-using Microsoft.Kiota.Serialization.Json;
-using System.Text.Json;
-
-// Configure JSON options with custom DateTime converter
-var jsonOptions = new JsonSerializerOptions(JsonSerializerDefaults.Web);
-jsonOptions.Converters.Add(new JiraDateTimeConverter());
-
-// Create serialization context
-var context = new KiotaJsonSerializationContext(jsonOptions);
-var writerFactory = new JsonSerializationWriterFactory(context);
-
-// Create request adapter with custom serialization
-var adapter = new HttpClientRequestAdapter(
-    authProvider,
-    serializationWriterFactory: writerFactory
-);
-
-// Initialize client with custom adapter
-var jiraClient = new JiraRestClient(adapter);
-```
-
-**Why is this needed?**
-
-Jira's API uses a specific date-time format: `2026-04-18T09:04:00.1182+0000` (ISO 8601 with timezone offset without colon). The custom `JiraDateTimeConverter` handles both reading and writing dates in this format, ensuring compatibility with Jira's API.
+The client automatically handles Jira's specific date-time format (`2026-04-18T09:04:00.1182+0000`) through the `Kubis1982.Atlassian.RestClient` package. No additional configuration is needed when using `JiraRestClient.Create()`.
 
 ## OpenAPI Specification
 

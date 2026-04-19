@@ -47,10 +47,9 @@ To use the Jira REST client, you need to create an instance with proper authenti
 
 ```csharp
 using Kubis1982.Atlassian.Jira.RestClient;
-using Microsoft.Kiota.Abstractions;
-using Microsoft.Kiota.Abstractions.Authentication;
-using Microsoft.Kiota.Http.HttpClientLibrary;
-using System.Text;
+using Kubis1982.Atlassian.Jira.RestClient.Models;
+using Kubis1982.Atlassian.RestClient;
+using Microsoft.Kiota.Abstractions.Serialization;
 
 // Configuration
 var domain = "your-company"; // without .atlassian.net
@@ -60,73 +59,11 @@ var apiToken = "your-api-token"; // Generate from https://id.atlassian.com/manag
 // Create authentication provider
 var basicAuthProvider = new BasicAuthProvider(email, apiToken);
 
-// Create HttpClient with timeout
-var httpClient = new HttpClient()
-{
-    Timeout = TimeSpan.FromSeconds(30)
-};
-
-// Create request adapter
-var requestAdapter = new HttpClientRequestAdapter(basicAuthProvider, httpClient: httpClient)
-{
-    BaseUrl = $"https://{domain}.atlassian.net"
-};
-
 // Initialize client
-var jiraClient = new JiraRestClient(requestAdapter);
-
-// Custom BasicAuthProvider implementation
-public class BasicAuthProvider : IAuthenticationProvider
-{
-    private readonly string _username;
-    private readonly string _appPassword;
-
-    public BasicAuthProvider(string username, string appPassword)
-    {
-        _username = username ?? throw new ArgumentNullException(nameof(username));
-        _appPassword = appPassword ?? throw new ArgumentNullException(nameof(appPassword));
-    }
-
-    public Task AuthenticateRequestAsync(RequestInformation request, Dictionary<string, object>? additionalAuthenticationContext = null, CancellationToken cancellationToken = default)
-    {
-        var credentials = Convert.ToBase64String(Encoding.UTF8.GetBytes($"{_username}:{_appPassword}"));
-        request.Headers.Add("Authorization", $"Basic {credentials}");
-        return Task.CompletedTask;
-    }
-}
+var jiraClient = JiraRestClient.Create(domain, basicAuthProvider);
 ```
 
-### Custom DateTime Serialization
-
-Jira uses a specific date-time format that requires custom JSON serialization. To properly handle DateTime values, you need to configure the JSON serialization options with the custom converter:
-
-```csharp
-using Kubis1982.Atlassian.Jira.RestClient.Serialization;
-using Microsoft.Kiota.Serialization.Json;
-using System.Text.Json;
-
-// Configure JSON options with custom DateTime converter
-var jsonOptions = new JsonSerializerOptions(JsonSerializerDefaults.Web);
-jsonOptions.Converters.Add(new JiraDateTimeConverter());
-jsonOptions.Converters.Add(new JiraNullableDateTimeConverter());
-
-// Create serialization context
-var context = new KiotaJsonSerializationContext(jsonOptions);
-var writerFactory = new JsonSerializationWriterFactory(context);
-
-// Create request adapter with custom serialization
-var adapter = new HttpClientRequestAdapter(
-    authProvider,
-    serializationWriterFactory: writerFactory
-);
-
-// Initialize client with custom adapter
-var jiraClient = new JiraRestClient(adapter);
-```
-
-**Why is this needed?**
-
-Jira's API uses a specific date-time format: `2026-04-18T09:04:00.1182+0000` (ISO 8601 with timezone offset without colon). The custom `JiraDateTimeConverter` and `JiraNullableDateTimeConverter` handle both reading and writing dates in this format, ensuring compatibility with Jira's API.
+**Note:** The `BasicAuthProvider` is provided by the `Kubis1982.Atlassian.RestClient` package and is automatically included as a dependency.
 
 ### Example Operations
 
@@ -137,15 +74,59 @@ Console.WriteLine($"User: {myself?.DisplayName} ({myself?.EmailAddress})");
 
 // Get all projects
 var projects = await jiraClient.Rest.Api.Three.Project.GetAsync();
+foreach (var project in projects ?? [])
+{
+    Console.WriteLine($"Project: {project.Key} - {project.Name}");
+}
 
 // Search for issues
-var searchResults = await jiraClient.Rest.Api.Three.Search.GetAsync(requestConfiguration =>
+var searchResults = await jiraClient.Rest.Api.Three.Search.GetAsync(config =>
 {
-    requestConfiguration.QueryParameters.Jql = "project = 'YOUR_PROJECT'";
+    config.QueryParameters.Jql = "project = 'YOUR_PROJECT' AND status = 'In Progress'";
 });
 
+foreach (var issue in searchResults?.Issues ?? [])
+{
+    Console.WriteLine($"- {issue.Key}: {issue.Fields?.Summary}");
+}
+
 // Get specific issue
-var issue = await jiraClient.Rest.Api.Three.Issue["ISSUE-123"].GetAsync();
+var issue = await jiraClient.Rest.Api.Three.Issue["PROJECT-123"].GetAsync();
+Console.WriteLine($"Issue: {issue?.Key} - {issue?.Fields?.Summary}");
+
+// Add worklog with ADF (Atlassian Document Format) comment
+try
+{
+    var worklog = await jiraClient.Rest.Api.Three.Issue["PROJECT-123"].Worklog.PostAsync(new Worklog
+    {
+        TimeSpentSeconds = 60,
+        Started = DateTimeOffset.UtcNow,
+        Comment = new UntypedObject(new Dictionary<string, UntypedNode>
+        {
+            ["type"] = new UntypedString("doc"),
+            ["version"] = new UntypedInteger(1),
+            ["content"] = new UntypedArray([
+                new UntypedObject(new Dictionary<string, UntypedNode>
+                {
+                    ["type"] = new UntypedString("paragraph"),
+                    ["content"] = new UntypedArray([
+                        new UntypedObject(new Dictionary<string, UntypedNode>
+                        {
+                            ["type"] = new UntypedString("text"),
+                            ["text"] = new UntypedString("Completed task")
+                        })
+                    ])
+                })
+            ])
+        })
+    });
+
+    Console.WriteLine($"Worklog created with ID: {worklog?.Id}");
+}
+catch (Exception ex)
+{
+    Console.WriteLine($"Error creating worklog: {ex.Message}");
+}
 
 // Create an issue
 var createIssueRequest = new IssueUpdateDetails
@@ -154,12 +135,34 @@ var createIssueRequest = new IssueUpdateDetails
     {
         ["project"] = new { key = "YOUR_PROJECT" },
         ["summary"] = "New issue summary",
-        ["description"] = "Issue description",
+        ["description"] = new UntypedObject(new Dictionary<string, UntypedNode>
+        {
+            ["type"] = new UntypedString("doc"),
+            ["version"] = new UntypedInteger(1),
+            ["content"] = new UntypedArray([
+                new UntypedObject(new Dictionary<string, UntypedNode>
+                {
+                    ["type"] = new UntypedString("paragraph"),
+                    ["content"] = new UntypedArray([
+                        new UntypedObject(new Dictionary<string, UntypedNode>
+                        {
+                            ["type"] = new UntypedString("text"),
+                            ["text"] = new UntypedString("Issue description")
+                        })
+                    ])
+                })
+            ])
+        }),
         ["issuetype"] = new { name = "Task" }
     }
 };
 var newIssue = await jiraClient.Rest.Api.Three.Issue.PostAsync(createIssueRequest);
+Console.WriteLine($"Created issue: {newIssue?.Key}");
 ```
+
+### Custom DateTime Serialization
+
+The client automatically handles Jira's specific date-time format (`2026-04-18T09:04:00.1182+0000`) through the `Kubis1982.Atlassian.RestClient` package. No additional configuration is needed when using `JiraRestClient.Create()`.
 
 ## OpenAPI Specification
 

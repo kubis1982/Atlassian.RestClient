@@ -46,80 +46,63 @@ To use the Bitbucket REST client, you need to create an instance with proper aut
 #### Basic Authentication (Username + App Password)
 
 ```csharp
-using Microsoft.Kiota.Http.HttpClientLibrary;
 using Kubis1982.Atlassian.Bitbucket.RestClient;
-using System.Text;
+using Kubis1982.Atlassian.RestClient;
 
 // Configuration
-var username = "your-username";
-var appPassword = "your-app-password"; // Generate from Bitbucket Settings > App passwords
+var domain = "your-company"; // without .atlassian.net
+var email = "your-email@company.com";
+var apiToken = "your-api-token"; // Generate from https://id.atlassian.com/manage-profile/security/api-tokens
 
-// Create HttpClient with Basic Auth
-var httpClient = new HttpClient();
-var credentials = Convert.ToBase64String(
-    Encoding.UTF8.GetBytes($"{username}:{appPassword}"));
-httpClient.DefaultRequestHeaders.Authorization = 
-    new System.Net.Http.Headers.AuthenticationHeaderValue("Basic", credentials);
-
-// Create request adapter
-var requestAdapter = new HttpClientRequestAdapter(httpClient)
-{
-    BaseUrl = "https://api.bitbucket.org/2.0"
-};
+// Create authentication provider
+var basicAuthProvider = new BasicAuthProvider(email, apiToken);
 
 // Initialize client
-var bitbucketClient = new BitbucketRestClient(requestAdapter);
+var bitbucketClient = BitbucketRestClient.Create(basicAuthProvider);
 ```
 
-#### OAuth 2.0 Bearer Token
-
-```csharp
-using Microsoft.Kiota.Http.HttpClientLibrary;
-using Kubis1982.Atlassian.Bitbucket.RestClient;
-
-// Configuration
-var bearerToken = "your-oauth-bearer-token";
-
-// Create HttpClient with Bearer Token
-var httpClient = new HttpClient();
-httpClient.DefaultRequestHeaders.Authorization = 
-    new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", bearerToken);
-
-// Create request adapter
-var requestAdapter = new HttpClientRequestAdapter(httpClient)
-{
-    BaseUrl = "https://api.bitbucket.org/2.0" // default base URL for Bitbucket API, can be overridden if needed
-};
-
-// Initialize client
-var bitbucketClient = new BitbucketRestClient(requestAdapter);
-```
+**Note:** The `BasicAuthProvider` is provided by the `Kubis1982.Atlassian.RestClient` package and is automatically included as a dependency.
 
 ### Example Operations
 
 ```csharp
 // Get user repositories
-var repositories = await bitbucketClient.Repositories["your-username"].GetAsync();
+var repositories = await bitbucketClient.Repositories[username].GetAsync();
+
+foreach (var repo in repositories?.Values ?? [])
+{
+    Console.WriteLine($"Repository: {repo.Name} ({repo.FullName})");
+}
 
 // Get specific repository
-var repo = await bitbucketClient.Repositories["your-username"]["repo-name"].GetAsync();
+var repo = await bitbucketClient.Repositories[username]["repo-name"].GetAsync();
+Console.WriteLine($"Repository: {repo?.Name}");
+Console.WriteLine($"Description: {repo?.Description}");
+Console.WriteLine($"Language: {repo?.Language}");
 
 // Get repository commits
-var commits = await bitbucketClient.Repositories["your-username"]["repo-name"].Commits.GetAsync();
+var commits = await bitbucketClient.Repositories[username]["repo-name"].Commits.GetAsync();
+
+foreach (var commit in commits?.Values ?? [])
+{
+    Console.WriteLine($"Commit: {commit.Hash} - {commit.Message}");
+}
 
 // Get pull requests
-var pullRequests = await bitbucketClient.Repositories["your-username"]["repo-name"].Pullrequests.GetAsync();
+var pullRequests = await bitbucketClient.Repositories[username]["repo-name"].Pullrequests.GetAsync();
+
+foreach (var pr in pullRequests?.Values ?? [])
+{
+    Console.WriteLine($"PR #{pr.Id}: {pr.Title} ({pr.State})");
+}
 
 // Get repository branches
-var branches = await bitbucketClient.Repositories["your-username"]["repo-name"].Refs.Branches.GetAsync();
-```
+var branches = await bitbucketClient.Repositories[username]["repo-name"].Refs.Branches.GetAsync();
 
-### Required Dependencies
-
-Make sure to install the required Kiota HTTP library:
-
-```xml
-<PackageReference Include="Microsoft.Kiota.Http.HttpClientLibrary" Version="1.4.4" />
+foreach (var branch in branches?.Values ?? [])
+{
+    Console.WriteLine($"Branch: {branch.Name}");
+}
 ```
 
 ## OpenAPI Specification
