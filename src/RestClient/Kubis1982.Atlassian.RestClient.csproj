@@ -3,14 +3,14 @@
 	<PropertyGroup>
 		<IsPackable>true</IsPackable>
 		<OutputType>Library</OutputType>
-		<Version>1.8453.1</Version>
-		<RootNamespace>Kubis1982.Atlassian.Jira</RootNamespace>
-		<PackageId>Kubis1982.Atlassian.Jira.RestClient.v3</PackageId>
-		<Title>Atlassian Jira REST Client v3</Title>
-		<Description>Strongly-typed REST client for Atlassian Jira Cloud API v3, generated using Microsoft Kiota from official OpenAPI specification.</Description>
+		<Version>1.0.0</Version>
+		<RootNamespace>Kubis1982.Atlassian</RootNamespace>
+		<PackageId>Kubis1982.Atlassian.RestClient</PackageId>
+		<Title>Atlassian REST Client</Title>
+		<Description></Description>
 		<PackageIcon>icon.png</PackageIcon>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
-		<PackageTags>atlassian;jira;rest;api;client;kiota</PackageTags>
+		<PackageTags>atlassian;rest;api;client;kiota</PackageTags>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -21,10 +21,6 @@
 		<None Include="..\..\LICENSE" Link="LICENSE" Pack="true" PackagePath="" />
 		<None Include="README.md" Pack="true" PackagePath="" />
 		<None Include="..\..\docs\icon.png" Link="icon.png" Pack="true" PackagePath="" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <ProjectReference Include="..\RestClient\Kubis1982.Atlassian.RestClient.csproj" />
 	</ItemGroup>
 
 </Project>

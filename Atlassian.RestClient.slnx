@@ -6,10 +6,14 @@
     <Project Path="D:/GIT/GitHub/kubis1982/Atlassian.RestClient/src/Confluense.V2/Kubis1982.Atlassian.Confluense.RestClient.csproj" />
     <Project Path="D:/GIT/GitHub/kubis1982/Atlassian.RestClient/tests/ConfluenseCommandLine/ConfluenseCommandLine.csproj" Id="ab87ea4e-cd27-4149-a885-62f9a1bea2b4" />
   </Folder>
-  <Folder Name="/Jira/">
+  <Folder Name="/Jira/" />
+  <Folder Name="/Jira/V2/">
     <Project Path="D:/GIT/GitHub/kubis1982/Atlassian.RestClient/src/Jira.V2/Kubis1982.Atlassian.Jira.RestClient.V2.csproj" />
+    <Project Path="tests/JiraCommandLineV2/JiraCommandLineV2.csproj" />
+  </Folder>
+  <Folder Name="/Jira/V3/">
     <Project Path="D:/GIT/GitHub/kubis1982/Atlassian.RestClient/src/Jira.V3/Kubis1982.Atlassian.Jira.RestClient.csproj" />
-    <Project Path="D:/GIT/GitHub/kubis1982/Atlassian.RestClient/tests/JiraCommandLine/JiraCommandLine.csproj" />
+    <Project Path="D:/GIT/GitHub/kubis1982/Atlassian.RestClient/tests/JiraCommandLineV3/JiraCommandLineV3.csproj" />
   </Folder>
   <Folder Name="/Solution Items/">
     <File Path=".gitignore" />
@@ -21,4 +25,5 @@
     <File Path=".github/workflows/publish-jira-v2.yml" />
     <File Path=".github/workflows/publish-jira-v3.yml" />
   </Folder>
+  <Project Path="src/RestClient/Kubis1982.Atlassian.RestClient.csproj" />
 </Solution>

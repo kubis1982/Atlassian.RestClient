@@ -96,6 +96,37 @@ public class BasicAuthProvider : IAuthenticationProvider
 }
 ```
 
+### Custom DateTime Serialization
+
+Jira uses a specific date-time format that requires custom JSON serialization. To properly handle DateTime values, you need to configure the JSON serialization options with the custom converter:
+
+```csharp
+using Kubis1982.Atlassian.Jira.RestClient.V2.Serialization;
+using Microsoft.Kiota.Serialization.Json;
+using System.Text.Json;
+
+// Configure JSON options with custom DateTime converter
+var jsonOptions = new JsonSerializerOptions(JsonSerializerDefaults.Web);
+jsonOptions.Converters.Add(new JiraDateTimeConverter());
+
+// Create serialization context
+var context = new KiotaJsonSerializationContext(jsonOptions);
+var writerFactory = new JsonSerializationWriterFactory(context);
+
+// Create request adapter with custom serialization
+var adapter = new HttpClientRequestAdapter(
+    authProvider,
+    serializationWriterFactory: writerFactory
+);
+
+// Initialize client with custom adapter
+var jiraClient = new JiraRestClient(adapter);
+```
+
+**Why is this needed?**
+
+Jira's API uses a specific date-time format: `2026-04-18T09:04:00.1182+0000` (ISO 8601 with timezone offset without colon). The custom `JiraDateTimeConverter` handles both reading and writing dates in this format, ensuring compatibility with Jira's API.
+
 ## OpenAPI Specification
 
 This client is generated from the official Jira Cloud OpenAPI specification:

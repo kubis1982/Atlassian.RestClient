@@ -3,7 +3,7 @@
 	<PropertyGroup>
 		<IsPackable>true</IsPackable>
 		<OutputType>Library</OutputType>
-		<Version>1.8464.0</Version>
+		<Version>1.8464.1</Version>
 		<RootNamespace>Kubis1982.Atlassian.Jira</RootNamespace>
 		<PackageId>Kubis1982.Atlassian.Jira.RestClient.v2</PackageId>
 		<Title>Atlassian Jira REST Client v2</Title>
@@ -18,9 +18,13 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<None Include="..\..\LICENSE" Link="LICENSE" Pack="true" PackagePath=""/>
+		<None Include="..\..\LICENSE" Link="LICENSE" Pack="true" PackagePath="" />
 		<None Include="README.md" Pack="true" PackagePath="" />
-		<None Include="..\..\docs\icon.png" Link="icon.png" Pack="true" PackagePath=""/>
+		<None Include="..\..\docs\icon.png" Link="icon.png" Pack="true" PackagePath="" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\RestClient\Kubis1982.Atlassian.RestClient.csproj" />
 	</ItemGroup>
 
 </Project>
