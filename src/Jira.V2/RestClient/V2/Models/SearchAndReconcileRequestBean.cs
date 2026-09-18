@@ -30,6 +30,8 @@ namespace Kubis1982.Atlassian.Jira.RestClient.V2.Models
 #endif
         /// <summary>Reference fields by their key (rather than ID). The default is `false`.</summary>
         public bool? FieldsByKeys { get; set; }
+        /// <summary>Whether to also return issues that belong to archived projects. Archived projects are excluded by default. Requires *Browse projects* permission on the archived project. The default is `false`.</summary>
+        public bool? IncludeArchivedProjects { get; set; }
         /// <summary>A [JQL](https://confluence.atlassian.com/x/egORLQ) expression. For performance reasons, this parameter requires a bounded query. A bounded query is a query with a search restriction. *  Example of an unbounded query: `order by key desc`. *  Example of a bounded query: `assignee = currentUser() order by key`.Additionally, `orderBy` clause can contain a maximum of 7 fields.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -85,6 +87,7 @@ namespace Kubis1982.Atlassian.Jira.RestClient.V2.Models
                 { "expand", n => { Expand = n.GetStringValue(); } },
                 { "fields", n => { Fields = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "fieldsByKeys", n => { FieldsByKeys = n.GetBoolValue(); } },
+                { "includeArchivedProjects", n => { IncludeArchivedProjects = n.GetBoolValue(); } },
                 { "jql", n => { Jql = n.GetStringValue(); } },
                 { "maxResults", n => { MaxResults = n.GetIntValue(); } },
                 { "nextPageToken", n => { NextPageToken = n.GetStringValue(); } },
@@ -102,6 +105,7 @@ namespace Kubis1982.Atlassian.Jira.RestClient.V2.Models
             writer.WriteStringValue("expand", Expand);
             writer.WriteCollectionOfPrimitiveValues<string>("fields", Fields);
             writer.WriteBoolValue("fieldsByKeys", FieldsByKeys);
+            writer.WriteBoolValue("includeArchivedProjects", IncludeArchivedProjects);
             writer.WriteStringValue("jql", Jql);
             writer.WriteIntValue("maxResults", MaxResults);
             writer.WriteStringValue("nextPageToken", NextPageToken);

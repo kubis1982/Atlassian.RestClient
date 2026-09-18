@@ -22,7 +22,7 @@ namespace Kubis1982.Atlassian.Jira.RestClient.V2.Rest.Api.Two.Workflows.Search
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public SearchRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/rest/api/2/workflows/search{?expand*,isActive*,maxResults*,orderBy*,queryString*,scope*,startAt*}", pathParameters)
+        public SearchRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/rest/api/2/workflows/search{?expand*,isActive*,maxResults*,orderBy*,projectId*,queryString*,scope*,startAt*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Kubis1982.Atlassian.Jira.RestClient.V2.Rest.Api.Two.Workflows.Search
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public SearchRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/rest/api/2/workflows/search{?expand*,isActive*,maxResults*,orderBy*,queryString*,scope*,startAt*}", rawUrl)
+        public SearchRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/rest/api/2/workflows/search{?expand*,isActive*,maxResults*,orderBy*,projectId*,queryString*,scope*,startAt*}", rawUrl)
         {
         }
         /// <summary>
@@ -111,6 +111,9 @@ namespace Kubis1982.Atlassian.Jira.RestClient.V2.Rest.Api.Two.Workflows.Search
             [QueryParameter("orderBy")]
             public string OrderBy { get; set; }
 #endif
+            /// <summary>The ID of the project to filter the workflows by. Only workflows associated with the given project are returned.</summary>
+            [QueryParameter("projectId")]
+            public long? ProjectId { get; set; }
             /// <summary>String used to perform a case-insensitive partial match with workflow name.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

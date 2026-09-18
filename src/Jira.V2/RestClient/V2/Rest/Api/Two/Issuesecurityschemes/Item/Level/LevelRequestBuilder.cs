@@ -56,6 +56,7 @@ namespace Kubis1982.Atlassian.Jira.RestClient.V2.Rest.Api.Two.Issuesecurityschem
         /// <exception cref="global::Kubis1982.Atlassian.Jira.RestClient.V2.Models.ErrorCollection">When receiving a 401 status code</exception>
         /// <exception cref="global::Kubis1982.Atlassian.Jira.RestClient.V2.Models.ErrorCollection">When receiving a 403 status code</exception>
         /// <exception cref="global::Kubis1982.Atlassian.Jira.RestClient.V2.Models.ErrorCollection">When receiving a 404 status code</exception>
+        /// <exception cref="global::Kubis1982.Atlassian.Jira.RestClient.V2.Models.LimitExceededResponseBean">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task PutAsync(global::Kubis1982.Atlassian.Jira.RestClient.V2.Models.AddSecuritySchemeLevelsRequestBean body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -73,6 +74,7 @@ namespace Kubis1982.Atlassian.Jira.RestClient.V2.Rest.Api.Two.Issuesecurityschem
                 { "401", global::Kubis1982.Atlassian.Jira.RestClient.V2.Models.ErrorCollection.CreateFromDiscriminatorValue },
                 { "403", global::Kubis1982.Atlassian.Jira.RestClient.V2.Models.ErrorCollection.CreateFromDiscriminatorValue },
                 { "404", global::Kubis1982.Atlassian.Jira.RestClient.V2.Models.ErrorCollection.CreateFromDiscriminatorValue },
+                { "422", global::Kubis1982.Atlassian.Jira.RestClient.V2.Models.LimitExceededResponseBean.CreateFromDiscriminatorValue },
             };
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }

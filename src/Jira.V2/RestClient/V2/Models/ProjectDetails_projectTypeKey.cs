@@ -19,5 +19,9 @@ namespace Kubis1982.Atlassian.Jira.RestClient.V2.Models
         #pragma warning disable CS1591
         Business,
         #pragma warning restore CS1591
+        [EnumMember(Value = "product_discovery")]
+        #pragma warning disable CS1591
+        Product_discovery,
+        #pragma warning restore CS1591
     }
 }

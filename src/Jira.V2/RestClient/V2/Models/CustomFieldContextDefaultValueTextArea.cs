@@ -15,6 +15,14 @@ namespace Kubis1982.Atlassian.Jira.RestClient.V2.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>The ID of the context.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ContextId { get; set; }
+#nullable restore
+#else
+        public string ContextId { get; set; }
+#endif
         /// <summary>The default text. The maximum length is 32767 characters.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -56,6 +64,7 @@ namespace Kubis1982.Atlassian.Jira.RestClient.V2.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "contextId", n => { ContextId = n.GetStringValue(); } },
                 { "text", n => { Text = n.GetStringValue(); } },
                 { "type", n => { Type = n.GetStringValue(); } },
             };
@@ -67,6 +76,7 @@ namespace Kubis1982.Atlassian.Jira.RestClient.V2.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteStringValue("contextId", ContextId);
             writer.WriteStringValue("text", Text);
             writer.WriteStringValue("type", Type);
             writer.WriteAdditionalData(AdditionalData);

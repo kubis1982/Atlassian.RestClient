@@ -34,7 +34,7 @@ namespace Kubis1982.Atlassian.Jira.RestClient.V2.Rest.Api.Two.Priorityscheme.Ite
         {
         }
         /// <summary>
-        /// Returns a [paginated](#pagination) list of projects by scheme.**[Permissions](#permissions) required:** Permission to access Jira.
+        /// Returns a [paginated](#pagination) list of projects by scheme.**[Permissions](#permissions) required:** *Administer Jira* [global permission](https://confluence.atlassian.com/x/x4dKLg).
         /// </summary>
         /// <returns>A <see cref="global::Kubis1982.Atlassian.Jira.RestClient.V2.Models.PageBeanProject"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -52,7 +52,7 @@ namespace Kubis1982.Atlassian.Jira.RestClient.V2.Rest.Api.Two.Priorityscheme.Ite
             return await RequestAdapter.SendAsync<global::Kubis1982.Atlassian.Jira.RestClient.V2.Models.PageBeanProject>(requestInfo, global::Kubis1982.Atlassian.Jira.RestClient.V2.Models.PageBeanProject.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Returns a [paginated](#pagination) list of projects by scheme.**[Permissions](#permissions) required:** Permission to access Jira.
+        /// Returns a [paginated](#pagination) list of projects by scheme.**[Permissions](#permissions) required:** *Administer Jira* [global permission](https://confluence.atlassian.com/x/x4dKLg).
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -80,7 +80,7 @@ namespace Kubis1982.Atlassian.Jira.RestClient.V2.Rest.Api.Two.Priorityscheme.Ite
             return new global::Kubis1982.Atlassian.Jira.RestClient.V2.Rest.Api.Two.Priorityscheme.Item.Projects.ProjectsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Returns a [paginated](#pagination) list of projects by scheme.**[Permissions](#permissions) required:** Permission to access Jira.
+        /// Returns a [paginated](#pagination) list of projects by scheme.**[Permissions](#permissions) required:** *Administer Jira* [global permission](https://confluence.atlassian.com/x/x4dKLg).
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class ProjectsRequestBuilderGetQueryParameters 

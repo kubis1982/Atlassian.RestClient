@@ -111,10 +111,6 @@ namespace Kubis1982.Atlassian.Jira.RestClient.V2.Models
         #pragma warning disable CS1591
         ComAtlassianServicedeskNextGenFacilitiesServiceDesk,
         #pragma warning restore CS1591
-        [EnumMember(Value = "com.atlassian.servicedesk:next-gen-general-service-desk")]
-        #pragma warning disable CS1591
-        ComAtlassianServicedeskNextGenGeneralServiceDesk,
-        #pragma warning restore CS1591
         [EnumMember(Value = "com.atlassian.servicedesk:next-gen-analytics-service-desk")]
         #pragma warning disable CS1591
         ComAtlassianServicedeskNextGenAnalyticsServiceDesk,
@@ -130,6 +126,18 @@ namespace Kubis1982.Atlassian.Jira.RestClient.V2.Models
         [EnumMember(Value = "com.atlassian.servicedesk:next-gen-sales-service-desk")]
         #pragma warning disable CS1591
         ComAtlassianServicedeskNextGenSalesServiceDesk,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "com.atlassian.servicedesk:company-managed-blank-service-project")]
+        #pragma warning disable CS1591
+        ComAtlassianServicedeskCompanyManagedBlankServiceProject,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "com.atlassian.servicedesk:company-managed-general-service-project")]
+        #pragma warning disable CS1591
+        ComAtlassianServicedeskCompanyManagedGeneralServiceProject,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "com.atlassian.servicedesk:team-managed-general-service-project")]
+        #pragma warning disable CS1591
+        ComAtlassianServicedeskTeamManagedGeneralServiceProject,
         #pragma warning restore CS1591
         [EnumMember(Value = "com.atlassian.jira-core-project-templates:jira-core-simplified-content-management")]
         #pragma warning disable CS1591

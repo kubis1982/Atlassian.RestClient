@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Kubis1982.Atlassian.Jira.RestClient.V2.Models
 {
-    /// <summary>The view type of the context.  Supported values: *  `GIC` \- Jira global issue create *  `IssueView` \- Jira issue view *  `IssueTransition` \- Jira issue transition *  `JSMRequestCreate` \- Jira Service Management request create portal viewFor Jira view types (`GIC`, `IssueView`, `IssueTransition`), null is treated as a wildcard, meaning the UI modification will be applied to all view types. Each Jira context can have a maximum of one wildcard.    Wildcards are not applicable for JSM contexts.</summary>
+    /// <summary>The view type of the context.  Supported values: *  `GIC` \- Jira global issue create *  `IssueView` \- Jira issue view *  `IssueTransition` \- Jira issue transition *  `JSMRequestCreate` \- Jira Service Management request create portal view *  `GICAgentView` \- Agent view variant of Jira global issue create *  `IssueViewAgentView` \- Agent view variant of Jira issue view *  `IssueTransitionAgentView` \- Agent view variant of Jira issue transitionFor Jira and Agent view types (`GIC`, `IssueView`, `IssueTransition`, `GICAgentView`, `IssueViewAgentView`, `IssueTransitionAgentView`), null is treated as a wildcard, meaning the UI modification will be applied to all view types. Each Jira or Agent context can have a maximum of one wildcard.    Agent view contexts use `projectId` and `issueTypeId` like Jira contexts, and may optionally also set `requestTypeId`. Agent view contexts must not set `portalId`.    Wildcards are not applicable for JSM contexts.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum UiModificationContextDetails_viewType
     {
@@ -22,6 +22,18 @@ namespace Kubis1982.Atlassian.Jira.RestClient.V2.Models
         [EnumMember(Value = "JSMRequestCreate")]
         #pragma warning disable CS1591
         JSMRequestCreate,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "GICAgentView")]
+        #pragma warning disable CS1591
+        GICAgentView,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "IssueViewAgentView")]
+        #pragma warning disable CS1591
+        IssueViewAgentView,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "IssueTransitionAgentView")]
+        #pragma warning disable CS1591
+        IssueTransitionAgentView,
         #pragma warning restore CS1591
     }
 }

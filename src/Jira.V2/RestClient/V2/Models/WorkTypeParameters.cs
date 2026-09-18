@@ -22,6 +22,14 @@ namespace Kubis1982.Atlassian.Jira.RestClient.V2.Models
 #endif
         /// <summary>The isRequired property</summary>
         public bool? IsRequired { get; set; }
+        /// <summary>The rendererType property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? RendererType { get; set; }
+#nullable restore
+#else
+        public string RendererType { get; set; }
+#endif
         /// <summary>The workTypeId property</summary>
         public long? WorkTypeId { get; set; }
         /// <summary>
@@ -44,6 +52,7 @@ namespace Kubis1982.Atlassian.Jira.RestClient.V2.Models
             {
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "isRequired", n => { IsRequired = n.GetBoolValue(); } },
+                { "rendererType", n => { RendererType = n.GetStringValue(); } },
                 { "workTypeId", n => { WorkTypeId = n.GetLongValue(); } },
             };
         }
@@ -56,6 +65,7 @@ namespace Kubis1982.Atlassian.Jira.RestClient.V2.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("description", Description);
             writer.WriteBoolValue("isRequired", IsRequired);
+            writer.WriteStringValue("rendererType", RendererType);
             writer.WriteLongValue("workTypeId", WorkTypeId);
         }
     }

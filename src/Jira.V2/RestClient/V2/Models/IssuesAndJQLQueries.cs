@@ -13,7 +13,7 @@ namespace Kubis1982.Atlassian.Jira.RestClient.V2.Models
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class IssuesAndJQLQueries : IParsable
     {
-        /// <summary>A list of issue IDs.</summary>
+        /// <summary>A list of up to 50 issue IDs.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<long?>? IssueIds { get; set; }
@@ -21,7 +21,7 @@ namespace Kubis1982.Atlassian.Jira.RestClient.V2.Models
 #else
         public List<long?> IssueIds { get; set; }
 #endif
-        /// <summary>A list of JQL queries.</summary>
+        /// <summary>A list of up to 10 JQL queries.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<string>? Jqls { get; set; }

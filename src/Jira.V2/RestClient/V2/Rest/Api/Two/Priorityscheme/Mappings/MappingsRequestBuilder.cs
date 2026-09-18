@@ -34,7 +34,7 @@ namespace Kubis1982.Atlassian.Jira.RestClient.V2.Rest.Api.Two.Priorityscheme.Map
         {
         }
         /// <summary>
-        /// Returns a [paginated](#pagination) list of priorities that would require mapping, given a change in priorities or projects associated with a priority scheme.**[Permissions](#permissions) required:** Permission to access Jira.
+        /// Returns a [paginated](#pagination) list of priorities that would require mapping, given a change in priorities or projects associated with a priority scheme.**[Permissions](#permissions) required:** *Administer Jira* [global permission](https://confluence.atlassian.com/x/x4dKLg).
         /// </summary>
         /// <returns>A <see cref="global::Kubis1982.Atlassian.Jira.RestClient.V2.Models.PageBeanPriorityWithSequence"/></returns>
         /// <param name="body">Details of changes to a priority scheme that require suggested priority mappings.</param>
@@ -54,7 +54,7 @@ namespace Kubis1982.Atlassian.Jira.RestClient.V2.Rest.Api.Two.Priorityscheme.Map
             return await RequestAdapter.SendAsync<global::Kubis1982.Atlassian.Jira.RestClient.V2.Models.PageBeanPriorityWithSequence>(requestInfo, global::Kubis1982.Atlassian.Jira.RestClient.V2.Models.PageBeanPriorityWithSequence.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Returns a [paginated](#pagination) list of priorities that would require mapping, given a change in priorities or projects associated with a priority scheme.**[Permissions](#permissions) required:** Permission to access Jira.
+        /// Returns a [paginated](#pagination) list of priorities that would require mapping, given a change in priorities or projects associated with a priority scheme.**[Permissions](#permissions) required:** *Administer Jira* [global permission](https://confluence.atlassian.com/x/x4dKLg).
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">Details of changes to a priority scheme that require suggested priority mappings.</param>

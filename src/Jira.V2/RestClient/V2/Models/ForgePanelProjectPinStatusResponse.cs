@@ -7,37 +7,36 @@ using System.IO;
 using System;
 namespace Kubis1982.Atlassian.Jira.RestClient.V2.Models
 {
-    /// <summary>
-    /// A workflow transition rule.
-    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class CreateWorkflowTransitionRule : IParsable
+    #pragma warning disable CS1591
+    public partial class ForgePanelProjectPinStatusResponse : IParsable
+    #pragma warning restore CS1591
     {
-        /// <summary>EXPERIMENTAL. The configuration of the transition rule.</summary>
+        /// <summary>The moduleId of the Forge panel that was requested.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Kubis1982.Atlassian.Jira.RestClient.V2.Models.CreateWorkflowTransitionRule_configuration? Configuration { get; set; }
+        public string? ModuleId { get; set; }
 #nullable restore
 #else
-        public global::Kubis1982.Atlassian.Jira.RestClient.V2.Models.CreateWorkflowTransitionRule_configuration Configuration { get; set; }
+        public string ModuleId { get; set; }
 #endif
-        /// <summary>The type of the transition rule.</summary>
+        /// <summary>The pin status of the issue panel, with one entry per requested project.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Type { get; set; }
+        public List<global::Kubis1982.Atlassian.Jira.RestClient.V2.Models.ForgePanelProjectPinStatus>? Statuses { get; set; }
 #nullable restore
 #else
-        public string Type { get; set; }
+        public List<global::Kubis1982.Atlassian.Jira.RestClient.V2.Models.ForgePanelProjectPinStatus> Statuses { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Kubis1982.Atlassian.Jira.RestClient.V2.Models.CreateWorkflowTransitionRule"/></returns>
+        /// <returns>A <see cref="global::Kubis1982.Atlassian.Jira.RestClient.V2.Models.ForgePanelProjectPinStatusResponse"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Kubis1982.Atlassian.Jira.RestClient.V2.Models.CreateWorkflowTransitionRule CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Kubis1982.Atlassian.Jira.RestClient.V2.Models.ForgePanelProjectPinStatusResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Kubis1982.Atlassian.Jira.RestClient.V2.Models.CreateWorkflowTransitionRule();
+            return new global::Kubis1982.Atlassian.Jira.RestClient.V2.Models.ForgePanelProjectPinStatusResponse();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -47,8 +46,8 @@ namespace Kubis1982.Atlassian.Jira.RestClient.V2.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "configuration", n => { Configuration = n.GetObjectValue<global::Kubis1982.Atlassian.Jira.RestClient.V2.Models.CreateWorkflowTransitionRule_configuration>(global::Kubis1982.Atlassian.Jira.RestClient.V2.Models.CreateWorkflowTransitionRule_configuration.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetStringValue(); } },
+                { "moduleId", n => { ModuleId = n.GetStringValue(); } },
+                { "statuses", n => { Statuses = n.GetCollectionOfObjectValues<global::Kubis1982.Atlassian.Jira.RestClient.V2.Models.ForgePanelProjectPinStatus>(global::Kubis1982.Atlassian.Jira.RestClient.V2.Models.ForgePanelProjectPinStatus.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
         /// <summary>
@@ -58,8 +57,8 @@ namespace Kubis1982.Atlassian.Jira.RestClient.V2.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Kubis1982.Atlassian.Jira.RestClient.V2.Models.CreateWorkflowTransitionRule_configuration>("configuration", Configuration);
-            writer.WriteStringValue("type", Type);
+            writer.WriteStringValue("moduleId", ModuleId);
+            writer.WriteCollectionOfObjectValues<global::Kubis1982.Atlassian.Jira.RestClient.V2.Models.ForgePanelProjectPinStatus>("statuses", Statuses);
         }
     }
 }

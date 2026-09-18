@@ -87,6 +87,22 @@ namespace Kubis1982.Atlassian.Jira.RestClient.V2.Models
 #else
         public string StableId { get; set; }
 #endif
+        /// <summary>The translated (i18n) description of the field for the current locale. Returned for custom fields.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? TranslatedDescription { get; set; }
+#nullable restore
+#else
+        public string TranslatedDescription { get; set; }
+#endif
+        /// <summary>The translated (i18n) name of the field for the current locale. Returned for custom fields.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? TranslatedName { get; set; }
+#nullable restore
+#else
+        public string TranslatedName { get; set; }
+#endif
         /// <summary>The display name of the field type</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -126,6 +142,8 @@ namespace Kubis1982.Atlassian.Jira.RestClient.V2.Models
                 { "screensCount", n => { ScreensCount = n.GetLongValue(); } },
                 { "searcherKey", n => { SearcherKey = n.GetStringValue(); } },
                 { "stableId", n => { StableId = n.GetStringValue(); } },
+                { "translatedDescription", n => { TranslatedDescription = n.GetStringValue(); } },
+                { "translatedName", n => { TranslatedName = n.GetStringValue(); } },
                 { "typeDisplayName", n => { TypeDisplayName = n.GetStringValue(); } },
             };
         }
@@ -149,6 +167,8 @@ namespace Kubis1982.Atlassian.Jira.RestClient.V2.Models
             writer.WriteLongValue("screensCount", ScreensCount);
             writer.WriteStringValue("searcherKey", SearcherKey);
             writer.WriteStringValue("stableId", StableId);
+            writer.WriteStringValue("translatedDescription", TranslatedDescription);
+            writer.WriteStringValue("translatedName", TranslatedName);
             writer.WriteStringValue("typeDisplayName", TypeDisplayName);
         }
     }

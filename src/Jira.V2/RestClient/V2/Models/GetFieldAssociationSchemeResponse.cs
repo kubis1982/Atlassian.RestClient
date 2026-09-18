@@ -21,6 +21,8 @@ namespace Kubis1982.Atlassian.Jira.RestClient.V2.Models
 #else
         public string Description { get; set; }
 #endif
+        /// <summary>The fieldsCount property</summary>
+        public long? FieldsCount { get; set; }
         /// <summary>The id property</summary>
         public long? Id { get; set; }
         /// <summary>The isDefault property</summary>
@@ -68,6 +70,7 @@ namespace Kubis1982.Atlassian.Jira.RestClient.V2.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "description", n => { Description = n.GetStringValue(); } },
+                { "fieldsCount", n => { FieldsCount = n.GetLongValue(); } },
                 { "id", n => { Id = n.GetLongValue(); } },
                 { "isDefault", n => { IsDefault = n.GetBoolValue(); } },
                 { "links", n => { Links = n.GetObjectValue<global::Kubis1982.Atlassian.Jira.RestClient.V2.Models.FieldAssociationSchemeLinksBean>(global::Kubis1982.Atlassian.Jira.RestClient.V2.Models.FieldAssociationSchemeLinksBean.CreateFromDiscriminatorValue); } },
@@ -83,6 +86,7 @@ namespace Kubis1982.Atlassian.Jira.RestClient.V2.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("description", Description);
+            writer.WriteLongValue("fieldsCount", FieldsCount);
             writer.WriteLongValue("id", Id);
             writer.WriteBoolValue("isDefault", IsDefault);
             writer.WriteObjectValue<global::Kubis1982.Atlassian.Jira.RestClient.V2.Models.FieldAssociationSchemeLinksBean>("links", Links);

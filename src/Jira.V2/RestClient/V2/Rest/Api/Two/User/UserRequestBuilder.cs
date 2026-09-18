@@ -129,7 +129,7 @@ namespace Kubis1982.Atlassian.Jira.RestClient.V2.Rest.Api.Two.User
             return await RequestAdapter.SendAsync<global::Kubis1982.Atlassian.Jira.RestClient.V2.Models.User>(requestInfo, global::Kubis1982.Atlassian.Jira.RestClient.V2.Models.User.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Creates a user. This resource is retained for legacy compatibility. As soon as a more suitable alternative is available this resource will be deprecated.**Note:** This API does not support Forge apps.If the user exists and has access to Jira, the operation returns a 201 status. If the user exists but does not have access to Jira, the operation returns a 400 status.**[Permissions](#permissions) required:** *Administer Jira* [global permission](https://confluence.atlassian.com/x/x4dKLg). The caller has to be an **organization admin**.
+        /// Creates a user. This resource is retained for legacy compatibility. As soon as a more suitable alternative is available this resource will be deprecated.**Note:** This API does not support Forge apps.If the user exists and has access to Jira, the operation returns a 201 status. If the user exists but does not have access to Jira &amp; no new jira-products are requested, the operation returns a 400 status.**[Permissions](#permissions) required:** *Administer Jira* [global permission](https://confluence.atlassian.com/x/x4dKLg). The caller has to be an **organization admin**.
         /// </summary>
         /// <returns>A <see cref="global::Kubis1982.Atlassian.Jira.RestClient.V2.Models.User"/></returns>
         /// <param name="body">The user details.</param>
@@ -186,7 +186,7 @@ namespace Kubis1982.Atlassian.Jira.RestClient.V2.Rest.Api.Two.User
             return requestInfo;
         }
         /// <summary>
-        /// Creates a user. This resource is retained for legacy compatibility. As soon as a more suitable alternative is available this resource will be deprecated.**Note:** This API does not support Forge apps.If the user exists and has access to Jira, the operation returns a 201 status. If the user exists but does not have access to Jira, the operation returns a 400 status.**[Permissions](#permissions) required:** *Administer Jira* [global permission](https://confluence.atlassian.com/x/x4dKLg). The caller has to be an **organization admin**.
+        /// Creates a user. This resource is retained for legacy compatibility. As soon as a more suitable alternative is available this resource will be deprecated.**Note:** This API does not support Forge apps.If the user exists and has access to Jira, the operation returns a 201 status. If the user exists but does not have access to Jira &amp; no new jira-products are requested, the operation returns a 400 status.**[Permissions](#permissions) required:** *Administer Jira* [global permission](https://confluence.atlassian.com/x/x4dKLg). The caller has to be an **organization admin**.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The user details.</param>

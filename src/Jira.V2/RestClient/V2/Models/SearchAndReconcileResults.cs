@@ -47,6 +47,14 @@ namespace Kubis1982.Atlassian.Jira.RestClient.V2.Models
 #else
         public global::Kubis1982.Atlassian.Jira.RestClient.V2.Models.SearchAndReconcileResults_schema Schema { get; private set; }
 #endif
+        /// <summary>Experimental. Warnings generated during the search, e.g. when a JQL clause exceeded its argument limit or when the result set was truncated due to an ingestion limit. This field is currently rolling out behind a feature flag and may be absent, empty, or change shape without notice until generally available.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Kubis1982.Atlassian.Jira.RestClient.V2.Models.SearchWarning>? Warnings { get; private set; }
+#nullable restore
+#else
+        public List<global::Kubis1982.Atlassian.Jira.RestClient.V2.Models.SearchWarning> Warnings { get; private set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -70,6 +78,7 @@ namespace Kubis1982.Atlassian.Jira.RestClient.V2.Models
                 { "names", n => { Names = n.GetObjectValue<global::Kubis1982.Atlassian.Jira.RestClient.V2.Models.SearchAndReconcileResults_names>(global::Kubis1982.Atlassian.Jira.RestClient.V2.Models.SearchAndReconcileResults_names.CreateFromDiscriminatorValue); } },
                 { "nextPageToken", n => { NextPageToken = n.GetStringValue(); } },
                 { "schema", n => { Schema = n.GetObjectValue<global::Kubis1982.Atlassian.Jira.RestClient.V2.Models.SearchAndReconcileResults_schema>(global::Kubis1982.Atlassian.Jira.RestClient.V2.Models.SearchAndReconcileResults_schema.CreateFromDiscriminatorValue); } },
+                { "warnings", n => { Warnings = n.GetCollectionOfObjectValues<global::Kubis1982.Atlassian.Jira.RestClient.V2.Models.SearchWarning>(global::Kubis1982.Atlassian.Jira.RestClient.V2.Models.SearchWarning.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
         /// <summary>

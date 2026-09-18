@@ -328,7 +328,7 @@ namespace Kubis1982.Atlassian.Jira.RestClient.V2.Rest.Api.Two.Project.Item
             [QueryParameter("expand")]
             public string Expand { get; set; }
 #endif
-            /// <summary>A list of project properties to return for the project. This parameter accepts a comma-separated list.</summary>
+            /// <summary>A list of project properties to return for the project. This parameter accepts a comma-separated list. Note that only the properties named here are returned in `properties` in the response; that object is empty when this parameter is omitted.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("properties")]

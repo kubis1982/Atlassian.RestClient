@@ -69,6 +69,7 @@ namespace Kubis1982.Atlassian.Jira.RestClient.V2.Rest.Api.Two.Priorityscheme.Ite
         /// <param name="body">Details of a priority scheme.</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        /// <exception cref="global::Kubis1982.Atlassian.Jira.RestClient.V2.Models.LimitExceededResponseBean">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Kubis1982.Atlassian.Jira.RestClient.V2.Models.UpdatePrioritySchemeResponseBean?> PutAsync(global::Kubis1982.Atlassian.Jira.RestClient.V2.Models.UpdatePrioritySchemeRequestBean body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -80,7 +81,11 @@ namespace Kubis1982.Atlassian.Jira.RestClient.V2.Rest.Api.Two.Priorityscheme.Ite
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPutRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Kubis1982.Atlassian.Jira.RestClient.V2.Models.UpdatePrioritySchemeResponseBean>(requestInfo, global::Kubis1982.Atlassian.Jira.RestClient.V2.Models.UpdatePrioritySchemeResponseBean.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
+            {
+                { "422", global::Kubis1982.Atlassian.Jira.RestClient.V2.Models.LimitExceededResponseBean.CreateFromDiscriminatorValue },
+            };
+            return await RequestAdapter.SendAsync<global::Kubis1982.Atlassian.Jira.RestClient.V2.Models.UpdatePrioritySchemeResponseBean>(requestInfo, global::Kubis1982.Atlassian.Jira.RestClient.V2.Models.UpdatePrioritySchemeResponseBean.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Deletes a priority scheme.This operation is only available for priority schemes without any associated projects. Any associated projects must be removed from the priority scheme before this operation can be performed.**[Permissions](#permissions) required:** *Administer Jira* [global permission](https://confluence.atlassian.com/x/x4dKLg).

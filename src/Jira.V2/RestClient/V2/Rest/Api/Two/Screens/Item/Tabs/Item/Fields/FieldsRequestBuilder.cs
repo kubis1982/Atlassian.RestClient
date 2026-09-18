@@ -35,7 +35,7 @@ namespace Kubis1982.Atlassian.Jira.RestClient.V2.Rest.Api.Two.Screens.Item.Tabs.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public FieldsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/rest/api/2/screens/{screenId}/tabs/{tabId}/fields{?projectKey*}", pathParameters)
+        public FieldsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/rest/api/2/screens/{screenId}/tabs/{tabId}/fields{?projectKey*,skipFieldAssociation*}", pathParameters)
         {
         }
         /// <summary>
@@ -43,7 +43,7 @@ namespace Kubis1982.Atlassian.Jira.RestClient.V2.Rest.Api.Two.Screens.Item.Tabs.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public FieldsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/rest/api/2/screens/{screenId}/tabs/{tabId}/fields{?projectKey*}", rawUrl)
+        public FieldsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/rest/api/2/screens/{screenId}/tabs/{tabId}/fields{?projectKey*,skipFieldAssociation*}", rawUrl)
         {
         }
         /// <summary>
@@ -74,11 +74,11 @@ namespace Kubis1982.Atlassian.Jira.RestClient.V2.Rest.Api.Two.Screens.Item.Tabs.
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Kubis1982.Atlassian.Jira.RestClient.V2.Models.ScreenableField?> PostAsync(global::Kubis1982.Atlassian.Jira.RestClient.V2.Models.AddFieldBean body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Kubis1982.Atlassian.Jira.RestClient.V2.Models.ScreenableField?> PostAsync(global::Kubis1982.Atlassian.Jira.RestClient.V2.Models.AddFieldBean body, Action<RequestConfiguration<global::Kubis1982.Atlassian.Jira.RestClient.V2.Rest.Api.Two.Screens.Item.Tabs.Item.Fields.FieldsRequestBuilder.FieldsRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Kubis1982.Atlassian.Jira.RestClient.V2.Models.ScreenableField> PostAsync(global::Kubis1982.Atlassian.Jira.RestClient.V2.Models.AddFieldBean body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Kubis1982.Atlassian.Jira.RestClient.V2.Models.ScreenableField> PostAsync(global::Kubis1982.Atlassian.Jira.RestClient.V2.Models.AddFieldBean body, Action<RequestConfiguration<global::Kubis1982.Atlassian.Jira.RestClient.V2.Rest.Api.Two.Screens.Item.Tabs.Item.Fields.FieldsRequestBuilder.FieldsRequestBuilderPostQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -112,11 +112,11 @@ namespace Kubis1982.Atlassian.Jira.RestClient.V2.Rest.Api.Two.Screens.Item.Tabs.
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Kubis1982.Atlassian.Jira.RestClient.V2.Models.AddFieldBean body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Kubis1982.Atlassian.Jira.RestClient.V2.Models.AddFieldBean body, Action<RequestConfiguration<global::Kubis1982.Atlassian.Jira.RestClient.V2.Rest.Api.Two.Screens.Item.Tabs.Item.Fields.FieldsRequestBuilder.FieldsRequestBuilderPostQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Kubis1982.Atlassian.Jira.RestClient.V2.Models.AddFieldBean body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Kubis1982.Atlassian.Jira.RestClient.V2.Models.AddFieldBean body, Action<RequestConfiguration<global::Kubis1982.Atlassian.Jira.RestClient.V2.Rest.Api.Two.Screens.Item.Tabs.Item.Fields.FieldsRequestBuilder.FieldsRequestBuilderPostQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -161,11 +161,20 @@ namespace Kubis1982.Atlassian.Jira.RestClient.V2.Rest.Api.Two.Screens.Item.Tabs.
         {
         }
         /// <summary>
+        /// Adds a field to a screen tab.**[Permissions](#permissions) required:** *Administer Jira* [global permission](https://confluence.atlassian.com/x/x4dKLg).
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+        public partial class FieldsRequestBuilderPostQueryParameters 
+        {
+            [QueryParameter("skipFieldAssociation")]
+            public bool? SkipFieldAssociation { get; set; }
+        }
+        /// <summary>
         /// Configuration for the request such as headers, query parameters, and middleware options.
         /// </summary>
         [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class FieldsRequestBuilderPostRequestConfiguration : RequestConfiguration<DefaultQueryParameters>
+        public partial class FieldsRequestBuilderPostRequestConfiguration : RequestConfiguration<global::Kubis1982.Atlassian.Jira.RestClient.V2.Rest.Api.Two.Screens.Item.Tabs.Item.Fields.FieldsRequestBuilder.FieldsRequestBuilderPostQueryParameters>
         {
         }
     }

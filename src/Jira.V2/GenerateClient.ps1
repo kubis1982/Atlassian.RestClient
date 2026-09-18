@@ -23,7 +23,7 @@ $ErrorActionPreference = "Stop"
 Set-StrictMode -Version Latest
 
 # Configuration
-$SwaggerUrl = "https://dac-static.atlassian.com/cloud/jira/platform/swagger.v3.json?_v=1.8464.0"
+$SwaggerUrl = "https://dac-static.atlassian.com/cloud/jira/platform/swagger.v3.json?_v=1.8516.116"
 $OutputDir = "RestClient\V2"
 $Namespace = "Kubis1982.Atlassian.Jira.RestClient.V2"
 

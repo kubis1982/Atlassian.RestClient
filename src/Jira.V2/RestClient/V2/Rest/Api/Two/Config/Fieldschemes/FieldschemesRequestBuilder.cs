@@ -95,7 +95,7 @@ namespace Kubis1982.Atlassian.Jira.RestClient.V2.Rest.Api.Two.Config.Fieldscheme
             return await RequestAdapter.SendAsync<global::Kubis1982.Atlassian.Jira.RestClient.V2.Models.PageBean2GetFieldAssociationSchemeResponse>(requestInfo, global::Kubis1982.Atlassian.Jira.RestClient.V2.Models.PageBean2GetFieldAssociationSchemeResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Endpoint for creating a new field association scheme.**[Permissions](#permissions) required:** *Administer Jira* [global permission](https://confluence.atlassian.com/x/x4dKLg).
+        /// Endpoint for creating a new field association scheme.A new scheme is **not** copied from, or based on, any existing field association scheme. Instead, it is initialised with a minimal default set of critical fields sourced from the instance&apos;s own *system* and *product* fields (the fields returned by the product&apos;s field API), rather than from a scheme you specify.To create a scheme that is based on an existing one, use the *Clone field scheme* endpoint instead.**[Permissions](#permissions) required:** *Administer Jira* [global permission](https://confluence.atlassian.com/x/x4dKLg).
         /// </summary>
         /// <returns>A <see cref="global::Kubis1982.Atlassian.Jira.RestClient.V2.Models.CreateFieldAssociationSchemeResponse"/></returns>
         /// <param name="body">Request object for creating a new field association scheme.</param>
@@ -139,7 +139,7 @@ namespace Kubis1982.Atlassian.Jira.RestClient.V2.Rest.Api.Two.Config.Fieldscheme
             return requestInfo;
         }
         /// <summary>
-        /// Endpoint for creating a new field association scheme.**[Permissions](#permissions) required:** *Administer Jira* [global permission](https://confluence.atlassian.com/x/x4dKLg).
+        /// Endpoint for creating a new field association scheme.A new scheme is **not** copied from, or based on, any existing field association scheme. Instead, it is initialised with a minimal default set of critical fields sourced from the instance&apos;s own *system* and *product* fields (the fields returned by the product&apos;s field API), rather than from a scheme you specify.To create a scheme that is based on an existing one, use the *Clone field scheme* endpoint instead.**[Permissions](#permissions) required:** *Administer Jira* [global permission](https://confluence.atlassian.com/x/x4dKLg).
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">Request object for creating a new field association scheme.</param>

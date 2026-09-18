@@ -8,36 +8,30 @@ using System;
 namespace Kubis1982.Atlassian.Jira.RestClient.V2.Models
 {
     /// <summary>
-    /// The details of a transition status.
+    /// Default values grouped by custom field context.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class CreateWorkflowStatusDetails : IParsable
+    public partial class ContextDefaultValues : IParsable
     {
-        /// <summary>The ID of the status.</summary>
+        /// <summary>The ID of the context.</summary>
+        public long? ContextId { get; set; }
+        /// <summary>Per-issue-type default values for this context. May contain a single entry for unconverted contexts, or one entry per issue type for converted contexts.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Id { get; set; }
+        public List<global::Kubis1982.Atlassian.Jira.RestClient.V2.Models.IssueTypeDefaultValue>? DefaultValues { get; set; }
 #nullable restore
 #else
-        public string Id { get; set; }
-#endif
-        /// <summary>The properties of the status.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Kubis1982.Atlassian.Jira.RestClient.V2.Models.CreateWorkflowStatusDetails_properties? Properties { get; set; }
-#nullable restore
-#else
-        public global::Kubis1982.Atlassian.Jira.RestClient.V2.Models.CreateWorkflowStatusDetails_properties Properties { get; set; }
+        public List<global::Kubis1982.Atlassian.Jira.RestClient.V2.Models.IssueTypeDefaultValue> DefaultValues { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Kubis1982.Atlassian.Jira.RestClient.V2.Models.CreateWorkflowStatusDetails"/></returns>
+        /// <returns>A <see cref="global::Kubis1982.Atlassian.Jira.RestClient.V2.Models.ContextDefaultValues"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Kubis1982.Atlassian.Jira.RestClient.V2.Models.CreateWorkflowStatusDetails CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Kubis1982.Atlassian.Jira.RestClient.V2.Models.ContextDefaultValues CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Kubis1982.Atlassian.Jira.RestClient.V2.Models.CreateWorkflowStatusDetails();
+            return new global::Kubis1982.Atlassian.Jira.RestClient.V2.Models.ContextDefaultValues();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -47,8 +41,8 @@ namespace Kubis1982.Atlassian.Jira.RestClient.V2.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "id", n => { Id = n.GetStringValue(); } },
-                { "properties", n => { Properties = n.GetObjectValue<global::Kubis1982.Atlassian.Jira.RestClient.V2.Models.CreateWorkflowStatusDetails_properties>(global::Kubis1982.Atlassian.Jira.RestClient.V2.Models.CreateWorkflowStatusDetails_properties.CreateFromDiscriminatorValue); } },
+                { "contextId", n => { ContextId = n.GetLongValue(); } },
+                { "defaultValues", n => { DefaultValues = n.GetCollectionOfObjectValues<global::Kubis1982.Atlassian.Jira.RestClient.V2.Models.IssueTypeDefaultValue>(global::Kubis1982.Atlassian.Jira.RestClient.V2.Models.IssueTypeDefaultValue.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
         /// <summary>
@@ -58,8 +52,8 @@ namespace Kubis1982.Atlassian.Jira.RestClient.V2.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("id", Id);
-            writer.WriteObjectValue<global::Kubis1982.Atlassian.Jira.RestClient.V2.Models.CreateWorkflowStatusDetails_properties>("properties", Properties);
+            writer.WriteLongValue("contextId", ContextId);
+            writer.WriteCollectionOfObjectValues<global::Kubis1982.Atlassian.Jira.RestClient.V2.Models.IssueTypeDefaultValue>("defaultValues", DefaultValues);
         }
     }
 }

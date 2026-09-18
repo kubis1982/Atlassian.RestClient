@@ -165,7 +165,7 @@ namespace Kubis1982.Atlassian.Jira.RestClient.V2.Models
 #endif
         /// <summary>The [project type](https://confluence.atlassian.com/x/GwiiLQ#Jiraapplicationsoverview-Productfeaturesandprojecttypes) of the project.</summary>
         public global::Kubis1982.Atlassian.Jira.RestClient.V2.Models.Project_projectTypeKey? ProjectTypeKey { get; private set; }
-        /// <summary>Map of project properties</summary>
+        /// <summary>Map of project properties. Only the properties named in the request&apos;s properties query parameter are returned, so this is an empty object when that parameter is omitted.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Kubis1982.Atlassian.Jira.RestClient.V2.Models.Project_properties? Properties { get; private set; }

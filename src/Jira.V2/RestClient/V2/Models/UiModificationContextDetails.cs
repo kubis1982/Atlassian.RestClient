@@ -47,7 +47,7 @@ namespace Kubis1982.Atlassian.Jira.RestClient.V2.Models
 #else
         public string ProjectId { get; set; }
 #endif
-        /// <summary>The request type ID of the context. Only required for Jira Service Management request create portal view (`JSMRequestCreate`).</summary>
+        /// <summary>The request type ID of the context. Required for Jira Service Management request create portal view (`JSMRequestCreate`). Optional for Agent view types (`GICAgentView`, `IssueViewAgentView`, `IssueTransitionAgentView`): when set on an agent view context, the UI modification applies only to issues with that request type. Omitting `requestTypeId` does not create a wildcard — it means the context is not scoped to any specific request type.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? RequestTypeId { get; set; }
@@ -55,7 +55,7 @@ namespace Kubis1982.Atlassian.Jira.RestClient.V2.Models
 #else
         public string RequestTypeId { get; set; }
 #endif
-        /// <summary>The view type of the context.  Supported values: *  `GIC` \- Jira global issue create *  `IssueView` \- Jira issue view *  `IssueTransition` \- Jira issue transition *  `JSMRequestCreate` \- Jira Service Management request create portal viewFor Jira view types (`GIC`, `IssueView`, `IssueTransition`), null is treated as a wildcard, meaning the UI modification will be applied to all view types. Each Jira context can have a maximum of one wildcard.    Wildcards are not applicable for JSM contexts.</summary>
+        /// <summary>The view type of the context.  Supported values: *  `GIC` \- Jira global issue create *  `IssueView` \- Jira issue view *  `IssueTransition` \- Jira issue transition *  `JSMRequestCreate` \- Jira Service Management request create portal view *  `GICAgentView` \- Agent view variant of Jira global issue create *  `IssueViewAgentView` \- Agent view variant of Jira issue view *  `IssueTransitionAgentView` \- Agent view variant of Jira issue transitionFor Jira and Agent view types (`GIC`, `IssueView`, `IssueTransition`, `GICAgentView`, `IssueViewAgentView`, `IssueTransitionAgentView`), null is treated as a wildcard, meaning the UI modification will be applied to all view types. Each Jira or Agent context can have a maximum of one wildcard.    Agent view contexts use `projectId` and `issueTypeId` like Jira contexts, and may optionally also set `requestTypeId`. Agent view contexts must not set `portalId`.    Wildcards are not applicable for JSM contexts.</summary>
         public global::Kubis1982.Atlassian.Jira.RestClient.V2.Models.UiModificationContextDetails_viewType? ViewType { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

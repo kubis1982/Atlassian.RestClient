@@ -8,29 +8,29 @@ using System;
 namespace Kubis1982.Atlassian.Jira.RestClient.V2.Models
 {
     /// <summary>
-    /// EXPERIMENTAL. The configuration of the transition rule.
+    /// For each field, the ids of the individual entities breaching the limit, grouped by the id or key of the issue they belong to. Fields that hold a single value, such as description and environment, map to an empty list because the issue itself identifies the breaching content
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class CreateWorkflowCondition_configuration : IAdditionalDataHolder, IParsable
+    public partial class IssueLimitReportResponseBean_entitiesBreachingLimit : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Kubis1982.Atlassian.Jira.RestClient.V2.Models.CreateWorkflowCondition_configuration"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Kubis1982.Atlassian.Jira.RestClient.V2.Models.IssueLimitReportResponseBean_entitiesBreachingLimit"/> and sets the default values.
         /// </summary>
-        public CreateWorkflowCondition_configuration()
+        public IssueLimitReportResponseBean_entitiesBreachingLimit()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Kubis1982.Atlassian.Jira.RestClient.V2.Models.CreateWorkflowCondition_configuration"/></returns>
+        /// <returns>A <see cref="global::Kubis1982.Atlassian.Jira.RestClient.V2.Models.IssueLimitReportResponseBean_entitiesBreachingLimit"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Kubis1982.Atlassian.Jira.RestClient.V2.Models.CreateWorkflowCondition_configuration CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Kubis1982.Atlassian.Jira.RestClient.V2.Models.IssueLimitReportResponseBean_entitiesBreachingLimit CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Kubis1982.Atlassian.Jira.RestClient.V2.Models.CreateWorkflowCondition_configuration();
+            return new global::Kubis1982.Atlassian.Jira.RestClient.V2.Models.IssueLimitReportResponseBean_entitiesBreachingLimit();
         }
         /// <summary>
         /// The deserialization information for the current model

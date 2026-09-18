@@ -2,6 +2,7 @@
 #pragma warning disable CS0618
 using Kubis1982.Atlassian.Jira.RestClient.V2.Models;
 using Kubis1982.Atlassian.Jira.RestClient.V2.Rest.Api.Two.Field.Item.Context.DefaultValue;
+using Kubis1982.Atlassian.Jira.RestClient.V2.Rest.Api.Two.Field.Item.Context.DefaultValues;
 using Kubis1982.Atlassian.Jira.RestClient.V2.Rest.Api.Two.Field.Item.Context.Issuetypemapping;
 using Kubis1982.Atlassian.Jira.RestClient.V2.Rest.Api.Two.Field.Item.Context.Item;
 using Kubis1982.Atlassian.Jira.RestClient.V2.Rest.Api.Two.Field.Item.Context.Mapping;
@@ -26,6 +27,11 @@ namespace Kubis1982.Atlassian.Jira.RestClient.V2.Rest.Api.Two.Field.Item.Context
         public global::Kubis1982.Atlassian.Jira.RestClient.V2.Rest.Api.Two.Field.Item.Context.DefaultValue.DefaultValueRequestBuilder DefaultValue
         {
             get => new global::Kubis1982.Atlassian.Jira.RestClient.V2.Rest.Api.Two.Field.Item.Context.DefaultValue.DefaultValueRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The defaultValues property</summary>
+        public global::Kubis1982.Atlassian.Jira.RestClient.V2.Rest.Api.Two.Field.Item.Context.DefaultValues.DefaultValuesRequestBuilder DefaultValues
+        {
+            get => new global::Kubis1982.Atlassian.Jira.RestClient.V2.Rest.Api.Two.Field.Item.Context.DefaultValues.DefaultValuesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The issuetypemapping property</summary>
         public global::Kubis1982.Atlassian.Jira.RestClient.V2.Rest.Api.Two.Field.Item.Context.Issuetypemapping.IssuetypemappingRequestBuilder Issuetypemapping

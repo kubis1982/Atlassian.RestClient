@@ -3,7 +3,7 @@
 	<PropertyGroup>
 		<IsPackable>true</IsPackable>
 		<OutputType>Library</OutputType>
-		<Version>1.8464.1</Version>
+		<Version>1.8516.116</Version>
 		<RootNamespace>Kubis1982.Atlassian.Jira</RootNamespace>
 		<PackageId>Kubis1982.Atlassian.Jira.RestClient.v2</PackageId>
 		<Title>Atlassian Jira REST Client v2</Title>

@@ -21,6 +21,8 @@ namespace Kubis1982.Atlassian.Jira.RestClient.V2.Models
 #else
         public global::Kubis1982.Atlassian.Jira.RestClient.V2.Models.FieldAssociationSchemeProjectSearchResult_avatarUrls AvatarUrls { get; set; }
 #endif
+        /// <summary>The deleted property</summary>
+        public bool? Deleted { get; set; }
         /// <summary>The id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -64,6 +66,7 @@ namespace Kubis1982.Atlassian.Jira.RestClient.V2.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "avatarUrls", n => { AvatarUrls = n.GetObjectValue<global::Kubis1982.Atlassian.Jira.RestClient.V2.Models.FieldAssociationSchemeProjectSearchResult_avatarUrls>(global::Kubis1982.Atlassian.Jira.RestClient.V2.Models.FieldAssociationSchemeProjectSearchResult_avatarUrls.CreateFromDiscriminatorValue); } },
+                { "deleted", n => { Deleted = n.GetBoolValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "key", n => { Key = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
@@ -77,6 +80,7 @@ namespace Kubis1982.Atlassian.Jira.RestClient.V2.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Kubis1982.Atlassian.Jira.RestClient.V2.Models.FieldAssociationSchemeProjectSearchResult_avatarUrls>("avatarUrls", AvatarUrls);
+            writer.WriteBoolValue("deleted", Deleted);
             writer.WriteStringValue("id", Id);
             writer.WriteStringValue("key", Key);
             writer.WriteStringValue("name", Name);
