@@ -8,29 +8,28 @@ using System;
 namespace Kubis1982.Atlassian.Jira.RestClient.Models
 {
     /// <summary>
-    /// The properties of the status.
+    /// Configuration of features for one or more boards. Replaces the deprecated features field on BoardPayload
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class CreateWorkflowStatusDetails_properties : IAdditionalDataHolder, IParsable
+    public partial class BoardFeaturesPayload : IParsable
     {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>
-        /// Instantiates a new <see cref="global::Kubis1982.Atlassian.Jira.RestClient.Models.CreateWorkflowStatusDetails_properties"/> and sets the default values.
-        /// </summary>
-        public CreateWorkflowStatusDetails_properties()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
+        /// <summary>A map of board PCRIs to the list of features to enable on each board.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Kubis1982.Atlassian.Jira.RestClient.Models.BoardFeaturesPayload_boardFeatures? BoardFeatures { get; set; }
+#nullable restore
+#else
+        public global::Kubis1982.Atlassian.Jira.RestClient.Models.BoardFeaturesPayload_boardFeatures BoardFeatures { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Kubis1982.Atlassian.Jira.RestClient.Models.CreateWorkflowStatusDetails_properties"/></returns>
+        /// <returns>A <see cref="global::Kubis1982.Atlassian.Jira.RestClient.Models.BoardFeaturesPayload"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Kubis1982.Atlassian.Jira.RestClient.Models.CreateWorkflowStatusDetails_properties CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Kubis1982.Atlassian.Jira.RestClient.Models.BoardFeaturesPayload CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Kubis1982.Atlassian.Jira.RestClient.Models.CreateWorkflowStatusDetails_properties();
+            return new global::Kubis1982.Atlassian.Jira.RestClient.Models.BoardFeaturesPayload();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -40,6 +39,7 @@ namespace Kubis1982.Atlassian.Jira.RestClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "boardFeatures", n => { BoardFeatures = n.GetObjectValue<global::Kubis1982.Atlassian.Jira.RestClient.Models.BoardFeaturesPayload_boardFeatures>(global::Kubis1982.Atlassian.Jira.RestClient.Models.BoardFeaturesPayload_boardFeatures.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -49,7 +49,7 @@ namespace Kubis1982.Atlassian.Jira.RestClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteAdditionalData(AdditionalData);
+            writer.WriteObjectValue<global::Kubis1982.Atlassian.Jira.RestClient.Models.BoardFeaturesPayload_boardFeatures>("boardFeatures", BoardFeatures);
         }
     }
 }

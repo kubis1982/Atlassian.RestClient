@@ -2,6 +2,7 @@
 #pragma warning disable CS0618
 using Kubis1982.Atlassian.Jira.RestClient.Models;
 using Kubis1982.Atlassian.Jira.RestClient.Rest.Api.Three.Workflows.Capabilities;
+using Kubis1982.Atlassian.Jira.RestClient.Rest.Api.Three.Workflows.Copy;
 using Kubis1982.Atlassian.Jira.RestClient.Rest.Api.Three.Workflows.Create;
 using Kubis1982.Atlassian.Jira.RestClient.Rest.Api.Three.Workflows.DefaultEditor;
 using Kubis1982.Atlassian.Jira.RestClient.Rest.Api.Three.Workflows.Preview;
@@ -27,6 +28,11 @@ namespace Kubis1982.Atlassian.Jira.RestClient.Rest.Api.Three.Workflows
         public global::Kubis1982.Atlassian.Jira.RestClient.Rest.Api.Three.Workflows.Capabilities.CapabilitiesRequestBuilder Capabilities
         {
             get => new global::Kubis1982.Atlassian.Jira.RestClient.Rest.Api.Three.Workflows.Capabilities.CapabilitiesRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The copy property</summary>
+        public global::Kubis1982.Atlassian.Jira.RestClient.Rest.Api.Three.Workflows.Copy.CopyRequestBuilder Copy
+        {
+            get => new global::Kubis1982.Atlassian.Jira.RestClient.Rest.Api.Three.Workflows.Copy.CopyRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The create property</summary>
         public global::Kubis1982.Atlassian.Jira.RestClient.Rest.Api.Three.Workflows.Create.CreateRequestBuilder Create

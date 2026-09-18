@@ -81,6 +81,7 @@ namespace Kubis1982.Atlassian.Jira.RestClient.Rest.Api.Three.Permissionscheme.It
         /// <param name="body">Details of a permission scheme.</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        /// <exception cref="global::Kubis1982.Atlassian.Jira.RestClient.Models.LimitExceededResponseBean">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Kubis1982.Atlassian.Jira.RestClient.Models.PermissionScheme?> PutAsync(global::Kubis1982.Atlassian.Jira.RestClient.Models.PermissionScheme body, Action<RequestConfiguration<global::Kubis1982.Atlassian.Jira.RestClient.Rest.Api.Three.Permissionscheme.Item.WithSchemeItemRequestBuilder.WithSchemeItemRequestBuilderPutQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -92,7 +93,11 @@ namespace Kubis1982.Atlassian.Jira.RestClient.Rest.Api.Three.Permissionscheme.It
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPutRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Kubis1982.Atlassian.Jira.RestClient.Models.PermissionScheme>(requestInfo, global::Kubis1982.Atlassian.Jira.RestClient.Models.PermissionScheme.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
+            {
+                { "422", global::Kubis1982.Atlassian.Jira.RestClient.Models.LimitExceededResponseBean.CreateFromDiscriminatorValue },
+            };
+            return await RequestAdapter.SendAsync<global::Kubis1982.Atlassian.Jira.RestClient.Models.PermissionScheme>(requestInfo, global::Kubis1982.Atlassian.Jira.RestClient.Models.PermissionScheme.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Deletes a permission scheme.**[Permissions](#permissions) required:** *Administer Jira* [global permission](https://confluence.atlassian.com/x/x4dKLg).

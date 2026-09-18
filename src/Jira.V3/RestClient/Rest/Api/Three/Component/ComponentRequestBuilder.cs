@@ -71,6 +71,7 @@ namespace Kubis1982.Atlassian.Jira.RestClient.Rest.Api.Three.Component
         /// <param name="body">Details about a project component.</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        /// <exception cref="global::Kubis1982.Atlassian.Jira.RestClient.Models.LimitExceededResponseBean">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Kubis1982.Atlassian.Jira.RestClient.Models.ProjectComponent?> PostAsync(global::Kubis1982.Atlassian.Jira.RestClient.Models.ProjectComponent body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -82,7 +83,11 @@ namespace Kubis1982.Atlassian.Jira.RestClient.Rest.Api.Three.Component
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Kubis1982.Atlassian.Jira.RestClient.Models.ProjectComponent>(requestInfo, global::Kubis1982.Atlassian.Jira.RestClient.Models.ProjectComponent.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
+            {
+                { "422", global::Kubis1982.Atlassian.Jira.RestClient.Models.LimitExceededResponseBean.CreateFromDiscriminatorValue },
+            };
+            return await RequestAdapter.SendAsync<global::Kubis1982.Atlassian.Jira.RestClient.Models.ProjectComponent>(requestInfo, global::Kubis1982.Atlassian.Jira.RestClient.Models.ProjectComponent.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Returns a [paginated](#pagination) list of all components in a project, including global (Compass) components when applicable.This operation can be accessed anonymously.**[Permissions](#permissions) required:** *Browse Projects* [project permission](https://confluence.atlassian.com/x/yodKLg) for the project.

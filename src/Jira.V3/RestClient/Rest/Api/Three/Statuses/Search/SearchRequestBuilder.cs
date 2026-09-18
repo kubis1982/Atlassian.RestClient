@@ -22,7 +22,7 @@ namespace Kubis1982.Atlassian.Jira.RestClient.Rest.Api.Three.Statuses.Search
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public SearchRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/rest/api/3/statuses/search{?maxResults*,projectId*,searchString*,startAt*,statusCategory*}", pathParameters)
+        public SearchRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/rest/api/3/statuses/search{?includeGlobalStatuses*,maxResults*,projectId*,searchString*,startAt*,statusCategory*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Kubis1982.Atlassian.Jira.RestClient.Rest.Api.Three.Statuses.Search
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public SearchRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/rest/api/3/statuses/search{?maxResults*,projectId*,searchString*,startAt*,statusCategory*}", rawUrl)
+        public SearchRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/rest/api/3/statuses/search{?includeGlobalStatuses*,maxResults*,projectId*,searchString*,startAt*,statusCategory*}", rawUrl)
         {
         }
         /// <summary>
@@ -85,6 +85,9 @@ namespace Kubis1982.Atlassian.Jira.RestClient.Rest.Api.Three.Statuses.Search
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class SearchRequestBuilderGetQueryParameters 
         {
+            /// <summary>Whether to include global statuses (scope = null, not tied to any project) in the response. Defaults to false. Only relevant for project scoped queries.</summary>
+            [QueryParameter("includeGlobalStatuses")]
+            public bool? IncludeGlobalStatuses { get; set; }
             /// <summary>The maximum number of items to return per page.</summary>
             [QueryParameter("maxResults")]
             public int? MaxResults { get; set; }

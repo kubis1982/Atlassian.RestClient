@@ -22,7 +22,7 @@ namespace Kubis1982.Atlassian.Jira.RestClient.Rest.Api.Three.Groupuserpicker
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public GroupuserpickerRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/rest/api/3/groupuserpicker?query={query}{&avatarSize*,caseInsensitive*,excludeConnectAddons*,fieldId*,issueTypeId*,maxResults*,projectId*,showAvatar*}", pathParameters)
+        public GroupuserpickerRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/rest/api/3/groupuserpicker?query={query}{&avatarSize*,caseInsensitive*,excludeConnectAddons*,fieldId*,includeAiAgents*,issueTypeId*,maxResults*,projectId*,showAvatar*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Kubis1982.Atlassian.Jira.RestClient.Rest.Api.Three.Groupuserpicker
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public GroupuserpickerRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/rest/api/3/groupuserpicker?query={query}{&avatarSize*,caseInsensitive*,excludeConnectAddons*,fieldId*,issueTypeId*,maxResults*,projectId*,showAvatar*}", rawUrl)
+        public GroupuserpickerRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/rest/api/3/groupuserpicker?query={query}{&avatarSize*,caseInsensitive*,excludeConnectAddons*,fieldId*,includeAiAgents*,issueTypeId*,maxResults*,projectId*,showAvatar*}", rawUrl)
         {
         }
         /// <summary>
@@ -115,6 +115,9 @@ namespace Kubis1982.Atlassian.Jira.RestClient.Rest.Api.Three.Groupuserpicker
             [QueryParameter("fieldId")]
             public string FieldId { get; set; }
 #endif
+            /// <summary>Whether AI Agents should be included in the search results. If an invalid value is provided, the default value is used.</summary>
+            [QueryParameter("includeAiAgents")]
+            public bool? IncludeAiAgents { get; set; }
             /// <summary>The ID of an issue type that returned users and groups must have permission to view. To include multiple issue types, provide an ampersand-separated list. For example, `issueTypeId=10000&amp;issueTypeId=10001`. Special values, such as `-1` (all standard issue types) and `-2` (all subtask issue types), are supported. This parameter is only used when `fieldId` is present.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

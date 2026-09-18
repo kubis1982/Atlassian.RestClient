@@ -64,7 +64,7 @@ namespace Kubis1982.Atlassian.Jira.RestClient.Rest.Api.Three.Priority.Item
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Returns an issue priority.**[Permissions](#permissions) required:** Permission to access Jira.
+        /// Returns an issue priority. To fetch multiple priorities at once, use [Search priorities](#api-rest-api-3-priority-search-get) instead.**[Permissions](#permissions) required:** Permission to access Jira.
         /// </summary>
         /// <returns>A <see cref="global::Kubis1982.Atlassian.Jira.RestClient.Models.Priority"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -82,7 +82,7 @@ namespace Kubis1982.Atlassian.Jira.RestClient.Rest.Api.Three.Priority.Item
             return await RequestAdapter.SendAsync<global::Kubis1982.Atlassian.Jira.RestClient.Models.Priority>(requestInfo, global::Kubis1982.Atlassian.Jira.RestClient.Models.Priority.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Updates an issue priority.At least one request body parameter must be defined.Deprecation applies to iconUrl param in request body which will be sunset on 16th Mar 2025. For more details refer to [changelog](https://developer.atlassian.com/changelog/#CHANGE-1525).**[Permissions](#permissions) required:** *Administer Jira* [global permission](https://confluence.atlassian.com/x/x4dKLg).
+        /// Updates an issue priority.At least one request body parameter must be defined.**Deprecation notice:** The `iconUrl` parameter was sunset on 16th Mar 2025, and replaced with `avatarId`. See [CHANGE-1525](https://developer.atlassian.com/changelog/#CHANGE-1525).**[Permissions](#permissions) required:** *Administer Jira* [global permission](https://confluence.atlassian.com/x/x4dKLg).
         /// </summary>
         /// <param name="body">Details of an issue priority.</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -91,7 +91,6 @@ namespace Kubis1982.Atlassian.Jira.RestClient.Rest.Api.Three.Priority.Item
         /// <exception cref="global::Kubis1982.Atlassian.Jira.RestClient.Models.ErrorCollection">When receiving a 401 status code</exception>
         /// <exception cref="global::Kubis1982.Atlassian.Jira.RestClient.Models.ErrorCollection">When receiving a 403 status code</exception>
         /// <exception cref="global::Kubis1982.Atlassian.Jira.RestClient.Models.ErrorCollection">When receiving a 404 status code</exception>
-        [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task PutAsync(global::Kubis1982.Atlassian.Jira.RestClient.Models.UpdatePriorityDetails body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -132,7 +131,7 @@ namespace Kubis1982.Atlassian.Jira.RestClient.Rest.Api.Three.Priority.Item
             return requestInfo;
         }
         /// <summary>
-        /// Returns an issue priority.**[Permissions](#permissions) required:** Permission to access Jira.
+        /// Returns an issue priority. To fetch multiple priorities at once, use [Search priorities](#api-rest-api-3-priority-search-get) instead.**[Permissions](#permissions) required:** Permission to access Jira.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -151,12 +150,11 @@ namespace Kubis1982.Atlassian.Jira.RestClient.Rest.Api.Three.Priority.Item
             return requestInfo;
         }
         /// <summary>
-        /// Updates an issue priority.At least one request body parameter must be defined.Deprecation applies to iconUrl param in request body which will be sunset on 16th Mar 2025. For more details refer to [changelog](https://developer.atlassian.com/changelog/#CHANGE-1525).**[Permissions](#permissions) required:** *Administer Jira* [global permission](https://confluence.atlassian.com/x/x4dKLg).
+        /// Updates an issue priority.At least one request body parameter must be defined.**Deprecation notice:** The `iconUrl` parameter was sunset on 16th Mar 2025, and replaced with `avatarId`. See [CHANGE-1525](https://developer.atlassian.com/changelog/#CHANGE-1525).**[Permissions](#permissions) required:** *Administer Jira* [global permission](https://confluence.atlassian.com/x/x4dKLg).
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">Details of an issue priority.</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public RequestInformation ToPutRequestInformation(global::Kubis1982.Atlassian.Jira.RestClient.Models.UpdatePriorityDetails body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)

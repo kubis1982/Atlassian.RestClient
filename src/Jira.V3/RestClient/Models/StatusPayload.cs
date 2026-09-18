@@ -39,6 +39,8 @@ namespace Kubis1982.Atlassian.Jira.RestClient.Models
 #else
         public global::Kubis1982.Atlassian.Jira.RestClient.Models.ProjectCreateResourceIdentifier Pcri { get; set; }
 #endif
+        /// <summary>The scope of the status. Set to GLOBAL to make the status shared across projects. Leave null for the default (project-scoped) behaviour.</summary>
+        public global::Kubis1982.Atlassian.Jira.RestClient.Models.StatusPayload_scope? Scope { get; set; }
         /// <summary>The status category of the status. The value is case-sensitive.</summary>
         public global::Kubis1982.Atlassian.Jira.RestClient.Models.StatusPayload_statusCategory? StatusCategory { get; set; }
         /// <summary>
@@ -63,6 +65,7 @@ namespace Kubis1982.Atlassian.Jira.RestClient.Models
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "onConflict", n => { OnConflict = n.GetEnumValue<global::Kubis1982.Atlassian.Jira.RestClient.Models.StatusPayload_onConflict>(); } },
                 { "pcri", n => { Pcri = n.GetObjectValue<global::Kubis1982.Atlassian.Jira.RestClient.Models.ProjectCreateResourceIdentifier>(global::Kubis1982.Atlassian.Jira.RestClient.Models.ProjectCreateResourceIdentifier.CreateFromDiscriminatorValue); } },
+                { "scope", n => { Scope = n.GetEnumValue<global::Kubis1982.Atlassian.Jira.RestClient.Models.StatusPayload_scope>(); } },
                 { "statusCategory", n => { StatusCategory = n.GetEnumValue<global::Kubis1982.Atlassian.Jira.RestClient.Models.StatusPayload_statusCategory>(); } },
             };
         }
@@ -77,6 +80,7 @@ namespace Kubis1982.Atlassian.Jira.RestClient.Models
             writer.WriteStringValue("name", Name);
             writer.WriteEnumValue<global::Kubis1982.Atlassian.Jira.RestClient.Models.StatusPayload_onConflict>("onConflict", OnConflict);
             writer.WriteObjectValue<global::Kubis1982.Atlassian.Jira.RestClient.Models.ProjectCreateResourceIdentifier>("pcri", Pcri);
+            writer.WriteEnumValue<global::Kubis1982.Atlassian.Jira.RestClient.Models.StatusPayload_scope>("scope", Scope);
             writer.WriteEnumValue<global::Kubis1982.Atlassian.Jira.RestClient.Models.StatusPayload_statusCategory>("statusCategory", StatusCategory);
         }
     }

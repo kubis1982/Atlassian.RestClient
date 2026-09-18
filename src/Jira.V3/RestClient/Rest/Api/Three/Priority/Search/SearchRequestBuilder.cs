@@ -34,13 +34,12 @@ namespace Kubis1982.Atlassian.Jira.RestClient.Rest.Api.Three.Priority.Search
         {
         }
         /// <summary>
-        /// Returns a [paginated](#pagination) list of priorities. The list can contain all priorities or a subset determined by any combination of these criteria: *  a list of priority IDs. Any invalid priority IDs are ignored. *  a list of project IDs. Only priorities that are available in these projects will be returned. Any invalid project IDs are ignored. *  whether the field configuration is a default. This returns priorities from company-managed (classic) projects only, as there is no concept of default priorities in team-managed projects.**[Permissions](#permissions) required:** Permission to access Jira.
+        /// Returns a [paginated](#pagination) list of priorities. The list can contain all priorities or a subset determined by any combination of these criteria: *  a list of priority IDs. Any invalid priority IDs are ignored. *  a list of project IDs. Only priorities that are available in these projects will be returned. Any invalid project IDs are ignored. *  whether the field configuration is a default. This returns priorities from company-managed (classic) projects only, as there is no concept of default priorities in team-managed projects.**Deprecation notice:** The `onlyDefault` parameter is deprecated and will be removed at a later date. See [CHANGE-1655](https://developer.atlassian.com/cloud/jira/platform/changelog/#CHANGE-1655).**Deprecation notice:** The `isDefault` property of priorities is deprecated and will be removed at a later date. See [CHANGE-1655](https://developer.atlassian.com/cloud/jira/platform/changelog/#CHANGE-1655).**[Permissions](#permissions) required:** Permission to access Jira.
         /// </summary>
         /// <returns>A <see cref="global::Kubis1982.Atlassian.Jira.RestClient.Models.PageBeanPriority"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Kubis1982.Atlassian.Jira.RestClient.Models.ErrorCollection">When receiving a 401 status code</exception>
-        [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Kubis1982.Atlassian.Jira.RestClient.Models.PageBeanPriority?> GetAsync(Action<RequestConfiguration<global::Kubis1982.Atlassian.Jira.RestClient.Rest.Api.Three.Priority.Search.SearchRequestBuilder.SearchRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -58,11 +57,10 @@ namespace Kubis1982.Atlassian.Jira.RestClient.Rest.Api.Three.Priority.Search
             return await RequestAdapter.SendAsync<global::Kubis1982.Atlassian.Jira.RestClient.Models.PageBeanPriority>(requestInfo, global::Kubis1982.Atlassian.Jira.RestClient.Models.PageBeanPriority.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Returns a [paginated](#pagination) list of priorities. The list can contain all priorities or a subset determined by any combination of these criteria: *  a list of priority IDs. Any invalid priority IDs are ignored. *  a list of project IDs. Only priorities that are available in these projects will be returned. Any invalid project IDs are ignored. *  whether the field configuration is a default. This returns priorities from company-managed (classic) projects only, as there is no concept of default priorities in team-managed projects.**[Permissions](#permissions) required:** Permission to access Jira.
+        /// Returns a [paginated](#pagination) list of priorities. The list can contain all priorities or a subset determined by any combination of these criteria: *  a list of priority IDs. Any invalid priority IDs are ignored. *  a list of project IDs. Only priorities that are available in these projects will be returned. Any invalid project IDs are ignored. *  whether the field configuration is a default. This returns priorities from company-managed (classic) projects only, as there is no concept of default priorities in team-managed projects.**Deprecation notice:** The `onlyDefault` parameter is deprecated and will be removed at a later date. See [CHANGE-1655](https://developer.atlassian.com/cloud/jira/platform/changelog/#CHANGE-1655).**Deprecation notice:** The `isDefault` property of priorities is deprecated and will be removed at a later date. See [CHANGE-1655](https://developer.atlassian.com/cloud/jira/platform/changelog/#CHANGE-1655).**[Permissions](#permissions) required:** Permission to access Jira.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Kubis1982.Atlassian.Jira.RestClient.Rest.Api.Three.Priority.Search.SearchRequestBuilder.SearchRequestBuilderGetQueryParameters>>? requestConfiguration = default)
@@ -82,13 +80,12 @@ namespace Kubis1982.Atlassian.Jira.RestClient.Rest.Api.Three.Priority.Search
         /// </summary>
         /// <returns>A <see cref="global::Kubis1982.Atlassian.Jira.RestClient.Rest.Api.Three.Priority.Search.SearchRequestBuilder"/></returns>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        [Obsolete("")]
         public global::Kubis1982.Atlassian.Jira.RestClient.Rest.Api.Three.Priority.Search.SearchRequestBuilder WithUrl(string rawUrl)
         {
             return new global::Kubis1982.Atlassian.Jira.RestClient.Rest.Api.Three.Priority.Search.SearchRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Returns a [paginated](#pagination) list of priorities. The list can contain all priorities or a subset determined by any combination of these criteria: *  a list of priority IDs. Any invalid priority IDs are ignored. *  a list of project IDs. Only priorities that are available in these projects will be returned. Any invalid project IDs are ignored. *  whether the field configuration is a default. This returns priorities from company-managed (classic) projects only, as there is no concept of default priorities in team-managed projects.**[Permissions](#permissions) required:** Permission to access Jira.
+        /// Returns a [paginated](#pagination) list of priorities. The list can contain all priorities or a subset determined by any combination of these criteria: *  a list of priority IDs. Any invalid priority IDs are ignored. *  a list of project IDs. Only priorities that are available in these projects will be returned. Any invalid project IDs are ignored. *  whether the field configuration is a default. This returns priorities from company-managed (classic) projects only, as there is no concept of default priorities in team-managed projects.**Deprecation notice:** The `onlyDefault` parameter is deprecated and will be removed at a later date. See [CHANGE-1655](https://developer.atlassian.com/cloud/jira/platform/changelog/#CHANGE-1655).**Deprecation notice:** The `isDefault` property of priorities is deprecated and will be removed at a later date. See [CHANGE-1655](https://developer.atlassian.com/cloud/jira/platform/changelog/#CHANGE-1655).**[Permissions](#permissions) required:** Permission to access Jira.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class SearchRequestBuilderGetQueryParameters 

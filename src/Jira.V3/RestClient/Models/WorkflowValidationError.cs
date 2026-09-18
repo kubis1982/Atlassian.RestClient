@@ -13,6 +13,14 @@ namespace Kubis1982.Atlassian.Jira.RestClient.Models
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class WorkflowValidationError : IParsable
     {
+        /// <summary>Additional details about the validation error.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? AdditionalDetails { get; set; }
+#nullable restore
+#else
+        public string AdditionalDetails { get; set; }
+#endif
         /// <summary>An error code.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -59,6 +67,7 @@ namespace Kubis1982.Atlassian.Jira.RestClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "additionalDetails", n => { AdditionalDetails = n.GetStringValue(); } },
                 { "code", n => { Code = n.GetStringValue(); } },
                 { "elementReference", n => { ElementReference = n.GetObjectValue<global::Kubis1982.Atlassian.Jira.RestClient.Models.WorkflowElementReference>(global::Kubis1982.Atlassian.Jira.RestClient.Models.WorkflowElementReference.CreateFromDiscriminatorValue); } },
                 { "level", n => { Level = n.GetEnumValue<global::Kubis1982.Atlassian.Jira.RestClient.Models.WorkflowValidationError_level>(); } },
@@ -73,6 +82,7 @@ namespace Kubis1982.Atlassian.Jira.RestClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteStringValue("additionalDetails", AdditionalDetails);
             writer.WriteStringValue("code", Code);
             writer.WriteObjectValue<global::Kubis1982.Atlassian.Jira.RestClient.Models.WorkflowElementReference>("elementReference", ElementReference);
             writer.WriteEnumValue<global::Kubis1982.Atlassian.Jira.RestClient.Models.WorkflowValidationError_level>("level", Level);

@@ -1,6 +1,6 @@
 {
-  "descriptionHash": "F154312A43A014E465680E083A12F94289497326350FEAF312FF87ADCEFB866C9D251BE622826729E051C87F29F7D8DC8DE4D8F6C5C92FFCC7239B7B7A10C45E",
-  "descriptionLocation": "https://dac-static.atlassian.com/cloud/jira/platform/swagger-v3.v3.json?_v=1.8458.0",
+  "descriptionHash": "06769C306F4AA5EC617D924B8B89B7B5EBA9671F941A44B23C22691379492F630B55D1F0D23F69BBD7A39D624FD24E9E1B718BEED1F9EA8E4672106ED6305B7E",
+  "descriptionLocation": "https://dac-static.atlassian.com/cloud/jira/platform/swagger-v3.v3.json?_v=1.8516.116",
   "lockFileVersion": "1.0.0",
   "kiotaVersion": "1.31.0",
   "clientClassName": "JiraRestClient",

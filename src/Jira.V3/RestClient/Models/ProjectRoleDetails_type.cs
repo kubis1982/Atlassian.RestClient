@@ -15,5 +15,9 @@ namespace Kubis1982.Atlassian.Jira.RestClient.Models
         #pragma warning disable CS1591
         GUEST_ROLE,
         #pragma warning restore CS1591
+        [EnumMember(Value = "AI_AGENT_ROLE")]
+        #pragma warning disable CS1591
+        AI_AGENT_ROLE,
+        #pragma warning restore CS1591
     }
 }

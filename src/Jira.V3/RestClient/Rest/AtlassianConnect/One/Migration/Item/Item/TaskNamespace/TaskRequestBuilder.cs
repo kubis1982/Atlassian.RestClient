@@ -22,7 +22,7 @@ namespace Kubis1982.Atlassian.Jira.RestClient.Rest.AtlassianConnect.One.Migratio
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public TaskRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/rest/atlassian-connect/1/migration/{connectKey}/{jiraIssueFieldsKey}/task", pathParameters)
+        public TaskRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/rest/atlassian-connect/1/migration/{connectKey}/{jiraIssueFieldsKey}/task{?retriggerCompletedMigration*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Kubis1982.Atlassian.Jira.RestClient.Rest.AtlassianConnect.One.Migratio
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public TaskRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/rest/atlassian-connect/1/migration/{connectKey}/{jiraIssueFieldsKey}/task", rawUrl)
+        public TaskRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/rest/atlassian-connect/1/migration/{connectKey}/{jiraIssueFieldsKey}/task{?retriggerCompletedMigration*}", rawUrl)
         {
         }
         /// <summary>
@@ -68,11 +68,11 @@ namespace Kubis1982.Atlassian.Jira.RestClient.Rest.AtlassianConnect.One.Migratio
         /// <exception cref="global::Kubis1982.Atlassian.Jira.RestClient.Models.OperationMessage">When receiving a 409 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task PostAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task PostAsync(Action<RequestConfiguration<global::Kubis1982.Atlassian.Jira.RestClient.Rest.AtlassianConnect.One.Migration.Item.Item.TaskNamespace.TaskRequestBuilder.TaskRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task PostAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task PostAsync(Action<RequestConfiguration<global::Kubis1982.Atlassian.Jira.RestClient.Rest.AtlassianConnect.One.Migration.Item.Item.TaskNamespace.TaskRequestBuilder.TaskRequestBuilderPostQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToPostRequestInformation(requestConfiguration);
@@ -110,11 +110,11 @@ namespace Kubis1982.Atlassian.Jira.RestClient.Rest.AtlassianConnect.One.Migratio
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(Action<RequestConfiguration<global::Kubis1982.Atlassian.Jira.RestClient.Rest.AtlassianConnect.One.Migration.Item.Item.TaskNamespace.TaskRequestBuilder.TaskRequestBuilderPostQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(Action<RequestConfiguration<global::Kubis1982.Atlassian.Jira.RestClient.Rest.AtlassianConnect.One.Migration.Item.Item.TaskNamespace.TaskRequestBuilder.TaskRequestBuilderPostQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
@@ -140,11 +140,21 @@ namespace Kubis1982.Atlassian.Jira.RestClient.Rest.AtlassianConnect.One.Migratio
         {
         }
         /// <summary>
+        /// Submits a request to trigger migration of connect issue field to its Forge custom field counterpart.When migrating a Connect app to Forge, [Issue Field](https://developer.atlassian.com/cloud/jira/software/modules/issue-field/) modulesmust be converted to [Custom field](https://developer.atlassian.com/platform/forge/manifest-reference/modules/jira-custom-field/) modules.This endpoint triggers the background migration of field data. Use the GET endpoint to retrievethe status and progress of the task.For more details, see[Jira modules &gt; Jira Custom Fields](https://developer.atlassian.com/platform/adopting-forge-from-connect/migrate-jira-custom-fields/).**[Permissions](#permissions) required:** Only Connect and Forge apps can make this request.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+        public partial class TaskRequestBuilderPostQueryParameters 
+        {
+            /// <summary>Whether to retrigger the migration if it has already completed.</summary>
+            [QueryParameter("retriggerCompletedMigration")]
+            public bool? RetriggerCompletedMigration { get; set; }
+        }
+        /// <summary>
         /// Configuration for the request such as headers, query parameters, and middleware options.
         /// </summary>
         [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class TaskRequestBuilderPostRequestConfiguration : RequestConfiguration<DefaultQueryParameters>
+        public partial class TaskRequestBuilderPostRequestConfiguration : RequestConfiguration<global::Kubis1982.Atlassian.Jira.RestClient.Rest.AtlassianConnect.One.Migration.Item.Item.TaskNamespace.TaskRequestBuilder.TaskRequestBuilderPostQueryParameters>
         {
         }
     }

@@ -3,17 +3,13 @@ using System.Runtime.Serialization;
 using System;
 namespace Kubis1982.Atlassian.Jira.RestClient.Models
 {
-    /// <summary>The compound condition operator.</summary>
+    /// <summary>The scope of the status. Set to GLOBAL to make the status shared across projects. Leave null for the default (project-scoped) behaviour.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public enum CreateWorkflowCondition_operator
+    public enum StatusPayload_scope
     {
-        [EnumMember(Value = "AND")]
+        [EnumMember(Value = "GLOBAL")]
         #pragma warning disable CS1591
-        AND,
-        #pragma warning restore CS1591
-        [EnumMember(Value = "OR")]
-        #pragma warning disable CS1591
-        OR,
+        GLOBAL,
         #pragma warning restore CS1591
     }
 }

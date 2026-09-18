@@ -22,7 +22,7 @@ namespace Kubis1982.Atlassian.Jira.RestClient.Rest.Api.Three.Search.Jql
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public JqlRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/rest/api/3/search/jql{?expand*,failFast*,fields*,fieldsByKeys*,jql*,maxResults*,nextPageToken*,properties*,reconcileIssues*}", pathParameters)
+        public JqlRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/rest/api/3/search/jql{?expand*,failFast*,fields*,fieldsByKeys*,includeArchivedProjects*,jql*,maxResults*,nextPageToken*,properties*,reconcileIssues*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Kubis1982.Atlassian.Jira.RestClient.Rest.Api.Three.Search.Jql
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public JqlRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/rest/api/3/search/jql{?expand*,failFast*,fields*,fieldsByKeys*,jql*,maxResults*,nextPageToken*,properties*,reconcileIssues*}", rawUrl)
+        public JqlRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/rest/api/3/search/jql{?expand*,failFast*,fields*,fieldsByKeys*,includeArchivedProjects*,jql*,maxResults*,nextPageToken*,properties*,reconcileIssues*}", rawUrl)
         {
         }
         /// <summary>
@@ -153,6 +153,9 @@ namespace Kubis1982.Atlassian.Jira.RestClient.Rest.Api.Three.Search.Jql
             /// <summary>Reference fields by their key (rather than ID). The default is `false`.</summary>
             [QueryParameter("fieldsByKeys")]
             public bool? FieldsByKeys { get; set; }
+            /// <summary>Whether to also return issues that belong to [archived projects](https://support.atlassian.com/jira-cloud-administration/docs/archive-a-project/). Issues in archived projects are excluded by default. Setting this to `true` returns them alongside issues from active projects; the *Browse projects* permission is still required on the archived project. The default is `false`.</summary>
+            [QueryParameter("includeArchivedProjects")]
+            public bool? IncludeArchivedProjects { get; set; }
             /// <summary>A [JQL](https://confluence.atlassian.com/x/egORLQ) expression. For performance reasons, this parameter requires a bounded query. A bounded query is a query with a search restriction. *  Example of an unbounded query: `order by key desc`. *  Example of a bounded query: `assignee = currentUser() order by key`.Additionally, `orderBy` clause can contain a maximum of 7 fields.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

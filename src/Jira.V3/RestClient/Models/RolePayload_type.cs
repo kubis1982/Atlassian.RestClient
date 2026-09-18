@@ -15,6 +15,10 @@ namespace Kubis1982.Atlassian.Jira.RestClient.Models
         #pragma warning disable CS1591
         VIEWABLE,
         #pragma warning restore CS1591
+        [EnumMember(Value = "AI_AGENT")]
+        #pragma warning disable CS1591
+        AI_AGENT,
+        #pragma warning restore CS1591
         [EnumMember(Value = "EDITABLE")]
         #pragma warning disable CS1591
         EDITABLE,

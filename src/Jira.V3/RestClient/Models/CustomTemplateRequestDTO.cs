@@ -13,6 +13,14 @@ namespace Kubis1982.Atlassian.Jira.RestClient.Models
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CustomTemplateRequestDTO : IParsable
     {
+        /// <summary>Configuration of features for one or more boards. Replaces the deprecated features field on BoardPayload</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Kubis1982.Atlassian.Jira.RestClient.Models.BoardFeaturesPayload? BoardFeatures { get; set; }
+#nullable restore
+#else
+        public global::Kubis1982.Atlassian.Jira.RestClient.Models.BoardFeaturesPayload BoardFeatures { get; set; }
+#endif
         /// <summary>The boards property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -111,6 +119,7 @@ namespace Kubis1982.Atlassian.Jira.RestClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "boardFeatures", n => { BoardFeatures = n.GetObjectValue<global::Kubis1982.Atlassian.Jira.RestClient.Models.BoardFeaturesPayload>(global::Kubis1982.Atlassian.Jira.RestClient.Models.BoardFeaturesPayload.CreateFromDiscriminatorValue); } },
                 { "boards", n => { Boards = n.GetObjectValue<global::Kubis1982.Atlassian.Jira.RestClient.Models.BoardsPayload>(global::Kubis1982.Atlassian.Jira.RestClient.Models.BoardsPayload.CreateFromDiscriminatorValue); } },
                 { "field", n => { Field = n.GetObjectValue<global::Kubis1982.Atlassian.Jira.RestClient.Models.FieldCapabilityPayload>(global::Kubis1982.Atlassian.Jira.RestClient.Models.FieldCapabilityPayload.CreateFromDiscriminatorValue); } },
                 { "issueType", n => { IssueType = n.GetObjectValue<global::Kubis1982.Atlassian.Jira.RestClient.Models.IssueTypeProjectCreatePayload>(global::Kubis1982.Atlassian.Jira.RestClient.Models.IssueTypeProjectCreatePayload.CreateFromDiscriminatorValue); } },
@@ -130,6 +139,7 @@ namespace Kubis1982.Atlassian.Jira.RestClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteObjectValue<global::Kubis1982.Atlassian.Jira.RestClient.Models.BoardFeaturesPayload>("boardFeatures", BoardFeatures);
             writer.WriteObjectValue<global::Kubis1982.Atlassian.Jira.RestClient.Models.BoardsPayload>("boards", Boards);
             writer.WriteObjectValue<global::Kubis1982.Atlassian.Jira.RestClient.Models.FieldCapabilityPayload>("field", Field);
             writer.WriteObjectValue<global::Kubis1982.Atlassian.Jira.RestClient.Models.IssueTypeProjectCreatePayload>("issueType", IssueType);

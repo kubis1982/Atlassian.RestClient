@@ -31,6 +31,14 @@ namespace Kubis1982.Atlassian.Jira.RestClient.Models
 #else
         public string Name { get; set; }
 #endif
+        /// <summary>Every project-created entity has an ID that must be unique within the scope of the project creation. PCRI (Project Create Resource Identifier) is a standard format for creating IDs and references to other project entities. PCRI format is defined as follows: pcri:\[entityType\]:\[type\]:\[entityId\] entityType - the type of an entity, e.g. status, role, workflow type - PCRI type, either `id` - The ID of an entity that already exists in the target site, or `ref` - A unique reference to an entity that is being created entityId - entity identifier, if type is `id` - must be an existing entity ID that exists in the Jira site, if `ref` - must be unique across all entities in the scope of this project template creation</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Kubis1982.Atlassian.Jira.RestClient.Models.ProjectCreateResourceIdentifier? Pcri { get; set; }
+#nullable restore
+#else
+        public global::Kubis1982.Atlassian.Jira.RestClient.Models.ProjectCreateResourceIdentifier Pcri { get; set; }
+#endif
         /// <summary>The members of the security level</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -60,6 +68,7 @@ namespace Kubis1982.Atlassian.Jira.RestClient.Models
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "isDefault", n => { IsDefault = n.GetBoolValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
+                { "pcri", n => { Pcri = n.GetObjectValue<global::Kubis1982.Atlassian.Jira.RestClient.Models.ProjectCreateResourceIdentifier>(global::Kubis1982.Atlassian.Jira.RestClient.Models.ProjectCreateResourceIdentifier.CreateFromDiscriminatorValue); } },
                 { "securityLevelMembers", n => { SecurityLevelMembers = n.GetCollectionOfObjectValues<global::Kubis1982.Atlassian.Jira.RestClient.Models.SecurityLevelMemberPayload>(global::Kubis1982.Atlassian.Jira.RestClient.Models.SecurityLevelMemberPayload.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
@@ -73,6 +82,7 @@ namespace Kubis1982.Atlassian.Jira.RestClient.Models
             writer.WriteStringValue("description", Description);
             writer.WriteBoolValue("isDefault", IsDefault);
             writer.WriteStringValue("name", Name);
+            writer.WriteObjectValue<global::Kubis1982.Atlassian.Jira.RestClient.Models.ProjectCreateResourceIdentifier>("pcri", Pcri);
             writer.WriteCollectionOfObjectValues<global::Kubis1982.Atlassian.Jira.RestClient.Models.SecurityLevelMemberPayload>("securityLevelMembers", SecurityLevelMembers);
         }
     }

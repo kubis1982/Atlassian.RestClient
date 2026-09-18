@@ -22,19 +22,16 @@ namespace Kubis1982.Atlassian.Jira.RestClient.Rest.Api.Three.Priority
     public partial class PriorityRequestBuilder : BaseRequestBuilder
     {
         /// <summary>The default property</summary>
-        [Obsolete("")]
         public global::Kubis1982.Atlassian.Jira.RestClient.Rest.Api.Three.Priority.Default.DefaultRequestBuilder Default
         {
             get => new global::Kubis1982.Atlassian.Jira.RestClient.Rest.Api.Three.Priority.Default.DefaultRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The move property</summary>
-        [Obsolete("")]
         public global::Kubis1982.Atlassian.Jira.RestClient.Rest.Api.Three.Priority.Move.MoveRequestBuilder Move
         {
             get => new global::Kubis1982.Atlassian.Jira.RestClient.Rest.Api.Three.Priority.Move.MoveRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The search property</summary>
-        [Obsolete("")]
         public global::Kubis1982.Atlassian.Jira.RestClient.Rest.Api.Three.Priority.Search.SearchRequestBuilder Search
         {
             get => new global::Kubis1982.Atlassian.Jira.RestClient.Rest.Api.Three.Priority.Search.SearchRequestBuilder(PathParameters, RequestAdapter);
@@ -68,7 +65,7 @@ namespace Kubis1982.Atlassian.Jira.RestClient.Rest.Api.Three.Priority
         {
         }
         /// <summary>
-        /// Returns the list of all issue priorities.**[Permissions](#permissions) required:** Permission to access Jira.
+        /// Returns the list of all issue priorities.**Deprecated:** Use [Search priorities](#api-rest-api-3-priority-search-get) instead. **[Permissions](#permissions) required:** Permission to access Jira.
         /// </summary>
         /// <returns>A List&lt;global::Kubis1982.Atlassian.Jira.RestClient.Models.Priority&gt;</returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -88,7 +85,7 @@ namespace Kubis1982.Atlassian.Jira.RestClient.Rest.Api.Three.Priority
             return collectionResult?.AsList();
         }
         /// <summary>
-        /// Creates an issue priority.Deprecation applies to iconUrl param in request body which will be sunset on 16th Mar 2025. For more details refer to [changelog](https://developer.atlassian.com/changelog/#CHANGE-1525).**[Permissions](#permissions) required:** *Administer Jira* [global permission](https://confluence.atlassian.com/x/x4dKLg).
+        /// Creates an issue priority.**Deprecation notice:** The `iconUrl` parameter was sunset on 16th Mar 2025, and replaced with `avatarId`. See [CHANGE-1525](https://developer.atlassian.com/changelog/#CHANGE-1525).**[Permissions](#permissions) required:** *Administer Jira* [global permission](https://confluence.atlassian.com/x/x4dKLg).
         /// </summary>
         /// <returns>A <see cref="global::Kubis1982.Atlassian.Jira.RestClient.Models.PriorityId"/></returns>
         /// <param name="body">Details of an issue priority.</param>
@@ -97,7 +94,6 @@ namespace Kubis1982.Atlassian.Jira.RestClient.Rest.Api.Three.Priority
         /// <exception cref="global::Kubis1982.Atlassian.Jira.RestClient.Models.ErrorCollection">When receiving a 400 status code</exception>
         /// <exception cref="global::Kubis1982.Atlassian.Jira.RestClient.Models.ErrorCollection">When receiving a 401 status code</exception>
         /// <exception cref="global::Kubis1982.Atlassian.Jira.RestClient.Models.ErrorCollection">When receiving a 403 status code</exception>
-        [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Kubis1982.Atlassian.Jira.RestClient.Models.PriorityId?> PostAsync(global::Kubis1982.Atlassian.Jira.RestClient.Models.CreatePriorityDetails body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -118,7 +114,7 @@ namespace Kubis1982.Atlassian.Jira.RestClient.Rest.Api.Three.Priority
             return await RequestAdapter.SendAsync<global::Kubis1982.Atlassian.Jira.RestClient.Models.PriorityId>(requestInfo, global::Kubis1982.Atlassian.Jira.RestClient.Models.PriorityId.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Returns the list of all issue priorities.**[Permissions](#permissions) required:** Permission to access Jira.
+        /// Returns the list of all issue priorities.**Deprecated:** Use [Search priorities](#api-rest-api-3-priority-search-get) instead. **[Permissions](#permissions) required:** Permission to access Jira.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -138,12 +134,11 @@ namespace Kubis1982.Atlassian.Jira.RestClient.Rest.Api.Three.Priority
             return requestInfo;
         }
         /// <summary>
-        /// Creates an issue priority.Deprecation applies to iconUrl param in request body which will be sunset on 16th Mar 2025. For more details refer to [changelog](https://developer.atlassian.com/changelog/#CHANGE-1525).**[Permissions](#permissions) required:** *Administer Jira* [global permission](https://confluence.atlassian.com/x/x4dKLg).
+        /// Creates an issue priority.**Deprecation notice:** The `iconUrl` parameter was sunset on 16th Mar 2025, and replaced with `avatarId`. See [CHANGE-1525](https://developer.atlassian.com/changelog/#CHANGE-1525).**[Permissions](#permissions) required:** *Administer Jira* [global permission](https://confluence.atlassian.com/x/x4dKLg).
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">Details of an issue priority.</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public RequestInformation ToPostRequestInformation(global::Kubis1982.Atlassian.Jira.RestClient.Models.CreatePriorityDetails body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
@@ -165,7 +160,6 @@ namespace Kubis1982.Atlassian.Jira.RestClient.Rest.Api.Three.Priority
         /// </summary>
         /// <returns>A <see cref="global::Kubis1982.Atlassian.Jira.RestClient.Rest.Api.Three.Priority.PriorityRequestBuilder"/></returns>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        [Obsolete("")]
         public global::Kubis1982.Atlassian.Jira.RestClient.Rest.Api.Three.Priority.PriorityRequestBuilder WithUrl(string rawUrl)
         {
             return new global::Kubis1982.Atlassian.Jira.RestClient.Rest.Api.Three.Priority.PriorityRequestBuilder(rawUrl, RequestAdapter);

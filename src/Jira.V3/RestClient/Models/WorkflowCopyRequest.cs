@@ -8,36 +8,44 @@ using System;
 namespace Kubis1982.Atlassian.Jira.RestClient.Models
 {
     /// <summary>
-    /// The classic workflow identifiers.
+    /// The copy workflow payload.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class WorkflowIDs : IParsable
+    public partial class WorkflowCopyRequest : IParsable
     {
-        /// <summary>The entity ID of the workflow.</summary>
+        /// <summary>The description of the new workflow to create. Defaults to an empty description.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? EntityId { get; set; }
+        public string? Description { get; set; }
 #nullable restore
 #else
-        public string EntityId { get; set; }
+        public string Description { get; set; }
 #endif
-        /// <summary>The name of the workflow.</summary>
+        /// <summary>The ID of the workflow to copy.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get; set; }
+        public string? WorkflowId { get; set; }
 #nullable restore
 #else
-        public string Name { get; set; }
+        public string WorkflowId { get; set; }
+#endif
+        /// <summary>The name of the new workflow to create.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? WorkflowName { get; set; }
+#nullable restore
+#else
+        public string WorkflowName { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Kubis1982.Atlassian.Jira.RestClient.Models.WorkflowIDs"/></returns>
+        /// <returns>A <see cref="global::Kubis1982.Atlassian.Jira.RestClient.Models.WorkflowCopyRequest"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Kubis1982.Atlassian.Jira.RestClient.Models.WorkflowIDs CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Kubis1982.Atlassian.Jira.RestClient.Models.WorkflowCopyRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Kubis1982.Atlassian.Jira.RestClient.Models.WorkflowIDs();
+            return new global::Kubis1982.Atlassian.Jira.RestClient.Models.WorkflowCopyRequest();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -47,8 +55,9 @@ namespace Kubis1982.Atlassian.Jira.RestClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "entityId", n => { EntityId = n.GetStringValue(); } },
-                { "name", n => { Name = n.GetStringValue(); } },
+                { "description", n => { Description = n.GetStringValue(); } },
+                { "workflowId", n => { WorkflowId = n.GetStringValue(); } },
+                { "workflowName", n => { WorkflowName = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -58,8 +67,9 @@ namespace Kubis1982.Atlassian.Jira.RestClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("entityId", EntityId);
-            writer.WriteStringValue("name", Name);
+            writer.WriteStringValue("description", Description);
+            writer.WriteStringValue("workflowId", WorkflowId);
+            writer.WriteStringValue("workflowName", WorkflowName);
         }
     }
 }

@@ -8,7 +8,7 @@ using System;
 namespace Kubis1982.Atlassian.Jira.RestClient.Models
 {
     /// <summary>
-    /// Map of project properties
+    /// Map of project properties. Only the properties named in the request&apos;s properties query parameter are returned, so this is an empty object when that parameter is omitted.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class Project_properties : IAdditionalDataHolder, IParsable

@@ -12,6 +12,14 @@ namespace Kubis1982.Atlassian.Jira.RestClient.Models
     public partial class IssueLimitReportResponseBean : IParsable
     #pragma warning restore CS1591
     {
+        /// <summary>For each field, the ids of the individual entities breaching the limit, grouped by the id or key of the issue they belong to. Fields that hold a single value, such as description and environment, map to an empty list because the issue itself identifies the breaching content</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Kubis1982.Atlassian.Jira.RestClient.Models.IssueLimitReportResponseBean_entitiesBreachingLimit? EntitiesBreachingLimit { get; set; }
+#nullable restore
+#else
+        public global::Kubis1982.Atlassian.Jira.RestClient.Models.IssueLimitReportResponseBean_entitiesBreachingLimit EntitiesBreachingLimit { get; set; }
+#endif
         /// <summary>A list of ids of issues approaching the limit and their field count</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -54,6 +62,7 @@ namespace Kubis1982.Atlassian.Jira.RestClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "entitiesBreachingLimit", n => { EntitiesBreachingLimit = n.GetObjectValue<global::Kubis1982.Atlassian.Jira.RestClient.Models.IssueLimitReportResponseBean_entitiesBreachingLimit>(global::Kubis1982.Atlassian.Jira.RestClient.Models.IssueLimitReportResponseBean_entitiesBreachingLimit.CreateFromDiscriminatorValue); } },
                 { "issuesApproachingLimit", n => { IssuesApproachingLimit = n.GetObjectValue<global::Kubis1982.Atlassian.Jira.RestClient.Models.IssueLimitReportResponseBean_issuesApproachingLimit>(global::Kubis1982.Atlassian.Jira.RestClient.Models.IssueLimitReportResponseBean_issuesApproachingLimit.CreateFromDiscriminatorValue); } },
                 { "issuesBreachingLimit", n => { IssuesBreachingLimit = n.GetObjectValue<global::Kubis1982.Atlassian.Jira.RestClient.Models.IssueLimitReportResponseBean_issuesBreachingLimit>(global::Kubis1982.Atlassian.Jira.RestClient.Models.IssueLimitReportResponseBean_issuesBreachingLimit.CreateFromDiscriminatorValue); } },
                 { "limits", n => { Limits = n.GetObjectValue<global::Kubis1982.Atlassian.Jira.RestClient.Models.IssueLimitReportResponseBean_limits>(global::Kubis1982.Atlassian.Jira.RestClient.Models.IssueLimitReportResponseBean_limits.CreateFromDiscriminatorValue); } },
@@ -66,6 +75,7 @@ namespace Kubis1982.Atlassian.Jira.RestClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteObjectValue<global::Kubis1982.Atlassian.Jira.RestClient.Models.IssueLimitReportResponseBean_entitiesBreachingLimit>("entitiesBreachingLimit", EntitiesBreachingLimit);
             writer.WriteObjectValue<global::Kubis1982.Atlassian.Jira.RestClient.Models.IssueLimitReportResponseBean_issuesApproachingLimit>("issuesApproachingLimit", IssuesApproachingLimit);
             writer.WriteObjectValue<global::Kubis1982.Atlassian.Jira.RestClient.Models.IssueLimitReportResponseBean_issuesBreachingLimit>("issuesBreachingLimit", IssuesBreachingLimit);
             writer.WriteObjectValue<global::Kubis1982.Atlassian.Jira.RestClient.Models.IssueLimitReportResponseBean_limits>("limits", Limits);

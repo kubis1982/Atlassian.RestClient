@@ -22,7 +22,7 @@ namespace Kubis1982.Atlassian.Jira.RestClient.Rest.Api.Three.App.Field.Item.Valu
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ValueRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/rest/api/3/app/field/{fieldIdOrKey}/value{?generateChangelog*}", pathParameters)
+        public ValueRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/rest/api/3/app/field/{fieldIdOrKey}/value{?generateAppEvents*,generateChangelog*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Kubis1982.Atlassian.Jira.RestClient.Rest.Api.Three.App.Field.Item.Valu
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ValueRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/rest/api/3/app/field/{fieldIdOrKey}/value{?generateChangelog*}", rawUrl)
+        public ValueRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/rest/api/3/app/field/{fieldIdOrKey}/value{?generateAppEvents*,generateChangelog*}", rawUrl)
         {
         }
         /// <summary>
@@ -89,6 +89,9 @@ namespace Kubis1982.Atlassian.Jira.RestClient.Rest.Api.Three.App.Field.Item.Valu
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class ValueRequestBuilderPutQueryParameters 
         {
+            /// <summary>Whether to generate app events for this update. Suppresses Forge, Connect, OAuth 2.0, and admin-configured webhooks (registered via the Jira admin UI). Note: Suppressing events means that &quot;issue updated&quot; events will not be emitted for your app or any other apps installed in Jira. This may cause other apps to retain stale data for the updated field, resulting in potentially confusing behaviour. We do not recommend using this flag in a Marketplace app as it may result in incompatibilities with other apps that depend on up-to-date issue data.</summary>
+            [QueryParameter("generateAppEvents")]
+            public bool? GenerateAppEvents { get; set; }
             /// <summary>Whether to generate a changelog for this update.</summary>
             [QueryParameter("generateChangelog")]
             public bool? GenerateChangelog { get; set; }

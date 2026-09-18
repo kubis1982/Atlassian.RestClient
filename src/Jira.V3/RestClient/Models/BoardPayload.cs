@@ -47,7 +47,10 @@ namespace Kubis1982.Atlassian.Jira.RestClient.Models
 #else
         public List<global::Kubis1982.Atlassian.Jira.RestClient.Models.BoardColumnPayload> Columns { get; set; }
 #endif
-        /// <summary>Feature settings for the board</summary>
+        /// <summary>Whether to enable the card cover option on this board</summary>
+        public bool? EnableCardCover { get; set; }
+        /// <summary>Feature settings for the board. Deprecated: use boardFeatures capability instead.</summary>
+        [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::Kubis1982.Atlassian.Jira.RestClient.Models.BoardFeaturePayload>? Features { get; set; }
@@ -120,6 +123,7 @@ namespace Kubis1982.Atlassian.Jira.RestClient.Models
                 { "cardLayout", n => { CardLayout = n.GetObjectValue<global::Kubis1982.Atlassian.Jira.RestClient.Models.CardLayout>(global::Kubis1982.Atlassian.Jira.RestClient.Models.CardLayout.CreateFromDiscriminatorValue); } },
                 { "cardLayouts", n => { CardLayouts = n.GetCollectionOfObjectValues<global::Kubis1982.Atlassian.Jira.RestClient.Models.CardLayoutField>(global::Kubis1982.Atlassian.Jira.RestClient.Models.CardLayoutField.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "columns", n => { Columns = n.GetCollectionOfObjectValues<global::Kubis1982.Atlassian.Jira.RestClient.Models.BoardColumnPayload>(global::Kubis1982.Atlassian.Jira.RestClient.Models.BoardColumnPayload.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "enableCardCover", n => { EnableCardCover = n.GetBoolValue(); } },
                 { "features", n => { Features = n.GetCollectionOfObjectValues<global::Kubis1982.Atlassian.Jira.RestClient.Models.BoardFeaturePayload>(global::Kubis1982.Atlassian.Jira.RestClient.Models.BoardFeaturePayload.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "pcri", n => { Pcri = n.GetObjectValue<global::Kubis1982.Atlassian.Jira.RestClient.Models.ProjectCreateResourceIdentifier>(global::Kubis1982.Atlassian.Jira.RestClient.Models.ProjectCreateResourceIdentifier.CreateFromDiscriminatorValue); } },
@@ -141,6 +145,7 @@ namespace Kubis1982.Atlassian.Jira.RestClient.Models
             writer.WriteObjectValue<global::Kubis1982.Atlassian.Jira.RestClient.Models.CardLayout>("cardLayout", CardLayout);
             writer.WriteCollectionOfObjectValues<global::Kubis1982.Atlassian.Jira.RestClient.Models.CardLayoutField>("cardLayouts", CardLayouts);
             writer.WriteCollectionOfObjectValues<global::Kubis1982.Atlassian.Jira.RestClient.Models.BoardColumnPayload>("columns", Columns);
+            writer.WriteBoolValue("enableCardCover", EnableCardCover);
             writer.WriteCollectionOfObjectValues<global::Kubis1982.Atlassian.Jira.RestClient.Models.BoardFeaturePayload>("features", Features);
             writer.WriteStringValue("name", Name);
             writer.WriteObjectValue<global::Kubis1982.Atlassian.Jira.RestClient.Models.ProjectCreateResourceIdentifier>("pcri", Pcri);

@@ -8,28 +8,40 @@ using System;
 namespace Kubis1982.Atlassian.Jira.RestClient.Models
 {
     /// <summary>
-    /// The details of a transition screen.
+    /// Experimental. Structured details about a JQL clause exceeding its argument limit.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class CreateWorkflowTransitionScreenDetails : IParsable
+    public partial class SearchWarningLimitDetails : IParsable
     {
-        /// <summary>The ID of the screen.</summary>
+        /// <summary>The actual number of arguments supplied that exceeded the limit.</summary>
+        public long? Actual { get; private set; }
+        /// <summary>The arguments passed to the JQL clause.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Id { get; set; }
+        public string? Arguments { get; private set; }
 #nullable restore
 #else
-        public string Id { get; set; }
+        public string Arguments { get; private set; }
 #endif
+        /// <summary>The JQL clause that triggered the limit, e.g. issueHistory().</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Clause { get; private set; }
+#nullable restore
+#else
+        public string Clause { get; private set; }
+#endif
+        /// <summary>The maximum number of arguments allowed for the clause.</summary>
+        public long? Limit { get; private set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Kubis1982.Atlassian.Jira.RestClient.Models.CreateWorkflowTransitionScreenDetails"/></returns>
+        /// <returns>A <see cref="global::Kubis1982.Atlassian.Jira.RestClient.Models.SearchWarningLimitDetails"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Kubis1982.Atlassian.Jira.RestClient.Models.CreateWorkflowTransitionScreenDetails CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Kubis1982.Atlassian.Jira.RestClient.Models.SearchWarningLimitDetails CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Kubis1982.Atlassian.Jira.RestClient.Models.CreateWorkflowTransitionScreenDetails();
+            return new global::Kubis1982.Atlassian.Jira.RestClient.Models.SearchWarningLimitDetails();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -39,7 +51,10 @@ namespace Kubis1982.Atlassian.Jira.RestClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "id", n => { Id = n.GetStringValue(); } },
+                { "actual", n => { Actual = n.GetLongValue(); } },
+                { "arguments", n => { Arguments = n.GetStringValue(); } },
+                { "clause", n => { Clause = n.GetStringValue(); } },
+                { "limit", n => { Limit = n.GetLongValue(); } },
             };
         }
         /// <summary>
@@ -49,7 +64,6 @@ namespace Kubis1982.Atlassian.Jira.RestClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("id", Id);
         }
     }
 }

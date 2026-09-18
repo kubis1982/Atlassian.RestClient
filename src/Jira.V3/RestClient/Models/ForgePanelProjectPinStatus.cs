@@ -8,36 +8,40 @@ using System;
 namespace Kubis1982.Atlassian.Jira.RestClient.Models
 {
     /// <summary>
-    /// A workflow transition rule.
+    /// The pin status of an issue panel (added by a Forge app) for a single project.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class CreateWorkflowTransitionRule : IParsable
+    public partial class ForgePanelProjectPinStatus : IParsable
     {
-        /// <summary>EXPERIMENTAL. The configuration of the transition rule.</summary>
+        /// <summary>The reason the pin status could not be read for the project. Null if the pin status was read successfully.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Kubis1982.Atlassian.Jira.RestClient.Models.CreateWorkflowTransitionRule_configuration? Configuration { get; set; }
+        public string? Error { get; set; }
 #nullable restore
 #else
-        public global::Kubis1982.Atlassian.Jira.RestClient.Models.CreateWorkflowTransitionRule_configuration Configuration { get; set; }
+        public string Error { get; set; }
 #endif
-        /// <summary>The type of the transition rule.</summary>
+        /// <summary>Whether the issue panel is currently pinned to the project.</summary>
+        public bool? Pinned { get; set; }
+        /// <summary>The time the issue panel was pinned to the project, in epoch milliseconds.</summary>
+        public long? PinnedAt { get; set; }
+        /// <summary>The project ID or key supplied in the request.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Type { get; set; }
+        public string? ProjectIdOrKey { get; set; }
 #nullable restore
 #else
-        public string Type { get; set; }
+        public string ProjectIdOrKey { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Kubis1982.Atlassian.Jira.RestClient.Models.CreateWorkflowTransitionRule"/></returns>
+        /// <returns>A <see cref="global::Kubis1982.Atlassian.Jira.RestClient.Models.ForgePanelProjectPinStatus"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Kubis1982.Atlassian.Jira.RestClient.Models.CreateWorkflowTransitionRule CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Kubis1982.Atlassian.Jira.RestClient.Models.ForgePanelProjectPinStatus CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Kubis1982.Atlassian.Jira.RestClient.Models.CreateWorkflowTransitionRule();
+            return new global::Kubis1982.Atlassian.Jira.RestClient.Models.ForgePanelProjectPinStatus();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -47,8 +51,10 @@ namespace Kubis1982.Atlassian.Jira.RestClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "configuration", n => { Configuration = n.GetObjectValue<global::Kubis1982.Atlassian.Jira.RestClient.Models.CreateWorkflowTransitionRule_configuration>(global::Kubis1982.Atlassian.Jira.RestClient.Models.CreateWorkflowTransitionRule_configuration.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetStringValue(); } },
+                { "error", n => { Error = n.GetStringValue(); } },
+                { "pinned", n => { Pinned = n.GetBoolValue(); } },
+                { "pinnedAt", n => { PinnedAt = n.GetLongValue(); } },
+                { "projectIdOrKey", n => { ProjectIdOrKey = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -58,8 +64,10 @@ namespace Kubis1982.Atlassian.Jira.RestClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Kubis1982.Atlassian.Jira.RestClient.Models.CreateWorkflowTransitionRule_configuration>("configuration", Configuration);
-            writer.WriteStringValue("type", Type);
+            writer.WriteStringValue("error", Error);
+            writer.WriteBoolValue("pinned", Pinned);
+            writer.WriteLongValue("pinnedAt", PinnedAt);
+            writer.WriteStringValue("projectIdOrKey", ProjectIdOrKey);
         }
     }
 }

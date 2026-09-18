@@ -13,7 +13,7 @@ namespace Kubis1982.Atlassian.Jira.RestClient.Models
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class WorkflowId : IParsable
     {
-        /// <summary>Whether the workflow is in the draft state.</summary>
+        /// <summary>**Deprecated:** Whether the workflow is in the draft state. The &apos;draft&apos; parameter will be removed from this API on [November 2, 2026](https://developer.atlassian.com/cloud/jira/platform/changelog/#CHANGE-3147).</summary>
         public bool? Draft { get; set; }
         /// <summary>The name of the workflow.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
