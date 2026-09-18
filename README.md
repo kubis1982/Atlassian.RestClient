@@ -63,9 +63,10 @@ dotnet add package Kubis1982.Atlassian.Confluense.RestClient.v2
 
 Each package is generated from official Atlassian OpenAPI specifications:
 
-- **Jira v3:** `https://dac-static.atlassian.com/cloud/jira/platform/swagger-v3.v3.json?_v=1.8453.0`
-- **Bitbucket v2:** `https://dac-static.atlassian.com/cloud/bitbucket/swagger.v3.json?_v=2.300.163`
-- **Confluence v2:** `https://dac-static.atlassian.com/cloud/confluence/openapi-v2.v3.json?_v=1.8453.0`
+- **Jira v2:** `https://dac-static.atlassian.com/cloud/jira/platform/swagger.v3.json?_v=1.8516.116`
+- **Jira v3:** `https://dac-static.atlassian.com/cloud/jira/platform/swagger-v3.v3.json?_v=1.8516.116`
+- **Bitbucket v2:** `https://dac-static.atlassian.com/cloud/bitbucket/swagger.v3.json?_v=2.300.191`
+- **Confluence v2:** `https://dac-static.atlassian.com/cloud/confluence/openapi-v2.v3.json?_v=1.8516.116`
 
 ## 📄 License
 
