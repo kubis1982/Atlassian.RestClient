@@ -112,6 +112,14 @@ namespace Kubis1982.Atlassian.Confluense.RestClient.Models
 #else
         public global::Kubis1982.Atlassian.Confluense.RestClient.Models.SpaceSingle_properties Properties { get; set; }
 #endif
+        /// <summary>The account ID of the user who owns this space.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? SpaceOwnerId { get; set; }
+#nullable restore
+#else
+        public string SpaceOwnerId { get; set; }
+#endif
         /// <summary>The status of the space.</summary>
         public global::Kubis1982.Atlassian.Confluense.RestClient.Models.SpaceStatus? Status { get; set; }
         /// <summary>The type of space.</summary>
@@ -154,6 +162,7 @@ namespace Kubis1982.Atlassian.Confluense.RestClient.Models
                 { "operations", n => { Operations = n.GetObjectValue<global::Kubis1982.Atlassian.Confluense.RestClient.Models.SpaceSingle_operations>(global::Kubis1982.Atlassian.Confluense.RestClient.Models.SpaceSingle_operations.CreateFromDiscriminatorValue); } },
                 { "permissions", n => { Permissions = n.GetObjectValue<global::Kubis1982.Atlassian.Confluense.RestClient.Models.SpaceSingle_permissions>(global::Kubis1982.Atlassian.Confluense.RestClient.Models.SpaceSingle_permissions.CreateFromDiscriminatorValue); } },
                 { "properties", n => { Properties = n.GetObjectValue<global::Kubis1982.Atlassian.Confluense.RestClient.Models.SpaceSingle_properties>(global::Kubis1982.Atlassian.Confluense.RestClient.Models.SpaceSingle_properties.CreateFromDiscriminatorValue); } },
+                { "spaceOwnerId", n => { SpaceOwnerId = n.GetStringValue(); } },
                 { "status", n => { Status = n.GetEnumValue<global::Kubis1982.Atlassian.Confluense.RestClient.Models.SpaceStatus>(); } },
                 { "type", n => { Type = n.GetEnumValue<global::Kubis1982.Atlassian.Confluense.RestClient.Models.SpaceType>(); } },
             };
@@ -178,6 +187,7 @@ namespace Kubis1982.Atlassian.Confluense.RestClient.Models
             writer.WriteObjectValue<global::Kubis1982.Atlassian.Confluense.RestClient.Models.SpaceSingle_operations>("operations", Operations);
             writer.WriteObjectValue<global::Kubis1982.Atlassian.Confluense.RestClient.Models.SpaceSingle_permissions>("permissions", Permissions);
             writer.WriteObjectValue<global::Kubis1982.Atlassian.Confluense.RestClient.Models.SpaceSingle_properties>("properties", Properties);
+            writer.WriteStringValue("spaceOwnerId", SpaceOwnerId);
             writer.WriteEnumValue<global::Kubis1982.Atlassian.Confluense.RestClient.Models.SpaceStatus>("status", Status);
             writer.WriteEnumValue<global::Kubis1982.Atlassian.Confluense.RestClient.Models.SpaceType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);

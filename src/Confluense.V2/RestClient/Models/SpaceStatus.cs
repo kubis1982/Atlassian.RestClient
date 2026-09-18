@@ -15,5 +15,9 @@ namespace Kubis1982.Atlassian.Confluense.RestClient.Models
         #pragma warning disable CS1591
         Archived,
         #pragma warning restore CS1591
+        [EnumMember(Value = "trashed")]
+        #pragma warning disable CS1591
+        Trashed,
+        #pragma warning restore CS1591
     }
 }

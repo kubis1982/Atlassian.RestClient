@@ -34,7 +34,7 @@ namespace Kubis1982.Atlassian.Confluense.RestClient.Spaces.Item.RoleAssignments
         {
         }
         /// <summary>
-        /// Retrieves the space role assignments.Available as part of the [Role-Based Access Controls Beta](https://community.atlassian.com/forums/Confluence-articles/Beta-Simplify-space-access-in-Confluence-with-roles/ba-p/3044550). **[Permissions](https://confluence.atlassian.com/x/_AozKw) required**:Permission to view the space.
+        /// Retrieves the space role assignments.Available on tenants with [Role-Based Access Control](https://support.atlassian.com/confluence-cloud/docs/manage-user-roles/). **[Permissions](https://confluence.atlassian.com/x/_AozKw) required**:Permission to view the space.
         /// </summary>
         /// <returns>A <see cref="global::Kubis1982.Atlassian.Confluense.RestClient.Spaces.Item.RoleAssignments.RoleAssignmentsGetResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -52,7 +52,7 @@ namespace Kubis1982.Atlassian.Confluense.RestClient.Spaces.Item.RoleAssignments
             return await RequestAdapter.SendAsync<global::Kubis1982.Atlassian.Confluense.RestClient.Spaces.Item.RoleAssignments.RoleAssignmentsGetResponse>(requestInfo, global::Kubis1982.Atlassian.Confluense.RestClient.Spaces.Item.RoleAssignments.RoleAssignmentsGetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Retrieves the space role assignments.Available as part of the [Role-Based Access Controls Beta](https://community.atlassian.com/forums/Confluence-articles/Beta-Simplify-space-access-in-Confluence-with-roles/ba-p/3044550). **[Permissions](https://confluence.atlassian.com/x/_AozKw) required**:Permission to view the space.
+        /// Retrieves the space role assignments.Available on tenants with [Role-Based Access Control](https://support.atlassian.com/confluence-cloud/docs/manage-user-roles/). **[Permissions](https://confluence.atlassian.com/x/_AozKw) required**:Permission to view the space.
         /// </summary>
         /// <returns>A <see cref="global::Kubis1982.Atlassian.Confluense.RestClient.Spaces.Item.RoleAssignments.RoleAssignmentsResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -71,7 +71,7 @@ namespace Kubis1982.Atlassian.Confluense.RestClient.Spaces.Item.RoleAssignments
             return await RequestAdapter.SendAsync<global::Kubis1982.Atlassian.Confluense.RestClient.Spaces.Item.RoleAssignments.RoleAssignmentsResponse>(requestInfo, global::Kubis1982.Atlassian.Confluense.RestClient.Spaces.Item.RoleAssignments.RoleAssignmentsResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Sets space role assignments as specified in the payload.Available as part of the [Role-Based Access Controls Beta](https://community.atlassian.com/forums/Confluence-articles/Beta-Simplify-space-access-in-Confluence-with-roles/ba-p/3044550). **[Permissions](https://confluence.atlassian.com/x/_AozKw) required**:Permission to manage roles in the space.
+        /// Sets space role assignments as specified in the payload. For each entry, if `roleId` is providedthe principal is assigned to that role. If `roleId` is omitted, the role assignment for that principal is removed, if it exists.Available on tenants with [Role-Based Access Control](https://support.atlassian.com/confluence-cloud/docs/manage-user-roles/). **[Permissions](https://confluence.atlassian.com/x/_AozKw) required**:Permission to manage roles in the space.
         /// </summary>
         /// <returns>A <see cref="global::Kubis1982.Atlassian.Confluense.RestClient.Spaces.Item.RoleAssignments.RoleAssignmentsPostResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -91,7 +91,7 @@ namespace Kubis1982.Atlassian.Confluense.RestClient.Spaces.Item.RoleAssignments
             return await RequestAdapter.SendAsync<global::Kubis1982.Atlassian.Confluense.RestClient.Spaces.Item.RoleAssignments.RoleAssignmentsPostResponse>(requestInfo, global::Kubis1982.Atlassian.Confluense.RestClient.Spaces.Item.RoleAssignments.RoleAssignmentsPostResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Sets space role assignments as specified in the payload.Available as part of the [Role-Based Access Controls Beta](https://community.atlassian.com/forums/Confluence-articles/Beta-Simplify-space-access-in-Confluence-with-roles/ba-p/3044550). **[Permissions](https://confluence.atlassian.com/x/_AozKw) required**:Permission to manage roles in the space.
+        /// Sets space role assignments as specified in the payload. For each entry, if `roleId` is providedthe principal is assigned to that role. If `roleId` is omitted, the role assignment for that principal is removed, if it exists.Available on tenants with [Role-Based Access Control](https://support.atlassian.com/confluence-cloud/docs/manage-user-roles/). **[Permissions](https://confluence.atlassian.com/x/_AozKw) required**:Permission to manage roles in the space.
         /// </summary>
         /// <returns>A <see cref="global::Kubis1982.Atlassian.Confluense.RestClient.Spaces.Item.RoleAssignments.RoleAssignmentsResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -112,7 +112,7 @@ namespace Kubis1982.Atlassian.Confluense.RestClient.Spaces.Item.RoleAssignments
             return await RequestAdapter.SendAsync<global::Kubis1982.Atlassian.Confluense.RestClient.Spaces.Item.RoleAssignments.RoleAssignmentsResponse>(requestInfo, global::Kubis1982.Atlassian.Confluense.RestClient.Spaces.Item.RoleAssignments.RoleAssignmentsResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Retrieves the space role assignments.Available as part of the [Role-Based Access Controls Beta](https://community.atlassian.com/forums/Confluence-articles/Beta-Simplify-space-access-in-Confluence-with-roles/ba-p/3044550). **[Permissions](https://confluence.atlassian.com/x/_AozKw) required**:Permission to view the space.
+        /// Retrieves the space role assignments.Available on tenants with [Role-Based Access Control](https://support.atlassian.com/confluence-cloud/docs/manage-user-roles/). **[Permissions](https://confluence.atlassian.com/x/_AozKw) required**:Permission to view the space.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -131,7 +131,7 @@ namespace Kubis1982.Atlassian.Confluense.RestClient.Spaces.Item.RoleAssignments
             return requestInfo;
         }
         /// <summary>
-        /// Sets space role assignments as specified in the payload.Available as part of the [Role-Based Access Controls Beta](https://community.atlassian.com/forums/Confluence-articles/Beta-Simplify-space-access-in-Confluence-with-roles/ba-p/3044550). **[Permissions](https://confluence.atlassian.com/x/_AozKw) required**:Permission to manage roles in the space.
+        /// Sets space role assignments as specified in the payload. For each entry, if `roleId` is providedthe principal is assigned to that role. If `roleId` is omitted, the role assignment for that principal is removed, if it exists.Available on tenants with [Role-Based Access Control](https://support.atlassian.com/confluence-cloud/docs/manage-user-roles/). **[Permissions](https://confluence.atlassian.com/x/_AozKw) required**:Permission to manage roles in the space.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -162,7 +162,7 @@ namespace Kubis1982.Atlassian.Confluense.RestClient.Spaces.Item.RoleAssignments
             return new global::Kubis1982.Atlassian.Confluense.RestClient.Spaces.Item.RoleAssignments.RoleAssignmentsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Retrieves the space role assignments.Available as part of the [Role-Based Access Controls Beta](https://community.atlassian.com/forums/Confluence-articles/Beta-Simplify-space-access-in-Confluence-with-roles/ba-p/3044550). **[Permissions](https://confluence.atlassian.com/x/_AozKw) required**:Permission to view the space.
+        /// Retrieves the space role assignments.Available on tenants with [Role-Based Access Control](https://support.atlassian.com/confluence-cloud/docs/manage-user-roles/). **[Permissions](https://confluence.atlassian.com/x/_AozKw) required**:Permission to view the space.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class RoleAssignmentsRequestBuilderGetQueryParameters 

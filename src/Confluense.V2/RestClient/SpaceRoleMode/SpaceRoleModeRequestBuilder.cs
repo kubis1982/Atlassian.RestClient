@@ -33,7 +33,7 @@ namespace Kubis1982.Atlassian.Confluense.RestClient.SpaceRoleMode
         {
         }
         /// <summary>
-        /// Retrieves the space role mode.Available as part of the [Role-Based Access Controls Beta](https://community.atlassian.com/forums/Confluence-articles/Beta-Simplify-space-access-in-Confluence-with-roles/ba-p/3044550). **[Permissions](https://confluence.atlassian.com/x/_AozKw) required**:Permission to access the Confluence site (&apos;Can use&apos; global permission).
+        /// Retrieves the space role mode.Available on tenants with [Role-Based Access Control](https://support.atlassian.com/confluence-cloud/docs/manage-user-roles/). **[Permissions](https://confluence.atlassian.com/x/_AozKw) required**:Permission to access the Confluence site (&apos;Can use&apos; global permission).
         /// </summary>
         /// <returns>A <see cref="global::Kubis1982.Atlassian.Confluense.RestClient.SpaceRoleMode.SpaceRoleModeGetResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -51,7 +51,7 @@ namespace Kubis1982.Atlassian.Confluense.RestClient.SpaceRoleMode
             return await RequestAdapter.SendAsync<global::Kubis1982.Atlassian.Confluense.RestClient.SpaceRoleMode.SpaceRoleModeGetResponse>(requestInfo, global::Kubis1982.Atlassian.Confluense.RestClient.SpaceRoleMode.SpaceRoleModeGetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Retrieves the space role mode.Available as part of the [Role-Based Access Controls Beta](https://community.atlassian.com/forums/Confluence-articles/Beta-Simplify-space-access-in-Confluence-with-roles/ba-p/3044550). **[Permissions](https://confluence.atlassian.com/x/_AozKw) required**:Permission to access the Confluence site (&apos;Can use&apos; global permission).
+        /// Retrieves the space role mode.Available on tenants with [Role-Based Access Control](https://support.atlassian.com/confluence-cloud/docs/manage-user-roles/). **[Permissions](https://confluence.atlassian.com/x/_AozKw) required**:Permission to access the Confluence site (&apos;Can use&apos; global permission).
         /// </summary>
         /// <returns>A <see cref="global::Kubis1982.Atlassian.Confluense.RestClient.SpaceRoleMode.SpaceRoleModeResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -70,7 +70,7 @@ namespace Kubis1982.Atlassian.Confluense.RestClient.SpaceRoleMode
             return await RequestAdapter.SendAsync<global::Kubis1982.Atlassian.Confluense.RestClient.SpaceRoleMode.SpaceRoleModeResponse>(requestInfo, global::Kubis1982.Atlassian.Confluense.RestClient.SpaceRoleMode.SpaceRoleModeResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Retrieves the space role mode.Available as part of the [Role-Based Access Controls Beta](https://community.atlassian.com/forums/Confluence-articles/Beta-Simplify-space-access-in-Confluence-with-roles/ba-p/3044550). **[Permissions](https://confluence.atlassian.com/x/_AozKw) required**:Permission to access the Confluence site (&apos;Can use&apos; global permission).
+        /// Retrieves the space role mode.Available on tenants with [Role-Based Access Control](https://support.atlassian.com/confluence-cloud/docs/manage-user-roles/). **[Permissions](https://confluence.atlassian.com/x/_AozKw) required**:Permission to access the Confluence site (&apos;Can use&apos; global permission).
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

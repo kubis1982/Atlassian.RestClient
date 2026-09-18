@@ -88,6 +88,14 @@ namespace Kubis1982.Atlassian.Confluense.RestClient.Models
 #else
         public string Name { get; set; }
 #endif
+        /// <summary>The account ID of the user who owns this space.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? SpaceOwnerId { get; set; }
+#nullable restore
+#else
+        public string SpaceOwnerId { get; set; }
+#endif
         /// <summary>The status of the space.</summary>
         public global::Kubis1982.Atlassian.Confluense.RestClient.Models.SpaceStatus? Status { get; set; }
         /// <summary>The type of space.</summary>
@@ -127,6 +135,7 @@ namespace Kubis1982.Atlassian.Confluense.RestClient.Models
                 { "key", n => { Key = n.GetStringValue(); } },
                 { "_links", n => { Links = n.GetObjectValue<global::Kubis1982.Atlassian.Confluense.RestClient.Models.SpaceLinks>(global::Kubis1982.Atlassian.Confluense.RestClient.Models.SpaceLinks.CreateFromDiscriminatorValue); } },
                 { "name", n => { Name = n.GetStringValue(); } },
+                { "spaceOwnerId", n => { SpaceOwnerId = n.GetStringValue(); } },
                 { "status", n => { Status = n.GetEnumValue<global::Kubis1982.Atlassian.Confluense.RestClient.Models.SpaceStatus>(); } },
                 { "type", n => { Type = n.GetEnumValue<global::Kubis1982.Atlassian.Confluense.RestClient.Models.SpaceType>(); } },
             };
@@ -148,6 +157,7 @@ namespace Kubis1982.Atlassian.Confluense.RestClient.Models
             writer.WriteStringValue("key", Key);
             writer.WriteObjectValue<global::Kubis1982.Atlassian.Confluense.RestClient.Models.SpaceLinks>("_links", Links);
             writer.WriteStringValue("name", Name);
+            writer.WriteStringValue("spaceOwnerId", SpaceOwnerId);
             writer.WriteEnumValue<global::Kubis1982.Atlassian.Confluense.RestClient.Models.SpaceStatus>("status", Status);
             writer.WriteEnumValue<global::Kubis1982.Atlassian.Confluense.RestClient.Models.SpaceType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);

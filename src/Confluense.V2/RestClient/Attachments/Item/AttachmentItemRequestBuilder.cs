@@ -4,6 +4,7 @@ using Kubis1982.Atlassian.Confluense.RestClient.Attachments.Item.FooterComments;
 using Kubis1982.Atlassian.Confluense.RestClient.Attachments.Item.Labels;
 using Kubis1982.Atlassian.Confluense.RestClient.Attachments.Item.Operations;
 using Kubis1982.Atlassian.Confluense.RestClient.Attachments.Item.Properties;
+using Kubis1982.Atlassian.Confluense.RestClient.Attachments.Item.Thumbnail;
 using Kubis1982.Atlassian.Confluense.RestClient.Attachments.Item.Versions;
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
@@ -41,6 +42,11 @@ namespace Kubis1982.Atlassian.Confluense.RestClient.Attachments.Item
         {
             get => new global::Kubis1982.Atlassian.Confluense.RestClient.Attachments.Item.Properties.PropertiesRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>The thumbnail property</summary>
+        public global::Kubis1982.Atlassian.Confluense.RestClient.Attachments.Item.Thumbnail.ThumbnailRequestBuilder Thumbnail
+        {
+            get => new global::Kubis1982.Atlassian.Confluense.RestClient.Attachments.Item.Thumbnail.ThumbnailRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The versions property</summary>
         public global::Kubis1982.Atlassian.Confluense.RestClient.Attachments.Item.Versions.VersionsRequestBuilder Versions
         {
@@ -63,7 +69,7 @@ namespace Kubis1982.Atlassian.Confluense.RestClient.Attachments.Item
         {
         }
         /// <summary>
-        /// Delete an attachment by id.Deleting an attachment moves the attachment to the trash, where it can be restored later. To permanently delete an attachment (or &quot;purge&quot; it),the endpoint must be called on a **trashed** attachment with the following param `purge=true`.**[Permissions](https://confluence.atlassian.com/x/_AozKw) required**:Permission to view the container of the attachment.Permission to delete attachments in the space.Permission to administer the space (if attempting to purge).
+        /// Delete an attachment by id.Deleting an attachment moves the attachment to the trash, where it can be restored later. To permanently delete an attachment (or &quot;purge&quot; it),the endpoint must be called on a **trashed** attachment with the following param `purge=true`.**[Permissions](https://support.atlassian.com/confluence-cloud/docs/what-are-confluences-roles/) required**:Permission to view the container of the attachment.Permission to delete attachments in the space.[`manage/content`](https://developer.atlassian.com/cloud/confluence/rest/v2/api-group-space-permissions/#api-space-permissions-get) permission for the space (if attempting to purge).**Note:** To find the display name for each permission ID, call the [Get available space permissions](https://developer.atlassian.com/cloud/confluence/rest/v2/api-group-space-permissions/#api-space-permissions-get) API.
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -117,7 +123,7 @@ namespace Kubis1982.Atlassian.Confluense.RestClient.Attachments.Item
             return await RequestAdapter.SendAsync<global::Kubis1982.Atlassian.Confluense.RestClient.Attachments.Item.AttachmentResponse>(requestInfo, global::Kubis1982.Atlassian.Confluense.RestClient.Attachments.Item.AttachmentResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Delete an attachment by id.Deleting an attachment moves the attachment to the trash, where it can be restored later. To permanently delete an attachment (or &quot;purge&quot; it),the endpoint must be called on a **trashed** attachment with the following param `purge=true`.**[Permissions](https://confluence.atlassian.com/x/_AozKw) required**:Permission to view the container of the attachment.Permission to delete attachments in the space.Permission to administer the space (if attempting to purge).
+        /// Delete an attachment by id.Deleting an attachment moves the attachment to the trash, where it can be restored later. To permanently delete an attachment (or &quot;purge&quot; it),the endpoint must be called on a **trashed** attachment with the following param `purge=true`.**[Permissions](https://support.atlassian.com/confluence-cloud/docs/what-are-confluences-roles/) required**:Permission to view the container of the attachment.Permission to delete attachments in the space.[`manage/content`](https://developer.atlassian.com/cloud/confluence/rest/v2/api-group-space-permissions/#api-space-permissions-get) permission for the space (if attempting to purge).**Note:** To find the display name for each permission ID, call the [Get available space permissions](https://developer.atlassian.com/cloud/confluence/rest/v2/api-group-space-permissions/#api-space-permissions-get) API.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -163,7 +169,7 @@ namespace Kubis1982.Atlassian.Confluense.RestClient.Attachments.Item
             return new global::Kubis1982.Atlassian.Confluense.RestClient.Attachments.Item.AttachmentItemRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Delete an attachment by id.Deleting an attachment moves the attachment to the trash, where it can be restored later. To permanently delete an attachment (or &quot;purge&quot; it),the endpoint must be called on a **trashed** attachment with the following param `purge=true`.**[Permissions](https://confluence.atlassian.com/x/_AozKw) required**:Permission to view the container of the attachment.Permission to delete attachments in the space.Permission to administer the space (if attempting to purge).
+        /// Delete an attachment by id.Deleting an attachment moves the attachment to the trash, where it can be restored later. To permanently delete an attachment (or &quot;purge&quot; it),the endpoint must be called on a **trashed** attachment with the following param `purge=true`.**[Permissions](https://support.atlassian.com/confluence-cloud/docs/what-are-confluences-roles/) required**:Permission to view the container of the attachment.Permission to delete attachments in the space.[`manage/content`](https://developer.atlassian.com/cloud/confluence/rest/v2/api-group-space-permissions/#api-space-permissions-get) permission for the space (if attempting to purge).**Note:** To find the display name for each permission ID, call the [Get available space permissions](https://developer.atlassian.com/cloud/confluence/rest/v2/api-group-space-permissions/#api-space-permissions-get) API.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class AttachmentItemRequestBuilderDeleteQueryParameters 

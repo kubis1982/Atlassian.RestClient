@@ -60,7 +60,7 @@ namespace Kubis1982.Atlassian.Confluense.RestClient.SpaceRoles
         {
         }
         /// <summary>
-        /// Retrieves the available space roles.Available as part of the [Role-Based Access Controls Beta](https://community.atlassian.com/forums/Confluence-articles/Beta-Simplify-space-access-in-Confluence-with-roles/ba-p/3044550). **[Permissions](https://confluence.atlassian.com/x/_AozKw) required**:Permission to access the Confluence site; if requesting a certain space&apos;s roles, permission to view the space.
+        /// Retrieves the available space roles.Available on tenants with [Role-Based Access Control](https://support.atlassian.com/confluence-cloud/docs/manage-user-roles/). **[Permissions](https://confluence.atlassian.com/x/_AozKw) required**:Permission to access the Confluence site; if requesting a certain space&apos;s roles, permission to view the space.
         /// </summary>
         /// <returns>A <see cref="global::Kubis1982.Atlassian.Confluense.RestClient.SpaceRoles.SpaceRolesGetResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -78,7 +78,7 @@ namespace Kubis1982.Atlassian.Confluense.RestClient.SpaceRoles
             return await RequestAdapter.SendAsync<global::Kubis1982.Atlassian.Confluense.RestClient.SpaceRoles.SpaceRolesGetResponse>(requestInfo, global::Kubis1982.Atlassian.Confluense.RestClient.SpaceRoles.SpaceRolesGetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Retrieves the available space roles.Available as part of the [Role-Based Access Controls Beta](https://community.atlassian.com/forums/Confluence-articles/Beta-Simplify-space-access-in-Confluence-with-roles/ba-p/3044550). **[Permissions](https://confluence.atlassian.com/x/_AozKw) required**:Permission to access the Confluence site; if requesting a certain space&apos;s roles, permission to view the space.
+        /// Retrieves the available space roles.Available on tenants with [Role-Based Access Control](https://support.atlassian.com/confluence-cloud/docs/manage-user-roles/). **[Permissions](https://confluence.atlassian.com/x/_AozKw) required**:Permission to access the Confluence site; if requesting a certain space&apos;s roles, permission to view the space.
         /// </summary>
         /// <returns>A <see cref="global::Kubis1982.Atlassian.Confluense.RestClient.SpaceRoles.SpaceRolesResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -97,7 +97,7 @@ namespace Kubis1982.Atlassian.Confluense.RestClient.SpaceRoles
             return await RequestAdapter.SendAsync<global::Kubis1982.Atlassian.Confluense.RestClient.SpaceRoles.SpaceRolesResponse>(requestInfo, global::Kubis1982.Atlassian.Confluense.RestClient.SpaceRoles.SpaceRolesResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Create a space role.Available as part of the [Role-Based Access Controls Beta](https://community.atlassian.com/forums/Confluence-articles/Beta-Simplify-space-access-in-Confluence-with-roles/ba-p/3044550). **[Permissions](https://confluence.atlassian.com/x/_AozKw) required**:User must be an organization or site admin. Connect and Forge app users are not authorized to access this resource.
+        /// Create a space role.Available on tenants with [Role-Based Access Control](https://support.atlassian.com/confluence-cloud/docs/manage-user-roles/). **[Permissions](https://confluence.atlassian.com/x/_AozKw) required**:User must be an organization or site admin. Connect and Forge app users are not authorized to access this resource.
         /// </summary>
         /// <returns>A <see cref="global::Kubis1982.Atlassian.Confluense.RestClient.Models.SpaceRole"/></returns>
         /// <param name="body">The request body</param>
@@ -117,7 +117,7 @@ namespace Kubis1982.Atlassian.Confluense.RestClient.SpaceRoles
             return await RequestAdapter.SendAsync<global::Kubis1982.Atlassian.Confluense.RestClient.Models.SpaceRole>(requestInfo, global::Kubis1982.Atlassian.Confluense.RestClient.Models.SpaceRole.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Retrieves the available space roles.Available as part of the [Role-Based Access Controls Beta](https://community.atlassian.com/forums/Confluence-articles/Beta-Simplify-space-access-in-Confluence-with-roles/ba-p/3044550). **[Permissions](https://confluence.atlassian.com/x/_AozKw) required**:Permission to access the Confluence site; if requesting a certain space&apos;s roles, permission to view the space.
+        /// Retrieves the available space roles.Available on tenants with [Role-Based Access Control](https://support.atlassian.com/confluence-cloud/docs/manage-user-roles/). **[Permissions](https://confluence.atlassian.com/x/_AozKw) required**:Permission to access the Confluence site; if requesting a certain space&apos;s roles, permission to view the space.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -136,7 +136,7 @@ namespace Kubis1982.Atlassian.Confluense.RestClient.SpaceRoles
             return requestInfo;
         }
         /// <summary>
-        /// Create a space role.Available as part of the [Role-Based Access Controls Beta](https://community.atlassian.com/forums/Confluence-articles/Beta-Simplify-space-access-in-Confluence-with-roles/ba-p/3044550). **[Permissions](https://confluence.atlassian.com/x/_AozKw) required**:User must be an organization or site admin. Connect and Forge app users are not authorized to access this resource.
+        /// Create a space role.Available on tenants with [Role-Based Access Control](https://support.atlassian.com/confluence-cloud/docs/manage-user-roles/). **[Permissions](https://confluence.atlassian.com/x/_AozKw) required**:User must be an organization or site admin. Connect and Forge app users are not authorized to access this resource.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -167,7 +167,7 @@ namespace Kubis1982.Atlassian.Confluense.RestClient.SpaceRoles
             return new global::Kubis1982.Atlassian.Confluense.RestClient.SpaceRoles.SpaceRolesRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Retrieves the available space roles.Available as part of the [Role-Based Access Controls Beta](https://community.atlassian.com/forums/Confluence-articles/Beta-Simplify-space-access-in-Confluence-with-roles/ba-p/3044550). **[Permissions](https://confluence.atlassian.com/x/_AozKw) required**:Permission to access the Confluence site; if requesting a certain space&apos;s roles, permission to view the space.
+        /// Retrieves the available space roles.Available on tenants with [Role-Based Access Control](https://support.atlassian.com/confluence-cloud/docs/manage-user-roles/). **[Permissions](https://confluence.atlassian.com/x/_AozKw) required**:Permission to access the Confluence site; if requesting a certain space&apos;s roles, permission to view the space.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class SpaceRolesRequestBuilderGetQueryParameters 

@@ -97,7 +97,7 @@ namespace Kubis1982.Atlassian.Confluense.RestClient.Spaces
             return await RequestAdapter.SendAsync<global::Kubis1982.Atlassian.Confluense.RestClient.Spaces.SpacesResponse>(requestInfo, global::Kubis1982.Atlassian.Confluense.RestClient.Spaces.SpacesResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Creates a Space as specified in the payload.Available as part of the [Role-Based Access Controls Beta](https://community.atlassian.com/forums/Confluence-articles/Beta-Simplify-space-access-in-Confluence-with-roles/ba-p/3044550). **[Permissions](https://confluence.atlassian.com/x/_AozKw) required**:Permission to create spaces.
+        /// Creates a Space as specified in the payload.Available on tenants with [Role-Based Access Control](https://support.atlassian.com/confluence-cloud/docs/manage-user-roles/). **[Permissions](https://confluence.atlassian.com/x/_AozKw) required**:Permission to create spaces.
         /// </summary>
         /// <returns>A <see cref="global::Kubis1982.Atlassian.Confluense.RestClient.Spaces.SpacesPostResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -117,7 +117,7 @@ namespace Kubis1982.Atlassian.Confluense.RestClient.Spaces
             return await RequestAdapter.SendAsync<global::Kubis1982.Atlassian.Confluense.RestClient.Spaces.SpacesPostResponse>(requestInfo, global::Kubis1982.Atlassian.Confluense.RestClient.Spaces.SpacesPostResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Creates a Space as specified in the payload.Available as part of the [Role-Based Access Controls Beta](https://community.atlassian.com/forums/Confluence-articles/Beta-Simplify-space-access-in-Confluence-with-roles/ba-p/3044550). **[Permissions](https://confluence.atlassian.com/x/_AozKw) required**:Permission to create spaces.
+        /// Creates a Space as specified in the payload.Available on tenants with [Role-Based Access Control](https://support.atlassian.com/confluence-cloud/docs/manage-user-roles/). **[Permissions](https://confluence.atlassian.com/x/_AozKw) required**:Permission to create spaces.
         /// </summary>
         /// <returns>A <see cref="global::Kubis1982.Atlassian.Confluense.RestClient.Spaces.SpacesResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -157,7 +157,7 @@ namespace Kubis1982.Atlassian.Confluense.RestClient.Spaces
             return requestInfo;
         }
         /// <summary>
-        /// Creates a Space as specified in the payload.Available as part of the [Role-Based Access Controls Beta](https://community.atlassian.com/forums/Confluence-articles/Beta-Simplify-space-access-in-Confluence-with-roles/ba-p/3044550). **[Permissions](https://confluence.atlassian.com/x/_AozKw) required**:Permission to create spaces.
+        /// Creates a Space as specified in the payload.Available on tenants with [Role-Based Access Control](https://support.atlassian.com/confluence-cloud/docs/manage-user-roles/). **[Permissions](https://confluence.atlassian.com/x/_AozKw) required**:Permission to create spaces.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

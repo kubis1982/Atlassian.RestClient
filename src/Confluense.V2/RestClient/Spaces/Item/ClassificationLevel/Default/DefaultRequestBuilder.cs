@@ -34,7 +34,7 @@ namespace Kubis1982.Atlassian.Confluense.RestClient.Spaces.Item.ClassificationLe
         {
         }
         /// <summary>
-        /// Returns the [default classification level](https://support.atlassian.com/security-and-access-policies/docs/what-is-a-default-classification-level/) for a specific space.**[Permissions](https://confluence.atlassian.com/x/_AozKw) required**:&apos;Permission to access the Confluence site (&apos;Can use&apos; global permission) and &apos;Admin&apos; permission for the space.
+        /// Returns the [default classification level](https://support.atlassian.com/security-and-access-policies/docs/what-is-a-default-classification-level/) for a specific space.**[Permissions](https://support.atlassian.com/confluence-cloud/docs/what-are-confluences-roles/) required**:Permission to access the Confluence site (&apos;Can use&apos; global permission) and[`manage/space`](https://developer.atlassian.com/cloud/confluence/rest/v2/api-group-space-permissions/#api-space-permissions-get) permission for the space.**Note:** To find the display name for each permission ID, call the [Get available space permissions](https://developer.atlassian.com/cloud/confluence/rest/v2/api-group-space-permissions/#api-space-permissions-get) API.
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -69,7 +69,7 @@ namespace Kubis1982.Atlassian.Confluense.RestClient.Spaces.Item.ClassificationLe
             return await RequestAdapter.SendAsync<global::Kubis1982.Atlassian.Confluense.RestClient.Models.ClassificationLevel>(requestInfo, global::Kubis1982.Atlassian.Confluense.RestClient.Models.ClassificationLevel.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Update the [default classification level](https://support.atlassian.com/security-and-access-policies/docs/what-is-a-default-classification-level/) for a specific space.**[Permissions](https://confluence.atlassian.com/x/_AozKw) required**:&apos;Permission to access the Confluence site (&apos;Can use&apos; global permission) and &apos;Admin&apos; permission for the space.
+        /// Update the [default classification level](https://support.atlassian.com/security-and-access-policies/docs/what-is-a-default-classification-level/) for a specific space.**[Permissions](https://support.atlassian.com/confluence-cloud/docs/what-are-confluences-roles/) required**:Permission to access the Confluence site (&apos;Can use&apos; global permission) and[`manage/space`](https://developer.atlassian.com/cloud/confluence/rest/v2/api-group-space-permissions/#api-space-permissions-get) permission for the space.**Note:** To find the display name for each permission ID, call the [Get available space permissions](https://developer.atlassian.com/cloud/confluence/rest/v2/api-group-space-permissions/#api-space-permissions-get) API.
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -88,7 +88,7 @@ namespace Kubis1982.Atlassian.Confluense.RestClient.Spaces.Item.ClassificationLe
             await RequestAdapter.SendNoContentAsync(requestInfo, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Returns the [default classification level](https://support.atlassian.com/security-and-access-policies/docs/what-is-a-default-classification-level/) for a specific space.**[Permissions](https://confluence.atlassian.com/x/_AozKw) required**:&apos;Permission to access the Confluence site (&apos;Can use&apos; global permission) and &apos;Admin&apos; permission for the space.
+        /// Returns the [default classification level](https://support.atlassian.com/security-and-access-policies/docs/what-is-a-default-classification-level/) for a specific space.**[Permissions](https://support.atlassian.com/confluence-cloud/docs/what-are-confluences-roles/) required**:Permission to access the Confluence site (&apos;Can use&apos; global permission) and[`manage/space`](https://developer.atlassian.com/cloud/confluence/rest/v2/api-group-space-permissions/#api-space-permissions-get) permission for the space.**Note:** To find the display name for each permission ID, call the [Get available space permissions](https://developer.atlassian.com/cloud/confluence/rest/v2/api-group-space-permissions/#api-space-permissions-get) API.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -125,7 +125,7 @@ namespace Kubis1982.Atlassian.Confluense.RestClient.Spaces.Item.ClassificationLe
             return requestInfo;
         }
         /// <summary>
-        /// Update the [default classification level](https://support.atlassian.com/security-and-access-policies/docs/what-is-a-default-classification-level/) for a specific space.**[Permissions](https://confluence.atlassian.com/x/_AozKw) required**:&apos;Permission to access the Confluence site (&apos;Can use&apos; global permission) and &apos;Admin&apos; permission for the space.
+        /// Update the [default classification level](https://support.atlassian.com/security-and-access-policies/docs/what-is-a-default-classification-level/) for a specific space.**[Permissions](https://support.atlassian.com/confluence-cloud/docs/what-are-confluences-roles/) required**:Permission to access the Confluence site (&apos;Can use&apos; global permission) and[`manage/space`](https://developer.atlassian.com/cloud/confluence/rest/v2/api-group-space-permissions/#api-space-permissions-get) permission for the space.**Note:** To find the display name for each permission ID, call the [Get available space permissions](https://developer.atlassian.com/cloud/confluence/rest/v2/api-group-space-permissions/#api-space-permissions-get) API.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

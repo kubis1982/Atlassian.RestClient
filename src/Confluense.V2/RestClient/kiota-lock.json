@@ -1,6 +1,6 @@
 {
-  "descriptionHash": "4BC0D1CADDEDC3297F486C6C04AC6DD647FA636A6410470AE1831928FEA1007D5D30B82547438828CBAD15D6FB989CF7D57C58CAF63DDB77F0AC894A9DE7CD31",
-  "descriptionLocation": "https://dac-static.atlassian.com/cloud/confluence/openapi-v2.v3.json?_v=1.8458.0",
+  "descriptionHash": "72544B4BBE5E7AB1C24E2E748EF946C7EA5F07A694B4FB2A05036A1310E977BA71061C94BCD698E8DB7AFF58A9B4338899E41BB984F8F5A438F3DBD5C8DEE1D3",
+  "descriptionLocation": "https://dac-static.atlassian.com/cloud/confluence/openapi-v2.v3.json?_v=1.8516.116",
   "lockFileVersion": "1.0.0",
   "kiotaVersion": "1.31.0",
   "clientClassName": "ConfluenseRestClient",
