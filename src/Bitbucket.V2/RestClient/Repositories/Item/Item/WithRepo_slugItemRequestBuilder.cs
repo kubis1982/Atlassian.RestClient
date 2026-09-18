@@ -5,7 +5,6 @@ using Kubis1982.Atlassian.Bitbucket.RestClient.Repositories.Item.Item.BranchRest
 using Kubis1982.Atlassian.Bitbucket.RestClient.Repositories.Item.Item.BranchingModel;
 using Kubis1982.Atlassian.Bitbucket.RestClient.Repositories.Item.Item.Commit;
 using Kubis1982.Atlassian.Bitbucket.RestClient.Repositories.Item.Item.Commits;
-using Kubis1982.Atlassian.Bitbucket.RestClient.Repositories.Item.Item.Components;
 using Kubis1982.Atlassian.Bitbucket.RestClient.Repositories.Item.Item.DefaultReviewers;
 using Kubis1982.Atlassian.Bitbucket.RestClient.Repositories.Item.Item.DeployKeys;
 using Kubis1982.Atlassian.Bitbucket.RestClient.Repositories.Item.Item.Deployments;
@@ -16,12 +15,11 @@ using Kubis1982.Atlassian.Bitbucket.RestClient.Repositories.Item.Item.Downloads;
 using Kubis1982.Atlassian.Bitbucket.RestClient.Repositories.Item.Item.EffectiveBranchingModel;
 using Kubis1982.Atlassian.Bitbucket.RestClient.Repositories.Item.Item.EffectiveDefaultReviewers;
 using Kubis1982.Atlassian.Bitbucket.RestClient.Repositories.Item.Item.Environments;
+using Kubis1982.Atlassian.Bitbucket.RestClient.Repositories.Item.Item.FileConflicts;
 using Kubis1982.Atlassian.Bitbucket.RestClient.Repositories.Item.Item.Filehistory;
 using Kubis1982.Atlassian.Bitbucket.RestClient.Repositories.Item.Item.Forks;
 using Kubis1982.Atlassian.Bitbucket.RestClient.Repositories.Item.Item.Hooks;
-using Kubis1982.Atlassian.Bitbucket.RestClient.Repositories.Item.Item.Issues;
 using Kubis1982.Atlassian.Bitbucket.RestClient.Repositories.Item.Item.MergeBase;
-using Kubis1982.Atlassian.Bitbucket.RestClient.Repositories.Item.Item.Milestones;
 using Kubis1982.Atlassian.Bitbucket.RestClient.Repositories.Item.Item.OverrideSettings;
 using Kubis1982.Atlassian.Bitbucket.RestClient.Repositories.Item.Item.Patch;
 using Kubis1982.Atlassian.Bitbucket.RestClient.Repositories.Item.Item.PermissionsConfig;
@@ -32,7 +30,6 @@ using Kubis1982.Atlassian.Bitbucket.RestClient.Repositories.Item.Item.Properties
 using Kubis1982.Atlassian.Bitbucket.RestClient.Repositories.Item.Item.Pullrequests;
 using Kubis1982.Atlassian.Bitbucket.RestClient.Repositories.Item.Item.Refs;
 using Kubis1982.Atlassian.Bitbucket.RestClient.Repositories.Item.Item.Src;
-using Kubis1982.Atlassian.Bitbucket.RestClient.Repositories.Item.Item.Versions;
 using Kubis1982.Atlassian.Bitbucket.RestClient.Repositories.Item.Item.Watchers;
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
@@ -69,11 +66,6 @@ namespace Kubis1982.Atlassian.Bitbucket.RestClient.Repositories.Item.Item
         public global::Kubis1982.Atlassian.Bitbucket.RestClient.Repositories.Item.Item.Commits.CommitsRequestBuilder Commits
         {
             get => new global::Kubis1982.Atlassian.Bitbucket.RestClient.Repositories.Item.Item.Commits.CommitsRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The components property</summary>
-        public global::Kubis1982.Atlassian.Bitbucket.RestClient.Repositories.Item.Item.Components.ComponentsRequestBuilder Components
-        {
-            get => new global::Kubis1982.Atlassian.Bitbucket.RestClient.Repositories.Item.Item.Components.ComponentsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The defaultReviewers property</summary>
         public global::Kubis1982.Atlassian.Bitbucket.RestClient.Repositories.Item.Item.DefaultReviewers.DefaultReviewersRequestBuilder DefaultReviewers
@@ -125,6 +117,11 @@ namespace Kubis1982.Atlassian.Bitbucket.RestClient.Repositories.Item.Item
         {
             get => new global::Kubis1982.Atlassian.Bitbucket.RestClient.Repositories.Item.Item.Environments.EnvironmentsRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>The fileConflicts property</summary>
+        public global::Kubis1982.Atlassian.Bitbucket.RestClient.Repositories.Item.Item.FileConflicts.FileConflictsRequestBuilder FileConflicts
+        {
+            get => new global::Kubis1982.Atlassian.Bitbucket.RestClient.Repositories.Item.Item.FileConflicts.FileConflictsRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The filehistory property</summary>
         public global::Kubis1982.Atlassian.Bitbucket.RestClient.Repositories.Item.Item.Filehistory.FilehistoryRequestBuilder Filehistory
         {
@@ -140,20 +137,10 @@ namespace Kubis1982.Atlassian.Bitbucket.RestClient.Repositories.Item.Item
         {
             get => new global::Kubis1982.Atlassian.Bitbucket.RestClient.Repositories.Item.Item.Hooks.HooksRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>The issues property</summary>
-        public global::Kubis1982.Atlassian.Bitbucket.RestClient.Repositories.Item.Item.Issues.IssuesRequestBuilder Issues
-        {
-            get => new global::Kubis1982.Atlassian.Bitbucket.RestClient.Repositories.Item.Item.Issues.IssuesRequestBuilder(PathParameters, RequestAdapter);
-        }
         /// <summary>The mergeBase property</summary>
         public global::Kubis1982.Atlassian.Bitbucket.RestClient.Repositories.Item.Item.MergeBase.MergeBaseRequestBuilder MergeBase
         {
             get => new global::Kubis1982.Atlassian.Bitbucket.RestClient.Repositories.Item.Item.MergeBase.MergeBaseRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The milestones property</summary>
-        public global::Kubis1982.Atlassian.Bitbucket.RestClient.Repositories.Item.Item.Milestones.MilestonesRequestBuilder Milestones
-        {
-            get => new global::Kubis1982.Atlassian.Bitbucket.RestClient.Repositories.Item.Item.Milestones.MilestonesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The overrideSettings property</summary>
         public global::Kubis1982.Atlassian.Bitbucket.RestClient.Repositories.Item.Item.OverrideSettings.OverrideSettingsRequestBuilder OverrideSettings
@@ -204,11 +191,6 @@ namespace Kubis1982.Atlassian.Bitbucket.RestClient.Repositories.Item.Item
         public global::Kubis1982.Atlassian.Bitbucket.RestClient.Repositories.Item.Item.Src.SrcRequestBuilder Src
         {
             get => new global::Kubis1982.Atlassian.Bitbucket.RestClient.Repositories.Item.Item.Src.SrcRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The versions property</summary>
-        public global::Kubis1982.Atlassian.Bitbucket.RestClient.Repositories.Item.Item.Versions.VersionsRequestBuilder Versions
-        {
-            get => new global::Kubis1982.Atlassian.Bitbucket.RestClient.Repositories.Item.Item.Versions.VersionsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The watchers property</summary>
         public global::Kubis1982.Atlassian.Bitbucket.RestClient.Repositories.Item.Item.Watchers.WatchersRequestBuilder Watchers

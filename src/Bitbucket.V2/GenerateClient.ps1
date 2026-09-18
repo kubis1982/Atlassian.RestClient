@@ -23,7 +23,7 @@ $ErrorActionPreference = "Stop"
 Set-StrictMode -Version Latest
 
 # Configuration
-$SwaggerUrl = "https://dac-static.atlassian.com/cloud/bitbucket/swagger.v3.json?_v=2.300.163"
+$SwaggerUrl = "https://dac-static.atlassian.com/cloud/bitbucket/swagger.v3.json?_v=2.300.191"
 $OutputDir = "RestClient"
 $Namespace = "Kubis1982.Atlassian.Bitbucket.RestClient"
 

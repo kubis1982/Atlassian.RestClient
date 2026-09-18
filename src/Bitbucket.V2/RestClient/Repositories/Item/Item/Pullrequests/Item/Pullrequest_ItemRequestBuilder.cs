@@ -5,6 +5,7 @@ using Kubis1982.Atlassian.Bitbucket.RestClient.Repositories.Item.Item.Pullreques
 using Kubis1982.Atlassian.Bitbucket.RestClient.Repositories.Item.Item.Pullrequests.Item.Approve;
 using Kubis1982.Atlassian.Bitbucket.RestClient.Repositories.Item.Item.Pullrequests.Item.Comments;
 using Kubis1982.Atlassian.Bitbucket.RestClient.Repositories.Item.Item.Pullrequests.Item.Commits;
+using Kubis1982.Atlassian.Bitbucket.RestClient.Repositories.Item.Item.Pullrequests.Item.Conflicts;
 using Kubis1982.Atlassian.Bitbucket.RestClient.Repositories.Item.Item.Pullrequests.Item.Decline;
 using Kubis1982.Atlassian.Bitbucket.RestClient.Repositories.Item.Item.Pullrequests.Item.Diff;
 using Kubis1982.Atlassian.Bitbucket.RestClient.Repositories.Item.Item.Pullrequests.Item.Diffstat;
@@ -49,6 +50,11 @@ namespace Kubis1982.Atlassian.Bitbucket.RestClient.Repositories.Item.Item.Pullre
         public global::Kubis1982.Atlassian.Bitbucket.RestClient.Repositories.Item.Item.Pullrequests.Item.Commits.CommitsRequestBuilder Commits
         {
             get => new global::Kubis1982.Atlassian.Bitbucket.RestClient.Repositories.Item.Item.Pullrequests.Item.Commits.CommitsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The conflicts property</summary>
+        public global::Kubis1982.Atlassian.Bitbucket.RestClient.Repositories.Item.Item.Pullrequests.Item.Conflicts.ConflictsRequestBuilder Conflicts
+        {
+            get => new global::Kubis1982.Atlassian.Bitbucket.RestClient.Repositories.Item.Item.Pullrequests.Item.Conflicts.ConflictsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The decline property</summary>
         public global::Kubis1982.Atlassian.Bitbucket.RestClient.Repositories.Item.Item.Pullrequests.Item.Decline.DeclineRequestBuilder Decline

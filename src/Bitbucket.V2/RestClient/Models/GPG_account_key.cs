@@ -15,14 +15,6 @@ namespace Kubis1982.Atlassian.Bitbucket.RestClient.Models
     {
         /// <summary>The added_on property</summary>
         public DateTimeOffset? AddedOn { get; set; }
-        /// <summary>The comment parsed from the GPG key (if present)</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Comment { get; set; }
-#nullable restore
-#else
-        public string Comment { get; set; }
-#endif
         /// <summary>The created_on property</summary>
         public DateTimeOffset? CreatedOn { get; set; }
         /// <summary>The expires_on property</summary>
@@ -112,7 +104,6 @@ namespace Kubis1982.Atlassian.Bitbucket.RestClient.Models
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
                 { "added_on", n => { AddedOn = n.GetDateTimeOffsetValue(); } },
-                { "comment", n => { Comment = n.GetStringValue(); } },
                 { "created_on", n => { CreatedOn = n.GetDateTimeOffsetValue(); } },
                 { "expires_on", n => { ExpiresOn = n.GetDateTimeOffsetValue(); } },
                 { "fingerprint", n => { Fingerprint = n.GetStringValue(); } },
@@ -135,7 +126,6 @@ namespace Kubis1982.Atlassian.Bitbucket.RestClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteDateTimeOffsetValue("added_on", AddedOn);
-            writer.WriteStringValue("comment", Comment);
             writer.WriteDateTimeOffsetValue("created_on", CreatedOn);
             writer.WriteDateTimeOffsetValue("expires_on", ExpiresOn);
             writer.WriteStringValue("fingerprint", Fingerprint);

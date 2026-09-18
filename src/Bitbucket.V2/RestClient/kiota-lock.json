@@ -1,6 +1,6 @@
 {
-  "descriptionHash": "DFCED7DA2FCB98681785737E0FC22B9EDEEA1815D8450DAE9242278AB94490AC834C4C4F710EFD9887E4946CEB6D6FC62DB96C436B0DF2F704120A080D12A8C4",
-  "descriptionLocation": "https://dac-static.atlassian.com/cloud/bitbucket/swagger.v3.json?_v=2.300.163",
+  "descriptionHash": "DD8FFD592B42AC524EC78AC69D99B270F0D7A32BB65D502670B6FE1EF02655D9CCF7AD2AA51B61AAE3CDACC74EAA0E3A8164F41D247B41EA7DD5551BF6998110",
+  "descriptionLocation": "https://dac-static.atlassian.com/cloud/bitbucket/swagger.v3.json?_v=2.300.191",
   "lockFileVersion": "1.0.0",
   "kiotaVersion": "1.31.0",
   "clientClassName": "BitbucketRestClient",

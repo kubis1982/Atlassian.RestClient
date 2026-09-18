@@ -47,7 +47,7 @@ namespace Kubis1982.Atlassian.Bitbucket.RestClient.Snippets.Item
         {
         }
         /// <summary>
-        /// Identical to [`/snippets`](/cloud/bitbucket/rest/api-group-snippets/#api-snippets-get), except that the result is further filteredby the snippet owner and only those that are owned by `{workspace}` arereturned.
+        /// Returns a paginated list of snippets owned by `{workspace}`.To limit the set of returned snippets, apply the`?role=[owner|contributor|member]` query parameter where the roles aredefined as follows:* `owner`: snippets owned by `{workspace}` that also belong to the current user    (only returns results when `{workspace}` is the current user&apos;s personal workspace)* `contributor`: snippets owned by `{workspace}` that the current user is watching,    plus any owned by `{workspace}` and the current user* `member`: all snippets owned by `{workspace}` if the current user is a member,    otherwise only those the current user is watchingWhen no role is specified, all snippets owned by `{workspace}` are returned.If the current user is not a member of `{workspace}`, only public snippets arereturned regardless of role.The returned response is a normal paginated JSON list. This endpointonly supports `application/json` responses and no`multipart/form-data` or `multipart/related`. As a result, it is notpossible to include the file contents.
         /// </summary>
         /// <returns>A <see cref="global::Kubis1982.Atlassian.Bitbucket.RestClient.Models.Paginated_snippets"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -97,7 +97,7 @@ namespace Kubis1982.Atlassian.Bitbucket.RestClient.Snippets.Item
             return await RequestAdapter.SendAsync<global::Kubis1982.Atlassian.Bitbucket.RestClient.Models.Snippet>(requestInfo, global::Kubis1982.Atlassian.Bitbucket.RestClient.Models.Snippet.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Identical to [`/snippets`](/cloud/bitbucket/rest/api-group-snippets/#api-snippets-get), except that the result is further filteredby the snippet owner and only those that are owned by `{workspace}` arereturned.
+        /// Returns a paginated list of snippets owned by `{workspace}`.To limit the set of returned snippets, apply the`?role=[owner|contributor|member]` query parameter where the roles aredefined as follows:* `owner`: snippets owned by `{workspace}` that also belong to the current user    (only returns results when `{workspace}` is the current user&apos;s personal workspace)* `contributor`: snippets owned by `{workspace}` that the current user is watching,    plus any owned by `{workspace}` and the current user* `member`: all snippets owned by `{workspace}` if the current user is a member,    otherwise only those the current user is watchingWhen no role is specified, all snippets owned by `{workspace}` are returned.If the current user is not a member of `{workspace}`, only public snippets arereturned regardless of role.The returned response is a normal paginated JSON list. This endpointonly supports `application/json` responses and no`multipart/form-data` or `multipart/related`. As a result, it is notpossible to include the file contents.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -147,7 +147,7 @@ namespace Kubis1982.Atlassian.Bitbucket.RestClient.Snippets.Item
             return new global::Kubis1982.Atlassian.Bitbucket.RestClient.Snippets.Item.WithWorkspaceItemRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Identical to [`/snippets`](/cloud/bitbucket/rest/api-group-snippets/#api-snippets-get), except that the result is further filteredby the snippet owner and only those that are owned by `{workspace}` arereturned.
+        /// Returns a paginated list of snippets owned by `{workspace}`.To limit the set of returned snippets, apply the`?role=[owner|contributor|member]` query parameter where the roles aredefined as follows:* `owner`: snippets owned by `{workspace}` that also belong to the current user    (only returns results when `{workspace}` is the current user&apos;s personal workspace)* `contributor`: snippets owned by `{workspace}` that the current user is watching,    plus any owned by `{workspace}` and the current user* `member`: all snippets owned by `{workspace}` if the current user is a member,    otherwise only those the current user is watchingWhen no role is specified, all snippets owned by `{workspace}` are returned.If the current user is not a member of `{workspace}`, only public snippets arereturned regardless of role.The returned response is a normal paginated JSON list. This endpointonly supports `application/json` responses and no`multipart/form-data` or `multipart/related`. As a result, it is notpossible to include the file contents.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class WithWorkspaceItemRequestBuilderGetQueryParameters 

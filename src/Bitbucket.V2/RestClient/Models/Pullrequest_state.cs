@@ -11,14 +11,6 @@ namespace Kubis1982.Atlassian.Bitbucket.RestClient.Models
         #pragma warning disable CS1591
         OPEN,
         #pragma warning restore CS1591
-        [EnumMember(Value = "DRAFT")]
-        #pragma warning disable CS1591
-        DRAFT,
-        #pragma warning restore CS1591
-        [EnumMember(Value = "QUEUED")]
-        #pragma warning disable CS1591
-        QUEUED,
-        #pragma warning restore CS1591
         [EnumMember(Value = "MERGED")]
         #pragma warning disable CS1591
         MERGED,

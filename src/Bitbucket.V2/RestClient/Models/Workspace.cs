@@ -17,6 +17,8 @@ namespace Kubis1982.Atlassian.Bitbucket.RestClient.Models
         public DateTimeOffset? CreatedOn { get; set; }
         /// <summary>Controls the rules for forking repositories within this workspace.* **allow_forks**: unrestricted forking* **internal_only**: prevents forking of private repositories outside the workspace or to public repositories</summary>
         public global::Kubis1982.Atlassian.Bitbucket.RestClient.Models.Workspace_forking_mode? ForkingMode { get; set; }
+        /// <summary>Indicates whether the workspace belongs to an individual user.</summary>
+        public bool? IsPersonal { get; set; }
         /// <summary>Indicates whether the workspace enforces private content, or whether it allows public content.</summary>
         public bool? IsPrivacyEnforced { get; set; }
         /// <summary>Indicates whether the workspace is publicly accessible, or whether it isprivate to the members and consequently only visible to members.</summary>
@@ -75,6 +77,7 @@ namespace Kubis1982.Atlassian.Bitbucket.RestClient.Models
             {
                 { "created_on", n => { CreatedOn = n.GetDateTimeOffsetValue(); } },
                 { "forking_mode", n => { ForkingMode = n.GetEnumValue<global::Kubis1982.Atlassian.Bitbucket.RestClient.Models.Workspace_forking_mode>(); } },
+                { "is_personal", n => { IsPersonal = n.GetBoolValue(); } },
                 { "is_privacy_enforced", n => { IsPrivacyEnforced = n.GetBoolValue(); } },
                 { "is_private", n => { IsPrivate = n.GetBoolValue(); } },
                 { "links", n => { Links = n.GetObjectValue<global::Kubis1982.Atlassian.Bitbucket.RestClient.Models.Workspace_links>(global::Kubis1982.Atlassian.Bitbucket.RestClient.Models.Workspace_links.CreateFromDiscriminatorValue); } },
@@ -94,6 +97,7 @@ namespace Kubis1982.Atlassian.Bitbucket.RestClient.Models
             base.Serialize(writer);
             writer.WriteDateTimeOffsetValue("created_on", CreatedOn);
             writer.WriteEnumValue<global::Kubis1982.Atlassian.Bitbucket.RestClient.Models.Workspace_forking_mode>("forking_mode", ForkingMode);
+            writer.WriteBoolValue("is_personal", IsPersonal);
             writer.WriteBoolValue("is_privacy_enforced", IsPrivacyEnforced);
             writer.WriteBoolValue("is_private", IsPrivate);
             writer.WriteObjectValue<global::Kubis1982.Atlassian.Bitbucket.RestClient.Models.Workspace_links>("links", Links);

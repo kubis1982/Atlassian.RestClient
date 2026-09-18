@@ -34,7 +34,7 @@ namespace Kubis1982.Atlassian.Bitbucket.RestClient.Teams.Item.Search.Code
         {
         }
         /// <summary>
-        /// Search for code in the repositories of the specified team.Note that searches can match in the file&apos;s text (`content_matches`),the path (`path_matches`), or both.You can use the same syntax for the search query as in the UI.E.g. to search for &quot;foo&quot; only within the repository &quot;demo&quot;,use the query parameter `search_query=foo+repo:demo`.Similar to other APIs, you can request more fields using a`fields` query parameter. E.g. to get some more information aboutthe repository of matched files, use the query parameter`search_query=foo&amp;fields=%2Bvalues.file.commit.repository`(the `%2B` is a URL-encoded `+`).Try `fields=%2Bvalues.*.*.*.*` to get an idea what&apos;s possible.
+        /// This API will be deprecated on November 1, 2026.Search for code in the repositories of the specified team.Note that searches can match in the file&apos;s text (`content_matches`),the path (`path_matches`), or both.You can use the same syntax for the search query as in the UI.E.g. to search for &quot;foo&quot; only within the repository &quot;demo&quot;,use the query parameter `search_query=foo+repo:demo`.Similar to other APIs, you can request more fields using a`fields` query parameter. E.g. to get some more information aboutthe repository of matched files, use the query parameter`search_query=foo&amp;fields=%2Bvalues.file.commit.repository`(the `%2B` is a URL-encoded `+`).Try `fields=%2Bvalues.*.*.*.*` to get an idea what&apos;s possible.
         /// </summary>
         /// <returns>A <see cref="global::Kubis1982.Atlassian.Bitbucket.RestClient.Models.Search_result_page"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -42,6 +42,7 @@ namespace Kubis1982.Atlassian.Bitbucket.RestClient.Teams.Item.Search.Code
         /// <exception cref="global::Kubis1982.Atlassian.Bitbucket.RestClient.Models.Error">When receiving a 400 status code</exception>
         /// <exception cref="global::Kubis1982.Atlassian.Bitbucket.RestClient.Models.Error">When receiving a 404 status code</exception>
         /// <exception cref="global::Kubis1982.Atlassian.Bitbucket.RestClient.Models.Error">When receiving a 429 status code</exception>
+        [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Kubis1982.Atlassian.Bitbucket.RestClient.Models.Search_result_page?> GetAsync(Action<RequestConfiguration<global::Kubis1982.Atlassian.Bitbucket.RestClient.Teams.Item.Search.Code.CodeRequestBuilder.CodeRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -61,10 +62,11 @@ namespace Kubis1982.Atlassian.Bitbucket.RestClient.Teams.Item.Search.Code
             return await RequestAdapter.SendAsync<global::Kubis1982.Atlassian.Bitbucket.RestClient.Models.Search_result_page>(requestInfo, global::Kubis1982.Atlassian.Bitbucket.RestClient.Models.Search_result_page.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Search for code in the repositories of the specified team.Note that searches can match in the file&apos;s text (`content_matches`),the path (`path_matches`), or both.You can use the same syntax for the search query as in the UI.E.g. to search for &quot;foo&quot; only within the repository &quot;demo&quot;,use the query parameter `search_query=foo+repo:demo`.Similar to other APIs, you can request more fields using a`fields` query parameter. E.g. to get some more information aboutthe repository of matched files, use the query parameter`search_query=foo&amp;fields=%2Bvalues.file.commit.repository`(the `%2B` is a URL-encoded `+`).Try `fields=%2Bvalues.*.*.*.*` to get an idea what&apos;s possible.
+        /// This API will be deprecated on November 1, 2026.Search for code in the repositories of the specified team.Note that searches can match in the file&apos;s text (`content_matches`),the path (`path_matches`), or both.You can use the same syntax for the search query as in the UI.E.g. to search for &quot;foo&quot; only within the repository &quot;demo&quot;,use the query parameter `search_query=foo+repo:demo`.Similar to other APIs, you can request more fields using a`fields` query parameter. E.g. to get some more information aboutthe repository of matched files, use the query parameter`search_query=foo&amp;fields=%2Bvalues.file.commit.repository`(the `%2B` is a URL-encoded `+`).Try `fields=%2Bvalues.*.*.*.*` to get an idea what&apos;s possible.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Kubis1982.Atlassian.Bitbucket.RestClient.Teams.Item.Search.Code.CodeRequestBuilder.CodeRequestBuilderGetQueryParameters>>? requestConfiguration = default)
@@ -84,12 +86,13 @@ namespace Kubis1982.Atlassian.Bitbucket.RestClient.Teams.Item.Search.Code
         /// </summary>
         /// <returns>A <see cref="global::Kubis1982.Atlassian.Bitbucket.RestClient.Teams.Item.Search.Code.CodeRequestBuilder"/></returns>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
+        [Obsolete("")]
         public global::Kubis1982.Atlassian.Bitbucket.RestClient.Teams.Item.Search.Code.CodeRequestBuilder WithUrl(string rawUrl)
         {
             return new global::Kubis1982.Atlassian.Bitbucket.RestClient.Teams.Item.Search.Code.CodeRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Search for code in the repositories of the specified team.Note that searches can match in the file&apos;s text (`content_matches`),the path (`path_matches`), or both.You can use the same syntax for the search query as in the UI.E.g. to search for &quot;foo&quot; only within the repository &quot;demo&quot;,use the query parameter `search_query=foo+repo:demo`.Similar to other APIs, you can request more fields using a`fields` query parameter. E.g. to get some more information aboutthe repository of matched files, use the query parameter`search_query=foo&amp;fields=%2Bvalues.file.commit.repository`(the `%2B` is a URL-encoded `+`).Try `fields=%2Bvalues.*.*.*.*` to get an idea what&apos;s possible.
+        /// This API will be deprecated on November 1, 2026.Search for code in the repositories of the specified team.Note that searches can match in the file&apos;s text (`content_matches`),the path (`path_matches`), or both.You can use the same syntax for the search query as in the UI.E.g. to search for &quot;foo&quot; only within the repository &quot;demo&quot;,use the query parameter `search_query=foo+repo:demo`.Similar to other APIs, you can request more fields using a`fields` query parameter. E.g. to get some more information aboutthe repository of matched files, use the query parameter`search_query=foo&amp;fields=%2Bvalues.file.commit.repository`(the `%2B` is a URL-encoded `+`).Try `fields=%2Bvalues.*.*.*.*` to get an idea what&apos;s possible.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class CodeRequestBuilderGetQueryParameters 

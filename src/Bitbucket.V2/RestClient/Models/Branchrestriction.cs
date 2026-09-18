@@ -45,6 +45,14 @@ namespace Kubis1982.Atlassian.Bitbucket.RestClient.Models
 #else
         public string Pattern { get; set; }
 #endif
+        /// <summary>List of source branch names allowed to push back to the restricted branch. Used in conjunction with pipeline-based restrictions.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? PipelinesSourceBranches { get; set; }
+#nullable restore
+#else
+        public List<string> PipelinesSourceBranches { get; set; }
+#endif
         /// <summary>The users property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -80,6 +88,7 @@ namespace Kubis1982.Atlassian.Bitbucket.RestClient.Models
                 { "kind", n => { Kind = n.GetEnumValue<global::Kubis1982.Atlassian.Bitbucket.RestClient.Models.Branchrestriction_kind>(); } },
                 { "links", n => { Links = n.GetObjectValue<global::Kubis1982.Atlassian.Bitbucket.RestClient.Models.Branchrestriction_links>(global::Kubis1982.Atlassian.Bitbucket.RestClient.Models.Branchrestriction_links.CreateFromDiscriminatorValue); } },
                 { "pattern", n => { Pattern = n.GetStringValue(); } },
+                { "pipelines_source_branches", n => { PipelinesSourceBranches = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "users", n => { Users = n.GetCollectionOfObjectValues<global::Kubis1982.Atlassian.Bitbucket.RestClient.Models.Account>(global::Kubis1982.Atlassian.Bitbucket.RestClient.Models.Account.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "value", n => { Value = n.GetIntValue(); } },
             };
@@ -99,6 +108,7 @@ namespace Kubis1982.Atlassian.Bitbucket.RestClient.Models
             writer.WriteEnumValue<global::Kubis1982.Atlassian.Bitbucket.RestClient.Models.Branchrestriction_kind>("kind", Kind);
             writer.WriteObjectValue<global::Kubis1982.Atlassian.Bitbucket.RestClient.Models.Branchrestriction_links>("links", Links);
             writer.WriteStringValue("pattern", Pattern);
+            writer.WriteCollectionOfPrimitiveValues<string>("pipelines_source_branches", PipelinesSourceBranches);
             writer.WriteCollectionOfObjectValues<global::Kubis1982.Atlassian.Bitbucket.RestClient.Models.Account>("users", Users);
             writer.WriteIntValue("value", Value);
         }

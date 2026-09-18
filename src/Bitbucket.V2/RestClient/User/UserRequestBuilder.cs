@@ -2,7 +2,6 @@
 #pragma warning disable CS0618
 using Kubis1982.Atlassian.Bitbucket.RestClient.Models;
 using Kubis1982.Atlassian.Bitbucket.RestClient.User.Emails;
-using Kubis1982.Atlassian.Bitbucket.RestClient.User.Permissions;
 using Kubis1982.Atlassian.Bitbucket.RestClient.User.Workspaces;
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
@@ -24,11 +23,6 @@ namespace Kubis1982.Atlassian.Bitbucket.RestClient.User
         public global::Kubis1982.Atlassian.Bitbucket.RestClient.User.Emails.EmailsRequestBuilder Emails
         {
             get => new global::Kubis1982.Atlassian.Bitbucket.RestClient.User.Emails.EmailsRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The permissions property</summary>
-        public global::Kubis1982.Atlassian.Bitbucket.RestClient.User.Permissions.PermissionsRequestBuilder Permissions
-        {
-            get => new global::Kubis1982.Atlassian.Bitbucket.RestClient.User.Permissions.PermissionsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The workspaces property</summary>
         public global::Kubis1982.Atlassian.Bitbucket.RestClient.User.Workspaces.WorkspacesRequestBuilder Workspaces
